@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Introduction &mdash; ctsmpy v0.0.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js?v=f3b75425"></script>
+        <script src="../_static/doctools.js?v=888ff710"></script>
+        <script src="../_static/sphinx_highlight.js?v=4825356b"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Install Docker and pull container" href="2_install_docker.html" />
+    <link rel="prev" title="CLMU APP" href="../index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            ctsmpy
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">CLMU APP container</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Introduction</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#what-is-a-container">What is a container?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#what-is-clmu">What is CLMU?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#why-container-for-clmu">Why container for CLMU?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#python-for-urban-climate-exploration">Python for urban climate exploration</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="2_install_docker.html">Install Docker and pull container</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3_CLMU_env_details.html">CLM ENV Container detail</a></li>
+<li class="toctree-l1"><a class="reference internal" href="4_run_CLM_case.html">Run a CLM case</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Examples</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../examples/Single_point_modeling.html">Single point modeling of CLMU</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../examples/modify_urban.html">How dose the land surface affect the urban cliamte?</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">ctsmpy</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Introduction</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/container/1_intro_container.md.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="introduction">
+<h1>Introduction<a class="headerlink" href="#introduction" title="Permalink to this heading"></a></h1>
+<section id="what-is-a-container">
+<h2><a class="reference external" href="https://docs.docker.com/guides/walkthroughs/what-is-a-container/">What is a container?</a><a class="headerlink" href="#what-is-a-container" title="Permalink to this heading"></a></h2>
+<p>From docker: A container is an isolated environment for your code. This means that a container does not know the machine’s operating system or your files. It runs on the environment provided to you by Docker Desktop. Containers have everything that your code needs to run, down to a base operating system. You can use Docker Desktop to manage and explore your containers.</p>
+</section>
+<section id="what-is-clmu">
+<h2>What is CLMU?<a class="headerlink" href="#what-is-clmu" title="Permalink to this heading"></a></h2>
+<p>CLMU is the Community Land Model-Urban, hosted by the National Center for Atmospheric Research (NCAR). CLMU acts as an urban model with a single-layer canopy scheme under the Earth system model hierarchy.</p>
+<p>See more details in <a class="reference external" href="https://escomp.github.io/ctsm-docs/versions/master/html/tech_note/Urban/CLM50_Tech_Note_Urban.html">CLM Technical Note</a>.</p>
+<p><img alt="Alt text" src="../_images/clmu.jpg" /></p>
+<center>Urban parameterization in CMLU. <a href="https://escomp.github.io/ctsm-docs/versions/master/html/tech_note/Urban/CLM50_Tech_Note_Urban.html">(Fig sources)</a></center></section>
+<section id="why-container-for-clmu">
+<h2>Why container for CLMU?<a class="headerlink" href="#why-container-for-clmu" title="Permalink to this heading"></a></h2>
+<p>Running CMLU within CLM (Community Land Model) requires a Linux operation system with certain <a class="reference external" href="https://escomp.github.io/CESM/versions/cesm2.2/html/introduction.html#cesm2-software-operating-system-prerequisites">software requirements</a>. Without professional support from technicians, it is a challenge for scientists or other potential users to port the CLM running environment by themselves. Here, we use a container to build an ENV fitting the recent version of <a class="reference external" href="https://github.com/ESCOMP/CTSM">CTSM/CLM</a>. Further, we can apply the container on cloud platforms or local computers to conduct some interesting experiments.</p>
+</section>
+<section id="python-for-urban-climate-exploration">
+<h2>Python for urban climate exploration<a class="headerlink" href="#python-for-urban-climate-exploration" title="Permalink to this heading"></a></h2>
+<p>We apply some Python codes to help run a case of CLM to explore urban climate.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../index.html" class="btn btn-neutral float-left" title="CLMU APP" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="2_install_docker.html" class="btn btn-neutral float-right" title="Install Docker and pull container" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, Junjie Yu.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
