@@ -1,4 +1,6 @@
-# Wrokflow of cesm.py: Python API for driving clmu-app single point modeling
+# Wrokflow of cesm.py
 
-![Alt text](fig/cesmpy.jpg "cesmpy")
+Python API for driving clmu-app single point modeling
+
+![Alt text](fig/cesmpy.png "cesmpy")
 <center>cesm Python API.</center>
