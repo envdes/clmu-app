@@ -12,10 +12,10 @@ See more details in [CLM Technical Note](https://escomp.github.io/ctsm-docs/vers
 ![Alt text](fig/clmu.jpg "CLMU")
 <center>Urban parameterization in CMLU. <a href="https://escomp.github.io/ctsm-docs/versions/master/html/tech_note/Urban/CLM50_Tech_Note_Urban.html">(Fig sources)</a></center>
 
-### Why container for CLMU?
+### Why use a container for CLMU?
 
 Running CMLU within CLM (Community Land Model) requires a Linux operation system with certain [software requirements](https://escomp.github.io/CESM/versions/cesm2.2/html/introduction.html#cesm2-software-operating-system-prerequisites). Without professional support from technicians, it is a challenge for scientists or other potential users to port the CLM running environment by themselves. Here, we use a container to build an ENV fitting the recent version of [CTSM/CLM](https://github.com/ESCOMP/CTSM). Further, we can apply the container on cloud platforms or local computers to conduct some interesting experiments.
 
-### Python for urban climate exploration
+### [Python for urban climate exploration](5_python_API.md)
 We apply some Python codes to help run a case of CLM to explore urban climate. 
 

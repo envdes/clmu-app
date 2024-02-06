@@ -6,7 +6,12 @@
 # -- Project information -----------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
 
-project = 'ctsmpy'
+import os
+import sys
+sys.path.insert(0, os.path.abspath('../src'))#指向src目录
+
+
+project = 'clmu-app'
 copyright = '2024, Junjie Yu'
 author = 'Junjie Yu'
 release = 'v0.0.0'
@@ -26,6 +31,8 @@ extensions = [
 'numpydoc', 
 'sphinx.ext.autosummary',
 'sphinx.ext.mathjax',
+'sphinx.ext.autodoc',
+'sphinx.ext.napoleon'
 ]
 
 #pip install --upgrade jinja2==3.0.3
@@ -53,3 +60,4 @@ html_theme = 'sphinx_rtd_theme'
 # relative to this directory. They are copied after the builtin static files,
 # so a file named "default.css" will overwrite the builtin "default.css".
 html_static_path = ['_static']
+

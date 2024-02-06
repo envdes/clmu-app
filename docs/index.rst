@@ -23,7 +23,7 @@ CLMU APP
 
 Using Python to drive CLMU simulations via container.
 
-Author: `Junjie Yu <https://junjieyu-uom.github.io>`_, `Dr. Zhonghua Zheng <https://zhonghuazheng.com>`_, `Yuan Sun <https://github.com/YuanSun-UoM>`_
+Author: `Junjie Yu <https://junjieyu-uom.github.io>`_, `Dr. Zhonghua Zheng <https://zhonghuazheng.com>`_, `Yuan Sun <https://github.com/YuanSun-UoM>`_, `Dr. Keith Oleson <https://staff.ucar.edu/users/oleson>`_
 
 .. toctree::
    :maxdepth: 2
@@ -33,6 +33,7 @@ Author: `Junjie Yu <https://junjieyu-uom.github.io>`_, `Dr. Zhonghua Zheng <http
    container/2_install_docker.md
    container/3_CLMU_env_details.md
    container/4_run_CLM_case.md
+   container/5_python_API.md
 
 .. toctree::
    :maxdepth: 2
@@ -40,6 +41,12 @@ Author: `Junjie Yu <https://junjieyu-uom.github.io>`_, `Dr. Zhonghua Zheng <http
 
    examples/Single_point_modeling.ipynb
    examples/modify_urban.ipynb
+
+.. toctree::
+   :maxdepth: 2
+   :caption: API Reference
+
+   cesm.rst
 
 Indices and tables
 ==================
