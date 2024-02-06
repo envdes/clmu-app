@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>CLMU APP &mdash; ctsmpy v0.0.0 documentation</title>
+  <title>CLMU APP &mdash; clmu-app v0.0.0 documentation</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
       <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
 
@@ -34,7 +34,7 @@
           
           
           <a href="#" class="icon icon-home">
-            ctsmpy
+            clmu-app
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
@@ -47,14 +47,19 @@
               <p class="caption" role="heading"><span class="caption-text">CLMU APP container</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="container/1_intro_container.html">Introduction</a></li>
-<li class="toctree-l1"><a class="reference internal" href="container/2_install_docker.html">Install Docker and pull container</a></li>
+<li class="toctree-l1"><a class="reference internal" href="container/2_install_docker.html">Install Docker and pull the container</a></li>
 <li class="toctree-l1"><a class="reference internal" href="container/3_CLMU_env_details.html">CLM ENV Container detail</a></li>
 <li class="toctree-l1"><a class="reference internal" href="container/4_run_CLM_case.html">Run a CLM case</a></li>
+<li class="toctree-l1"><a class="reference internal" href="container/5_python_API.html">Wrokflow of cesm.py: Python API for driving clmu-app single point modeling</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Examples</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="examples/Single_point_modeling.html">Single point modeling of CLMU</a></li>
 <li class="toctree-l1"><a class="reference internal" href="examples/modify_urban.html">How dose the land surface affect the urban cliamte?</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">API Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="cesm.html">python API</a></li>
 </ul>
 
         </div>
@@ -63,7 +68,7 @@
 
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="#">ctsmpy</a>
+          <a href="#">clmu-app</a>
       </nav>
 
       <div class="wy-nav-content">
@@ -85,32 +90,33 @@
 <h1>CLMU APP<a class="headerlink" href="#clmu-app" title="Permalink to this heading"></a></h1>
 <p><a class="reference external" href="https://doi.org/10.5281/zenodo.6474004"><img alt="doi" src="https://zenodo.org/badge/DOI/10.5281/zenodo.6474004.svg" /></a> <a class="reference external" href="https://urbanclimateexplorer.readthedocs.io/en/latest/?badge=latest"><img alt="Documentation Status" src="https://readthedocs.org/projects/urbanclimateexplorer/badge/?version=latest" /></a> <a class="reference external" href="https://github.com/JunjieYU-UoM/CLMU-APP"><img alt="GitHub" src="https://img.shields.io/badge/GitHub-CLMU--APP-brightgreen.svg" /></a> <a class="reference external" href="https://github.com/JunjieYU-UoM/CLMU-APP/blob/main/LICENSE"><img alt="license" src="https://img.shields.io/badge/License-GUN_GPL_V3.0-blue.svg" /></a></p>
 <p>Using Python to drive CLMU simulations via container.</p>
-<p>Author: <a class="reference external" href="https://junjieyu-uom.github.io">Junjie Yu</a>, <a class="reference external" href="https://zhonghuazheng.com">Dr. Zhonghua Zheng</a>, <a class="reference external" href="https://github.com/YuanSun-UoM">Yuan Sun</a></p>
+<p>Author: <a class="reference external" href="https://junjieyu-uom.github.io">Junjie Yu</a>, <a class="reference external" href="https://zhonghuazheng.com">Dr. Zhonghua Zheng</a>, <a class="reference external" href="https://github.com/YuanSun-UoM">Yuan Sun</a>, <a class="reference external" href="https://staff.ucar.edu/users/oleson">Dr. Keith Oleson</a></p>
 <div class="toctree-wrapper compound">
 <p class="caption" role="heading"><span class="caption-text">CLMU APP container</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="container/1_intro_container.html">Introduction</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="container/1_intro_container.html#what-is-a-container">What is a container?</a></li>
 <li class="toctree-l2"><a class="reference internal" href="container/1_intro_container.html#what-is-clmu">What is CLMU?</a></li>
-<li class="toctree-l2"><a class="reference internal" href="container/1_intro_container.html#why-container-for-clmu">Why container for CLMU?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="container/1_intro_container.html#why-use-a-container-for-clmu">Why use a container for CLMU?</a></li>
 <li class="toctree-l2"><a class="reference internal" href="container/1_intro_container.html#python-for-urban-climate-exploration">Python for urban climate exploration</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="container/2_install_docker.html">Install Docker and pull container</a><ul>
+<li class="toctree-l1"><a class="reference internal" href="container/2_install_docker.html">Install Docker and pull the container</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="container/2_install_docker.html#check-system-info">Check system info</a></li>
 <li class="toctree-l2"><a class="reference internal" href="container/2_install_docker.html#install-docker">Install docker</a></li>
-<li class="toctree-l2"><a class="reference internal" href="container/2_install_docker.html#pull-the-ctsm-env-image">Pull the ctsm env image</a></li>
-<li class="toctree-l2"><a class="reference internal" href="container/2_install_docker.html#biuld-container">Biuld container</a></li>
-<li class="toctree-l2"><a class="reference internal" href="container/2_install_docker.html#install-ctsm-or-clm5-0">Install CTSM or CLM5.0</a></li>
+<li class="toctree-l2"><a class="reference internal" href="container/2_install_docker.html#pull-the-clm-env-image">Pull the clm env image</a></li>
+<li class="toctree-l2"><a class="reference internal" href="container/2_install_docker.html#build-container-installed-in-clmu-app">Build container (installed in clmu-app)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="container/2_install_docker.html#install-clm5-0-installed-in-clmu-app">Install CLM5.0 (installed in clmu-app)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="container/2_install_docker.html#singularity">Singularity</a></li>
 <li class="toctree-l2"><a class="reference internal" href="container/2_install_docker.html#tips-for-docker-commander">Tips for docker commander</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="container/3_CLMU_env_details.html">CLM ENV Container detail</a></li>
 <li class="toctree-l1"><a class="reference internal" href="container/4_run_CLM_case.html">Run a CLM case</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="container/4_run_CLM_case.html#try-to-run-a-single-piont-case">Try to run a single piont case</a></li>
+<li class="toctree-l2"><a class="reference internal" href="container/4_run_CLM_case.html#try-to-run-a-single-point-case">Try to run a single-point case</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="container/5_python_API.html">Wrokflow of cesm.py: Python API for driving clmu-app single point modeling</a></li>
 </ul>
 </div>
 <div class="toctree-wrapper compound">
@@ -118,14 +124,28 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="examples/Single_point_modeling.html">Single point modeling of CLMU</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="examples/Single_point_modeling.html#1-Get-the-shell-script-for-running-CESM/CLM">1 Get the shell script for running CESM/CLM</a></li>
-<li class="toctree-l2"><a class="reference internal" href="examples/Single_point_modeling.html#Modify-the-data">Modify the data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="examples/Single_point_modeling.html#2-Modify-the-data">2 Modify the data</a></li>
 <li class="toctree-l2"><a class="reference internal" href="examples/Single_point_modeling.html#3-View-the-results">3 View the results</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="examples/modify_urban.html">How dose the land surface affect the urban cliamte?</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="examples/modify_urban.html#1-Get-the-shell-script-for-running-CESM/CLM">1 Get the shell script for running CESM/CLM</a></li>
-<li class="toctree-l2"><a class="reference internal" href="examples/modify_urban.html#Modify-the-surface-data">Modify the surface data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="examples/modify_urban.html#2-Modify-the-surface-data">2 Modify the surface data</a></li>
 <li class="toctree-l2"><a class="reference internal" href="examples/modify_urban.html#3-View-the-results">3 View the results</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<p class="caption" role="heading"><span class="caption-text">API Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="cesm.html">python API</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="cesm.html#cesm.cesm_run"><code class="docutils literal notranslate"><span class="pre">cesm_run</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="cesm.html#cesm.copy_file_if_not_exists"><code class="docutils literal notranslate"><span class="pre">copy_file_if_not_exists()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="cesm.html#cesm.copy_file_if_not_exists2"><code class="docutils literal notranslate"><span class="pre">copy_file_if_not_exists2()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="cesm.html#cesm.now_time"><code class="docutils literal notranslate"><span class="pre">now_time()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="cesm.html#cesm.run_command"><code class="docutils literal notranslate"><span class="pre">run_command()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="cesm.html#cesm.run_command_envid"><code class="docutils literal notranslate"><span class="pre">run_command_envid()</span></code></a></li>
 </ul>
 </li>
 </ul>

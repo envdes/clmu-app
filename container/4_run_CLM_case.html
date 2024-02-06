@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Run a CLM case &mdash; ctsmpy v0.0.0 documentation</title>
+  <title>Run a CLM case &mdash; clmu-app v0.0.0 documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
 
@@ -22,7 +22,7 @@
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Single point modeling of CLMU" href="../examples/Single_point_modeling.html" />
+    <link rel="next" title="Wrokflow of cesm.py: Python API for driving clmu-app single point modeling" href="5_python_API.html" />
     <link rel="prev" title="CLM ENV Container detail" href="3_CLMU_env_details.html" /> 
 </head>
 
@@ -35,7 +35,7 @@
           
           
           <a href="../index.html" class="icon icon-home">
-            ctsmpy
+            clmu-app
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -48,17 +48,22 @@
               <p class="caption" role="heading"><span class="caption-text">CLMU APP container</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="1_intro_container.html">Introduction</a></li>
-<li class="toctree-l1"><a class="reference internal" href="2_install_docker.html">Install Docker and pull container</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2_install_docker.html">Install Docker and pull the container</a></li>
 <li class="toctree-l1"><a class="reference internal" href="3_CLMU_env_details.html">CLM ENV Container detail</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Run a CLM case</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#try-to-run-a-single-piont-case">Try to run a single piont case</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#try-to-run-a-single-point-case">Try to run a single-point case</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="5_python_API.html">Wrokflow of cesm.py: Python API for driving clmu-app single point modeling</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Examples</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../examples/Single_point_modeling.html">Single point modeling of CLMU</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../examples/modify_urban.html">How dose the land surface affect the urban cliamte?</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">API Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../cesm.html">python API</a></li>
 </ul>
 
         </div>
@@ -67,7 +72,7 @@
 
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../index.html">ctsmpy</a>
+          <a href="../index.html">clmu-app</a>
       </nav>
 
       <div class="wy-nav-content">
@@ -95,9 +100,9 @@
 <span class="c1"># Now we are in the Fedora 31 Bash.</span>
 </pre></div>
 </div>
-<section id="try-to-run-a-single-piont-case">
-<h2>Try to run a single piont case<a class="headerlink" href="#try-to-run-a-single-piont-case" title="Permalink to this heading"></a></h2>
-<p><a class="reference external" href="https://escomp.github.io/ctsm-docs/versions/master/html/users_guide/running-single-points/index.html">How run a single point case?</a></p>
+<section id="try-to-run-a-single-point-case">
+<h2>Try to run a single-point case<a class="headerlink" href="#try-to-run-a-single-point-case" title="Permalink to this heading"></a></h2>
+<p><a class="reference external" href="https://escomp.github.io/ctsm-docs/versions/master/html/users_guide/running-single-points/index.html">How to run a single-point case?</a></p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>&gt; cd scripts
 
 # Create a case at the single-point resolutions with their forcing
@@ -114,14 +119,14 @@
 
 # Set the User namelist to set the output frequencies of the history files
 # Setting the stdurbpt use-case option create three history file streams
-# The frequencies and number of time-samples needs to be set
+# Set frequencies and numbers of time-samples for outputs
 &gt; cat &lt;&lt; EOF &gt; user_nl_clm
 hist_mfilt = $NDAYS,$STOP_N,$STOP_N
 hist_nhtfrq = -1,1,1
 EOF
 
 &gt; ./case.setup
-&gt; ./case.biuld
+&gt; ./case.build
 &gt; ./case.submit
 </pre></div>
 </div>
@@ -135,8 +140,8 @@ EOF
 <span class="n">ERROR</span><span class="p">:</span> <span class="n">No</span> <span class="n">result</span> <span class="kn">from</span> <span class="nn">jobs</span> <span class="p">[(</span><span class="s1">&#39;case.run&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;case.st_archive&#39;</span><span class="p">,</span> <span class="s1">&#39;case.run or case.test&#39;</span><span class="p">)]</span>
 </pre></div>
 </div>
-<p><strong>Congratuation</strong>, you mostly successfully run your case.</p>
-<p>If not, try to ask for help. <a class="reference external" href="https://bb.cgd.ucar.edu/cesm/">CESM FORUM</a></p>
+<p><strong>Congratulations</strong>, you mostly successfully run your case.</p>
+<p>If not, try to ask for help in <a class="reference external" href="https://bb.cgd.ucar.edu/cesm/">CESM FORUM</a></p>
 </section>
 </section>
 
@@ -145,7 +150,7 @@ EOF
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="3_CLMU_env_details.html" class="btn btn-neutral float-left" title="CLM ENV Container detail" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="../examples/Single_point_modeling.html" class="btn btn-neutral float-right" title="Single point modeling of CLMU" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="5_python_API.html" class="btn btn-neutral float-right" title="Wrokflow of cesm.py: Python API for driving clmu-app single point modeling" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

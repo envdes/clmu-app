@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>python API &mdash; clmu-app v0.0.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js?v=f3b75425"></script>
+        <script src="_static/doctools.js?v=888ff710"></script>
+        <script src="_static/sphinx_highlight.js?v=4825356b"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="How dose the land surface affect the urban cliamte?" href="examples/modify_urban.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            clmu-app
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">CLMU APP container</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="container/1_intro_container.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="container/2_install_docker.html">Install Docker and pull the container</a></li>
+<li class="toctree-l1"><a class="reference internal" href="container/3_CLMU_env_details.html">CLM ENV Container detail</a></li>
+<li class="toctree-l1"><a class="reference internal" href="container/4_run_CLM_case.html">Run a CLM case</a></li>
+<li class="toctree-l1"><a class="reference internal" href="container/5_python_API.html">Wrokflow of cesm.py: Python API for driving clmu-app single point modeling</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Examples</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="examples/Single_point_modeling.html">Single point modeling of CLMU</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples/modify_urban.html">How dose the land surface affect the urban cliamte?</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">API Reference</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">python API</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#cesm.cesm_run"><code class="docutils literal notranslate"><span class="pre">cesm_run</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#cesm.cesm_run.create_case"><code class="docutils literal notranslate"><span class="pre">cesm_run.create_case()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#cesm.cesm_run.modify_case_config"><code class="docutils literal notranslate"><span class="pre">cesm_run.modify_case_config()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#cesm.cesm_run.modify_surf"><code class="docutils literal notranslate"><span class="pre">cesm_run.modify_surf()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#cesm.cesm_run.nc_view"><code class="docutils literal notranslate"><span class="pre">cesm_run.nc_view()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#cesm.cesm_run.read_json_config"><code class="docutils literal notranslate"><span class="pre">cesm_run.read_json_config()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#cesm.cesm_run.reset_case"><code class="docutils literal notranslate"><span class="pre">cesm_run.reset_case()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#cesm.copy_file_if_not_exists"><code class="docutils literal notranslate"><span class="pre">copy_file_if_not_exists()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#cesm.copy_file_if_not_exists2"><code class="docutils literal notranslate"><span class="pre">copy_file_if_not_exists2()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#cesm.now_time"><code class="docutils literal notranslate"><span class="pre">now_time()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#cesm.run_command"><code class="docutils literal notranslate"><span class="pre">run_command()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#cesm.run_command_envid"><code class="docutils literal notranslate"><span class="pre">run_command_envid()</span></code></a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">clmu-app</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">python API</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/cesm.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-cesm">
+<span id="python-api"></span><h1>python API<a class="headerlink" href="#module-cesm" title="Permalink to this heading"></a></h1>
+<dl class="py class">
+<dt class="sig sig-object py" id="cesm.cesm_run">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">cesm.</span></span><span class="sig-name descname"><span class="pre">cesm_run</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">CASESCRIPT</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">CASESCRIPT_local</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">CASEROOT_local</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">DOUT_S_ROOT</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">JSONPATH</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cesm.cesm_run" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p class="rubric">Methods</p>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#cesm.cesm_run.create_case" title="cesm.cesm_run.create_case"><code class="xref py py-obj docutils literal notranslate"><span class="pre">create_case</span></code></a>(scriptpath)</p></td>
+<td><p>Create the case scripts for single point modeling.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#cesm.cesm_run.modify_case_config" title="cesm.cesm_run.modify_case_config"><code class="xref py py-obj docutils literal notranslate"><span class="pre">modify_case_config</span></code></a>(scriptpaht)</p></td>
+<td><p>Modify the case config file.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#cesm.cesm_run.modify_surf" title="cesm.cesm_run.modify_surf"><code class="xref py py-obj docutils literal notranslate"><span class="pre">modify_surf</span></code></a>(var, action, param_location)</p></td>
+<td><p>Modify the surface data file.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#cesm.cesm_run.nc_view" title="cesm.cesm_run.nc_view"><code class="xref py py-obj docutils literal notranslate"><span class="pre">nc_view</span></code></a>()</p></td>
+<td><p>View the netcdf file.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#cesm.cesm_run.read_json_config" title="cesm.cesm_run.read_json_config"><code class="xref py py-obj docutils literal notranslate"><span class="pre">read_json_config</span></code></a>()</p></td>
+<td><p>Read the JSON config file.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#cesm.cesm_run.reset_case" title="cesm.cesm_run.reset_case"><code class="xref py py-obj docutils literal notranslate"><span class="pre">reset_case</span></code></a>([password])</p></td>
+<td><p>Reset the case.</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="py method">
+<dt class="sig sig-object py" id="cesm.cesm_run.create_case">
+<span class="sig-name descname"><span class="pre">create_case</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">scriptpath</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cesm.cesm_run.create_case" title="Permalink to this definition"></a></dt>
+<dd><p>Create the case scripts for single point modeling.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>filepath</strong> (<em>str</em>) – File path of the config file.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The case script.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="cesm.cesm_run.modify_case_config">
+<span class="sig-name descname"><span class="pre">modify_case_config</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">scriptpaht</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cesm.cesm_run.modify_case_config" title="Permalink to this definition"></a></dt>
+<dd><p>Modify the case config file.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>scriptpath</strong> (<em>str</em>) – The path of the script file.</p></li>
+<li><p><strong>config</strong> (<em>dict</em>) – The configuration data.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The modified script file.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="cesm.cesm_run.modify_surf">
+<span class="sig-name descname"><span class="pre">modify_surf</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">var</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">action</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">param_location</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cesm.cesm_run.modify_surf" title="Permalink to this definition"></a></dt>
+<dd><p>Modify the surface data file.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>var</strong> (<em>str</em>) – The variable to be modified.</p></li>
+<li><p><strong>action</strong> (<em>str</em>) – The action to be taken.</p></li>
+<li><p><strong>param_location</strong> (<em>dict</em>) – The location of the parameter.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The modified surface data file path.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="cesm.cesm_run.nc_view">
+<span class="sig-name descname"><span class="pre">nc_view</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cesm.cesm_run.nc_view" title="Permalink to this definition"></a></dt>
+<dd><p>View the netcdf file. The netcdf file should be in the DOUT_S_ROOT folder.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>xarray.Dataset</strong> – The xarray dataset.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="cesm.cesm_run.read_json_config">
+<span class="sig-name descname"><span class="pre">read_json_config</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cesm.cesm_run.read_json_config" title="Permalink to this definition"></a></dt>
+<dd><p>Read the JSON config file.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>file_path</strong> (<em>str</em>) – The path of the config file.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The configuration data.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="cesm.cesm_run.reset_case">
+<span class="sig-name descname"><span class="pre">reset_case</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">password</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cesm.cesm_run.reset_case" title="Permalink to this definition"></a></dt>
+<dd><p>Reset the case. (delete the case folders and files)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>password</strong> (<em>str</em>) – The password of the server.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The result of the command.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>subprocess.CompletedProcess</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="cesm.copy_file_if_not_exists">
+<span class="sig-prename descclassname"><span class="pre">cesm.</span></span><span class="sig-name descname"><span class="pre">copy_file_if_not_exists</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">source_path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">destination_path</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cesm.copy_file_if_not_exists" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="cesm.copy_file_if_not_exists2">
+<span class="sig-prename descclassname"><span class="pre">cesm.</span></span><span class="sig-name descname"><span class="pre">copy_file_if_not_exists2</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">source_path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">destination_path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lon</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lat</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cesm.copy_file_if_not_exists2" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="cesm.now_time">
+<span class="sig-prename descclassname"><span class="pre">cesm.</span></span><span class="sig-name descname"><span class="pre">now_time</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cesm.now_time" title="Permalink to this definition"></a></dt>
+<dd><p>Get the current time</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="cesm.run_command">
+<span class="sig-prename descclassname"><span class="pre">cesm.</span></span><span class="sig-name descname"><span class="pre">run_command</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">command</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">password</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cesm.run_command" title="Permalink to this definition"></a></dt>
+<dd><p>Run the command. There are two ways to run the command, with or without password.
+The loges will be saved in the log_ppo.txt file.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>command</strong> (<em>str</em>) – The command to be run.</p></li>
+<li><p><strong>password</strong> (<em>str</em><em>, </em><em>optional</em>) – The password of the server.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="cesm.run_command_envid">
+<span class="sig-prename descclassname"><span class="pre">cesm.</span></span><span class="sig-name descname"><span class="pre">run_command_envid</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">command</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">envid</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'1'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">model</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'PPO'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">password</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cesm.run_command_envid" title="Permalink to this definition"></a></dt>
+<dd><p>Run the command.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>command</strong> (<em>str</em>) – The command to be run.</p></li>
+<li><p><strong>envid</strong> (<em>str</em><em>, </em><em>optional</em>) – The environment ID. Defaults to “1”.</p></li>
+<li><p><strong>model</strong> (<em>str</em><em>, </em><em>optional</em>) – The model to be used. Defaults to “PPO”.</p></li>
+<li><p><strong>password</strong> (<em>str</em><em>, </em><em>optional</em>) – The password of the server. Defaults to None.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="examples/modify_urban.html" class="btn btn-neutral float-left" title="How dose the land surface affect the urban cliamte?" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, Junjie Yu.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -7,12 +7,11 @@ sudo docker start myclm
 
 docker exec -it myclm /bin/bash
 # Now we are in the Fedora 31 Bash.
-
 ```
 
-## Try to run a single piont case
+## Try to run a single-point case
 
-[How run a single point case?](https://escomp.github.io/ctsm-docs/versions/master/html/users_guide/running-single-points/index.html)
+[How to run a single-point case?](https://escomp.github.io/ctsm-docs/versions/master/html/users_guide/running-single-points/index.html)
 
 ```
 > cd scripts
@@ -31,14 +30,14 @@ docker exec -it myclm /bin/bash
 
 # Set the User namelist to set the output frequencies of the history files
 # Setting the stdurbpt use-case option create three history file streams
-# The frequencies and number of time-samples needs to be set
+# Set frequencies and numbers of time-samples for outputs
 > cat << EOF > user_nl_clm
 hist_mfilt = $NDAYS,$STOP_N,$STOP_N
 hist_nhtfrq = -1,1,1
 EOF
 
 > ./case.setup
-> ./case.biuld
+> ./case.build
 > ./case.submit
 ```
 
@@ -52,6 +51,6 @@ resubmit_num 0
 Submit job case.st_archive
 ERROR: No result from jobs [('case.run', None), ('case.st_archive', 'case.run or case.test')]
 ```
-**Congratuation**, you mostly successfully run your case.
+**Congratulations**, you mostly successfully run your case.
 
-If not, try to ask for help. [CESM FORUM](https://bb.cgd.ucar.edu/cesm/)
+If not, try to ask for help in [CESM FORUM](https://bb.cgd.ucar.edu/cesm/)

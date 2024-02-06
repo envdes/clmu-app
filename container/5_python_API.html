@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>CLM ENV Container detail &mdash; clmu-app v0.0.0 documentation</title>
+  <title>Wrokflow of cesm.py: Python API for driving clmu-app single point modeling &mdash; clmu-app v0.0.0 documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
 
@@ -22,8 +22,8 @@
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Run a CLM case" href="4_run_CLM_case.html" />
-    <link rel="prev" title="Install Docker and pull the container" href="2_install_docker.html" /> 
+    <link rel="next" title="Single point modeling of CLMU" href="../examples/Single_point_modeling.html" />
+    <link rel="prev" title="Run a CLM case" href="4_run_CLM_case.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -49,9 +49,9 @@
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="1_intro_container.html">Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="2_install_docker.html">Install Docker and pull the container</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">CLM ENV Container detail</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3_CLMU_env_details.html">CLM ENV Container detail</a></li>
 <li class="toctree-l1"><a class="reference internal" href="4_run_CLM_case.html">Run a CLM case</a></li>
-<li class="toctree-l1"><a class="reference internal" href="5_python_API.html">Wrokflow of cesm.py: Python API for driving clmu-app single point modeling</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Wrokflow of cesm.py: Python API for driving clmu-app single point modeling</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Examples</span></p>
 <ul>
@@ -77,9 +77,9 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
-      <li class="breadcrumb-item active">CLM ENV Container detail</li>
+      <li class="breadcrumb-item active">Wrokflow of cesm.py: Python API for driving clmu-app single point modeling</li>
       <li class="wy-breadcrumbs-aside">
-            <a href="../_sources/container/3_CLMU_env_details.md.txt" rel="nofollow"> View page source</a>
+            <a href="../_sources/container/5_python_API.md.txt" rel="nofollow"> View page source</a>
       </li>
   </ul>
   <hr/>
@@ -87,30 +87,17 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="clm-env-container-detail">
-<h1>CLM ENV Container detail<a class="headerlink" href="#clm-env-container-detail" title="Permalink to this heading"></a></h1>
-<p>Base:</p>
-<ul class="simple">
-<li><p>OS=<code class="docutils literal notranslate"><span class="pre">Fedora</span> <span class="pre">31</span></code></p></li>
-</ul>
-<p>Major apps:</p>
-<ul class="simple">
-<li><p>Compiler= <code class="docutils literal notranslate"><span class="pre">GCC</span> <span class="pre">9.3.1</span></code></p></li>
-<li><p>Cmake=<code class="docutils literal notranslate"><span class="pre">3.18</span></code></p></li>
-<li><p>netcdf-c=<code class="docutils literal notranslate"><span class="pre">4.7.0-2</span></code></p></li>
-<li><p>netcdf-fortran=<code class="docutils literal notranslate"><span class="pre">4.5.2-3</span></code></p></li>
-<li><p>python=<code class="docutils literal notranslate"><span class="pre">3.7.9</span></code></p></li>
-<li><p>svn=<code class="docutils literal notranslate"><span class="pre">1.12</span></code></p></li>
-</ul>
-<p><img alt="Alt text" src="../_images/ENV.png" /></p>
-<center>CMLU container environment.</a></center></section>
+  <section id="wrokflow-of-cesm-py-python-api-for-driving-clmu-app-single-point-modeling">
+<h1>Wrokflow of cesm.py: Python API for driving clmu-app single point modeling<a class="headerlink" href="#wrokflow-of-cesm-py-python-api-for-driving-clmu-app-single-point-modeling" title="Permalink to this heading"></a></h1>
+<p><img alt="Alt text" src="../_images/cesmpy.jpg" /></p>
+<center>cesm Python API.</center></section>
 
 
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="2_install_docker.html" class="btn btn-neutral float-left" title="Install Docker and pull the container" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="4_run_CLM_case.html" class="btn btn-neutral float-right" title="Run a CLM case" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="4_run_CLM_case.html" class="btn btn-neutral float-left" title="Run a CLM case" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../examples/Single_point_modeling.html" class="btn btn-neutral float-right" title="Single point modeling of CLMU" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
