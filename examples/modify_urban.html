@@ -98,7 +98,7 @@
   <section id="How-dose-the-land-surface-affect-the-urban-cliamte?">
 <h1>How dose the land surface affect the urban cliamte?<a class="headerlink" href="#How-dose-the-land-surface-affect-the-urban-cliamte?" title="Permalink to this heading"></a></h1>
 <p>Junjie Yu, 2023-12-06, Manchester, UK</p>
-<p>ENV: RL_urban; docker container: myclm; docker image: clm5docker</p>
+<p>ENV: RL_urban; docker container: clmu; docker image: clmu-app:1</p>
 <section id="1-Get-the-shell-script-for-running-CESM/CLM">
 <h2>1 Get the shell script for running CESM/CLM<a class="headerlink" href="#1-Get-the-shell-script-for-running-CESM/CLM" title="Permalink to this heading"></a></h2>
 <p>simulation location : New York City</p>
@@ -139,6 +139,10 @@
 <span class="c1"># run the script</span>
 <span class="n">command</span> <span class="o">=</span> <span class="s2">&quot;sudo -S docker exec myclm sh -c &#39;/p/pyscripts/PTS_script.sh&#39; &quot;</span>
 <span class="n">run_command</span><span class="p">(</span><span class="n">command</span><span class="p">,</span> <span class="n">password</span><span class="p">)</span>
+
+<span class="c1"># HIA indicates the 2 m NWS Heat Index</span>
+<span class="c1"># HIA_U indicates the 2 m NWS Heat Index urban</span>
+<span class="c1"># HIA_R indicates the 2 m NWS Heat Index rural</span>
 <span class="n">d0</span> <span class="o">=</span> <span class="n">cesm</span><span class="o">.</span><span class="n">nc_view</span><span class="p">()[</span><span class="s1">&#39;HIA_U&#39;</span><span class="p">]</span> <span class="o">-</span> <span class="n">cesm</span><span class="o">.</span><span class="n">nc_view</span><span class="p">()[</span><span class="s1">&#39;HIA_R&#39;</span><span class="p">]</span>
 </pre></div>
 </div>
@@ -163,16 +167,8 @@ Current time: 2023-12-06 10:34:45
 </section>
 <section id="2-Modify-the-surface-data">
 <h2>2 Modify the surface data<a class="headerlink" href="#2-Modify-the-surface-data" title="Permalink to this heading"></a></h2>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Here</span> <span class="n">We</span> <span class="n">changed</span> <span class="n">the</span> <span class="n">surface</span> <span class="n">albedo</span> <span class="p">(</span><span class="n">ABL</span><span class="p">)</span> <span class="n">of</span> <span class="n">roof</span> <span class="ow">and</span> <span class="n">wall</span><span class="p">,</span> <span class="n">respectively</span><span class="o">.</span>
-
-<span class="n">We</span> <span class="n">explored</span> <span class="n">the</span> <span class="n">HIA</span> <span class="n">of</span> <span class="n">the</span> <span class="n">gird</span><span class="o">.</span> <span class="n">HIA</span> <span class="n">indicates</span> <span class="n">the</span>
-</pre></div>
-</div>
-</div>
+<p>Here We changed the surface albedo (ALB) of roof and wall, respectively.</p>
+<p>We explored the HIA of the gird. HIA indicates the</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
 </pre></div>
@@ -226,6 +222,7 @@ array([[0.192     , 0.30399999, 0.27200001],
 <span class="n">d_m_wall</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Wall 0.3&quot;</span><span class="p">)</span>
 <span class="n">d_m_roof_wall</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Roof 0.3 Wall 0.3&quot;</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Time&#39;</span><span class="p">)</span>
+
 <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;HIA [C]&#39;</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
 
