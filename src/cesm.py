@@ -167,7 +167,7 @@ class cesm_run():
 
         return ds
     
-    def modify_surf(self, var, action, param_location):
+    def modify_surf(self, var, action, param_location=None):
             
         """
         Modify the surface data file.
@@ -195,8 +195,12 @@ class cesm_run():
         #param_location = dict(lsmlat=llat, lsmlon=llon, numurbl=1)
         #param_location = dict(lsmlat=0, lsmlon=0, numurbl=1)
         if isinstance(action, float):
-            ds[var].loc[param_location] = ds[var].loc[param_location].values + action
+            if param_location is None:
+                ds[var].loc[:] = ds[var].loc[:].values + action
+            else:
+                ds[var].loc[param_location] = ds[var].loc[param_location].values + action
             #ds[var].loc[:] = ds[var].loc[:].values + action
+
         if isinstance(action, np.ndarray):
             ds[var].loc[param_location] = action
             #ds[var].loc[:] = action

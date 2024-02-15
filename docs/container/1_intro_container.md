@@ -10,7 +10,7 @@ CLMU is the Community Land Model-Urban, hosted by the National Center for Atmosp
 See more details in [CLM Technical Note](https://escomp.github.io/ctsm-docs/versions/master/html/tech_note/Urban/CLM50_Tech_Note_Urban.html). 
 
 ![Alt text](fig/clmu.jpg "CLMU")
-<center>Urban parameterization in CMLU. <a href="https://escomp.github.io/ctsm-docs/versions/master/html/tech_note/Urban/CLM50_Tech_Note_Urban.html">(Fig sources)</a></center>
+<center>Urban parameterization in CLMU. <a href="https://escomp.github.io/ctsm-docs/versions/master/html/tech_note/Urban/CLM50_Tech_Note_Urban.html">(Fig sources)</a></center>
 
 ### Why use a container for CLMU?
 

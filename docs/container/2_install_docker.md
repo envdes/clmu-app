@@ -1,3 +1,5 @@
+# Docker Tips for clmu-app
+
 ### Install Docker and pull the container
 #### Check system info
 First of all, get familiar with our computer system before the next steps. Noted that the commands below run in Linux.  
@@ -58,7 +60,7 @@ cat /etc/docker/daemon.json # check the docker configuration
 sudo systemctl start docker # reopen docker
 docker info # check docker configuration
 ```
-#### Pull the clm env image
+#### Pull the clmu-app image
 https://hub.docker.com/, the official sources of docker images.
 
 
@@ -70,11 +72,14 @@ docker pull installed in clmu-app # pull the image
 
 ```
 # Do not change the hostname
+# ContainerName --> user define
 docker run --hostname clmu-app --name ContainerName -it clmu-app:1
 ```
 
 #### Install CLM5.0 (installed in clmu-app)
 ```
+
+# Noted, clm5.0 has beed installed in /p/project
 # In the container directory
 cd /p/project
 git clone -b release-clm5.0 https://github.com/ESCOMP/CTSM.git clm5.0
@@ -87,7 +92,7 @@ cd clm5.0
 
 If you want to modify model configuration, please refer to [key notes for setting config_manchine.xml](https://bb.cgd.ucar.edu/cesm/threads/issue-installing-on-centos-8-with-slurm-and-lmod.5884/#post-39110).
 
-#### Singularity
+#### Optional: Singularity (Container software for HPC)
 
 Singularity is a container software usually employed in HPC. It provides a mechanism to run containers where containers can be used to package entire scientific workflows, software and libraries, and even data.
 Ref: https://ri.itservices.manchester.ac.uk/csf3/software/applications/singularity/
@@ -96,19 +101,17 @@ Using Singularity from the docker image
 
 ```
 # Save image as tar file
-docker save -o ~/docker/clm5docker.tar clm5docker:1
+docker save -o ~/docker/clmu-app.tar clmu-app:1
 # Transport tar file
-scp ~/docker/clm5docker.tar ...
+scp ~/docker/clmu-app.tar ...
 # Biuld image form tar
-singularity build clm5docker.sif docker-archive://clm5docker.tar
+singularity build clmu-app.sif docker-archive://clmu-app.tar
 scp /Users/user/Documents/GitHub/DRL_urban_climate_adaptation/2_CTSM_container/dockerfile/cime_config/config_machines.xml z47137jy@csf3.itservices.manchester.ac.uk:~/.cime
 scp /Users/user/Documents/GitHub/DRL_urban_climate_adaptation/2_CTSM_container/dockerfile/cime_config/config_compilers.xml z47137jy@csf3.itservices.manchester.ac.uk:~/.cime
 mkdir -vp p/project p/scratch/CESMDATAROOT/inputdata
 
-singularity run --hostname clmu-app -B "$(pwd)"/p:/p clm5docker.sif 
+singularity run --hostname clmu-app -B "$(pwd)"/p:/p clmu-app.sif 
 # Do not change hostname, either need to change cime.config file 
-
-singularity run --net --network=none --hostname clmu-app -B "$(pwd)"/p:/p clm5docker.sif
 
 # Export CLM5 environment variables
 export PROJECT=/p/project

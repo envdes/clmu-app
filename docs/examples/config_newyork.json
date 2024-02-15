@@ -1,0 +1,18 @@
+{
+    "CASESCRIPT": "/p/project/clm5.0/cime/scripts",
+    "case_name": "Newyork1",
+    "CASEROOT": "/p/project/clm5.0/cime/scripts/Newyork1",
+    "resolution": "f09_g17",
+    "compset": "2000_DATM%CRUv7_CLM50%SP_SICE_SOCN_SROF_SGLC_SWAV",
+    "case_lat": "40.05",
+    "case_lon": "-73.75",
+    "case_start_year": "2010",
+    "case_end_year": "2010",
+    "case_length": "3",
+    "filemonth": "07-01-00000",
+    "hist_avgflag_pertape": "A",
+    "hist_nhtfrq": "0",
+    "hist_mfilt": "12",
+    "fsurdat": "/p/scratch/CESMDATAROOT/inputdata/lnd/clm2/surfdata_map/release-clm5.0.18/surfdata_0.9x1.25_hist_16pfts_Irrig_CMIP6_simyr2000_c190214_j.nc",
+    "local_fsurdat": "/home/zhonghua/p/scratch/CESMDATAROOT/inputdata/lnd/clm2/surfdata_map/release-clm5.0.18/surfdata_0.9x1.25_hist_16pfts_Irrig_CMIP6_simyr2000_c190214_j.nc"
+}
