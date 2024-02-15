@@ -10,11 +10,14 @@ We selected three categories of urban parameters, including morphological, radia
 # Results preview
 ---
 Env: clmu-app
-Forcing: DATM SSP370
-	- Simulation year 2055 
-	- New York Grid
-	- Compset: SSP370_DATM%CPLHIST_CLM50%SP_SICE_SOCN_SROF_SGLC_SWAV
-	- Resolution: f09_g17
+
+- Forcing: DATM SSP370
+
+- Simulation year: 2055 
+- New York Grid
+- Compset:SSP370_DATM%CPLHIST_CLM50%SP_SICE_SOCN_SROF_SGLC_SWAV
+
+- Resolution: f09_g17
 
 
 Primary results:

@@ -43,7 +43,7 @@ Author: `Junjie Yu <https://junjieyu-uom.github.io>`_, `Dr. Zhonghua Zheng <http
    examples/modify_urban.ipynb
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 1
    :caption: Exploration
 
    examples/explore_up.md
