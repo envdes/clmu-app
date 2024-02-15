@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Exploration of climate sensitive of different urban parameters using clmu-app &mdash; clmu-app v0.0.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js?v=f3b75425"></script>
+        <script src="../_static/doctools.js?v=888ff710"></script>
+        <script src="../_static/sphinx_highlight.js?v=4825356b"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="python API" href="../cesm.html" />
+    <link rel="prev" title="How dose the land surface affect the urban cliamte?" href="modify_urban.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            clmu-app
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">CLMU APP container</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../container/1_intro_container.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../container/2_install_docker.html">Docker Tips for clmu-app</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../container/3_CLMU_env_details.html">CLM ENV Container detail</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../container/4_run_CLM_case.html">Run a CLM case</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../container/5_python_API.html">Workflow of cesm.py</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Examples</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Single_point_modeling.html">Single point modeling of CLMU</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modify_urban.html">How dose the land surface affect the urban cliamte?</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Exploration</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Exploration of climate sensitive of different urban parameters using clmu-app</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#junjie-yu-2024-02-15-manchester">Junjie Yu 2024-02-15, Manchester</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="#results-preview">Results preview</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#ref-code">ref code</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">API Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../cesm.html">python API</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">clmu-app</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Exploration of climate sensitive of different urban parameters using clmu-app</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/examples/explore_up.md.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="exploration-of-climate-sensitive-of-different-urban-parameters-using-clmu-app">
+<h1>Exploration of climate sensitive of different urban parameters using clmu-app<a class="headerlink" href="#exploration-of-climate-sensitive-of-different-urban-parameters-using-clmu-app" title="Permalink to this heading"></a></h1>
+<section id="junjie-yu-2024-02-15-manchester">
+<h2>Junjie Yu 2024-02-15, Manchester<a class="headerlink" href="#junjie-yu-2024-02-15-manchester" title="Permalink to this heading"></a></h2>
+<p>As the examples describe, one of the useful function of clmu-app is to explore the change climate with a changing urban surface parameters. Investigating this, we can gain information on urban planning/design or offer opportunities for other urban related subjects.</p>
+<p>Here we explored the 24 gird that contains most developed cities in the world (ref: https://en.wikipedia.org/wiki/Globalization_and_World_Cities_Research_Network ).</p>
+<p>We selected three categories of urban parameters, including morphological, radiative and thermal index.</p>
+</section>
+</section>
+<section id="results-preview">
+<h1>Results preview<a class="headerlink" href="#results-preview" title="Permalink to this heading"></a></h1>
+<hr class="docutils" />
+<p>Env: clmu-app
+Forcing: DATM SSP370
+- Simulation year 2055
+- New York Grid
+- Compset: SSP370_DATM%CPLHIST_CLM50%SP_SICE_SOCN_SROF_SGLC_SWAV
+- Resolution: f09_g17</p>
+<p>Primary results:
+Each urban surface parameters increased by 1.2 times respectively.</p>
+<ul class="simple">
+<li><p>TSA: Surface 2m temperature (yearly average), K</p></li>
+<li><p>TSA difference: difference in result of changed urban surface and no change.</p></li>
+</ul>
+<p><img alt="Alt text" src="../_images/TSA_diff_rad.png" /></p>
+<center>Radiative sensitives. </a></center><hr class="docutils" />
+<p><img alt="Alt text" src="../_images/TSA_diff_mod.png" /></p>
+<center>Morphological sensitives. </a></center><hr class="docutils" />
+<p><img alt="Alt text" src="../_images/TSA_diff_thm.png" /></p>
+<center>Thermal sensitives. </a></center><section id="ref-code">
+<h2>ref code<a class="headerlink" href="#ref-code" title="Permalink to this heading"></a></h2>
+<hr class="docutils" />
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="n">os</span><span class="o">.</span><span class="n">chdir</span><span class="p">(</span><span class="s1">&#39;/home/zhonghua/docker/DRL_urban_climate_adaptation/RLctsm/&#39;</span><span class="p">)</span>
+
+<span class="kn">import</span> <span class="nn">sys</span>
+<span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;/home/zhonghua/docker/DRL_urban_climate_adaptation/RLctsm/&#39;</span><span class="p">)</span>
+
+<span class="kn">from</span> <span class="nn">utils.cesm</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">from</span> <span class="nn">utils.ini_env</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="k">def</span> <span class="nf">run_case</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">sur_var</span><span class="p">,</span> <span class="n">case_year</span><span class="o">=</span><span class="s2">&quot;2055&quot;</span><span class="p">,</span> <span class="n">script_name</span> <span class="o">=</span> <span class="s2">&quot;PTS_SSP370_up.sh&quot;</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">now_time</span><span class="p">())</span>
+
+    <span class="n">CASESCRIPT</span> <span class="o">=</span> <span class="s2">&quot;/p/project/clm5.0/cime/scripts&quot;</span>
+    <span class="n">CASESCRIPT_local</span> <span class="o">=</span> <span class="s2">&quot;/home/zhonghua/p/project/clm5.0/cime/scripts&quot;</span>
+    <span class="n">CASEROOT_local</span> <span class="o">=</span> <span class="s2">&quot;/home/zhonghua/p/scratch/CESMDATAROOT/CaseOutputs&quot;</span>
+    <span class="n">DOUT_S_ROOT</span> <span class="o">=</span> <span class="s2">&quot;/home/zhonghua/p/scratch/CESMDATAROOT/Archive&quot;</span>
+
+    <span class="n">scriptpath</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;./scr/</span><span class="si">{</span><span class="n">script_name</span><span class="si">}</span><span class="s2">&quot;</span>
+    <span class="n">configpath</span> <span class="o">=</span> <span class="s2">&quot;./notebook/config_SSP370_up.json&quot;</span>
+
+    <span class="n">cesm</span> <span class="o">=</span> <span class="n">cesm_run</span><span class="p">(</span><span class="n">CASESCRIPT</span><span class="p">,</span> <span class="n">CASESCRIPT_local</span><span class="p">,</span> <span class="n">CASEROOT_local</span><span class="p">,</span> <span class="n">DOUT_S_ROOT</span><span class="p">,</span> <span class="n">configpath</span><span class="p">)</span>
+
+    <span class="n">cesm</span><span class="o">.</span><span class="n">config</span><span class="p">[</span><span class="s1">&#39;case_lat&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">case_loc</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="s1">&#39;case_lat&#39;</span><span class="p">]</span>
+    <span class="n">cesm</span><span class="o">.</span><span class="n">config</span><span class="p">[</span><span class="s1">&#39;case_lon&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">case_loc</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="s1">&#39;case_lon&#39;</span><span class="p">]</span>
+    
+    <span class="n">cesm</span><span class="o">.</span><span class="n">config</span><span class="p">[</span><span class="s1">&#39;case_start_year&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">case_year</span>
+    <span class="n">cesm</span><span class="o">.</span><span class="n">config</span><span class="p">[</span><span class="s1">&#39;case_end_year&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">case_year</span>
+
+    <span class="n">cesm</span><span class="o">.</span><span class="n">config</span><span class="p">[</span><span class="s1">&#39;fsurdat&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">cesm</span><span class="o">.</span><span class="n">config</span><span class="p">[</span><span class="s1">&#39;fsurdat&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;env_id&#39;</span><span class="p">,</span><span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="o">+</span><span class="s2">&quot;_&quot;</span><span class="o">+</span><span class="n">cesm</span><span class="o">.</span><span class="n">config</span><span class="p">[</span><span class="s1">&#39;case_name&#39;</span><span class="p">])</span>
+    <span class="n">local_fsurdat_temp</span> <span class="o">=</span> <span class="n">copy</span><span class="o">.</span><span class="n">deepcopy</span><span class="p">(</span><span class="n">cesm</span><span class="o">.</span><span class="n">config</span><span class="p">[</span><span class="s1">&#39;local_fsurdat&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;env_id&#39;</span><span class="p">,</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
+    <span class="n">cesm</span><span class="o">.</span><span class="n">config</span><span class="p">[</span><span class="s1">&#39;local_fsurdat&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">cesm</span><span class="o">.</span><span class="n">config</span><span class="p">[</span><span class="s1">&#39;local_fsurdat&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;env_id&#39;</span><span class="p">,</span><span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="o">+</span><span class="s2">&quot;_&quot;</span><span class="o">+</span><span class="n">cesm</span><span class="o">.</span><span class="n">config</span><span class="p">[</span><span class="s1">&#39;case_name&#39;</span><span class="p">])</span>
+
+    <span class="c1"># copy the surface data</span>
+    <span class="n">copy_file_if_not_exists2</span><span class="p">(</span><span class="n">local_fsurdat_temp</span><span class="p">,</span> 
+                                <span class="n">cesm</span><span class="o">.</span><span class="n">config</span><span class="p">[</span><span class="s1">&#39;local_fsurdat&#39;</span><span class="p">],</span>
+                                <span class="n">cesm</span><span class="o">.</span><span class="n">config</span><span class="p">[</span><span class="s1">&#39;case_lon&#39;</span><span class="p">],</span>
+                                <span class="n">cesm</span><span class="o">.</span><span class="n">config</span><span class="p">[</span><span class="s1">&#39;case_lat&#39;</span><span class="p">],</span>
+                                <span class="p">)</span>
+
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;/home/zhonghua/p/pyscripts/</span><span class="si">{</span><span class="n">script_name</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+        <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">cesm</span><span class="o">.</span><span class="n">create_case</span><span class="p">(</span><span class="n">scriptpath</span><span class="p">))</span>
+
+    <span class="n">alb_paramdict</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">lsmlat</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">lsmlon</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">numurbl</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">sur_var</span> <span class="o">==</span> <span class="s2">&quot;None&quot;</span><span class="p">:</span>
+        <span class="k">pass</span>
+
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">ds</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">open_dataset</span><span class="p">(</span><span class="n">cesm</span><span class="o">.</span><span class="n">config</span><span class="p">[</span><span class="s1">&#39;local_fsurdat&#39;</span><span class="p">])</span>
+
+        <span class="k">if</span> <span class="n">sur_var</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;ALB_IMPROAD&#39;</span><span class="p">,</span><span class="s1">&#39;ALB_ROOF&#39;</span><span class="p">,</span><span class="s1">&#39;ALB_WALL&#39;</span><span class="p">]</span> <span class="p">:</span>
+
+            <span class="n">actions</span> <span class="o">=</span> <span class="p">{</span>
+                    <span class="n">sur_var</span><span class="o">+</span><span class="s2">&quot;_DIR&quot;</span><span class="p">:</span> <span class="n">ds</span><span class="p">[</span><span class="n">sur_var</span><span class="o">+</span><span class="s2">&quot;_DIR&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">alb_paramdict</span><span class="p">]</span><span class="o">.</span><span class="n">values</span> <span class="o">*</span> <span class="mf">1.2</span><span class="p">,</span>
+                    <span class="n">sur_var</span><span class="o">+</span><span class="s2">&quot;_DIF&quot;</span><span class="p">:</span> <span class="n">ds</span><span class="p">[</span><span class="n">sur_var</span><span class="o">+</span><span class="s2">&quot;_DIF&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">alb_paramdict</span><span class="p">]</span><span class="o">.</span><span class="n">values</span> <span class="o">*</span> <span class="mf">1.2</span><span class="p">,}</span>
+
+        <span class="k">else</span><span class="p">:</span>
+
+            <span class="n">actions</span> <span class="o">=</span> <span class="p">{</span><span class="n">sur_var</span><span class="p">:</span> <span class="n">ds</span><span class="p">[</span><span class="n">sur_var</span><span class="p">]</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">alb_paramdict</span><span class="p">]</span><span class="o">.</span><span class="n">values</span> <span class="o">*</span> <span class="mf">1.2</span><span class="p">}</span>
+
+        <span class="c1"># * Modify the surf file</span>
+        <span class="n">cesm</span><span class="o">.</span><span class="n">modify_surf</span><span class="p">(</span><span class="n">var</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">action</span><span class="o">=</span><span class="n">actions</span><span class="p">,</span> <span class="n">param_location</span><span class="o">=</span><span class="n">alb_paramdict</span><span class="p">)</span>
+
+    <span class="c1"># password = &quot;***&quot;</span>
+    <span class="n">password</span> <span class="o">=</span> <span class="s2">&quot;Manchestermedal&quot;</span>
+
+    <span class="c1"># change the permission of the script</span>
+    <span class="n">command_0</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;sudo -S docker exec myclmu chmod +x /p/pyscripts/</span><span class="si">{</span><span class="n">script_name</span><span class="si">}</span><span class="s2">&quot;</span>
+    <span class="n">run_command</span><span class="p">(</span><span class="n">command</span><span class="o">=</span><span class="n">command_0</span><span class="p">,</span> <span class="n">password</span><span class="o">=</span><span class="n">password</span><span class="p">)</span>
+
+    <span class="c1"># run the script</span>
+    <span class="n">command</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;sudo -S docker exec myclmu sh -c &#39;/p/pyscripts/</span><span class="si">{</span><span class="n">script_name</span><span class="si">}</span><span class="s2">&#39; &quot;</span>
+    <span class="n">run_command</span><span class="p">(</span><span class="n">command</span><span class="o">=</span><span class="n">command</span><span class="p">,</span> <span class="n">password</span><span class="o">=</span><span class="n">password</span><span class="p">)</span>
+
+    <span class="n">l</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;TREFMNAV&#39;</span><span class="p">,</span><span class="s1">&#39;TREFMXAV&#39;</span><span class="p">,</span><span class="s1">&#39;TSA&#39;</span><span class="p">,</span><span class="s1">&#39;RH2M&#39;</span><span class="p">]</span>
+    <span class="n">ds</span> <span class="o">=</span> <span class="n">cesm</span><span class="o">.</span><span class="n">nc_view</span><span class="p">()</span>
+
+    <span class="n">result</span> <span class="o">=</span> <span class="p">{}</span>
+
+    <span class="k">for</span> <span class="n">var</span> <span class="ow">in</span> <span class="n">l</span><span class="p">:</span>
+        <span class="n">ds1</span> <span class="o">=</span> <span class="n">ds</span><span class="p">[</span><span class="n">var</span><span class="p">]</span><span class="o">.</span><span class="n">assign_coords</span><span class="p">({</span><span class="s1">&#39;landunit&#39;</span><span class="p">:</span> <span class="n">ds</span><span class="p">[</span><span class="s1">&#39;land1d_ityplunit&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">})</span>
+        <span class="n">result</span><span class="p">[</span><span class="n">var</span><span class="o">+</span><span class="s2">&quot;_u&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">ds1</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">landunit</span><span class="o">=</span><span class="mi">8</span><span class="p">)</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">flatten</span><span class="p">()</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+        <span class="n">result</span><span class="p">[</span><span class="n">var</span><span class="o">+</span><span class="s2">&quot;_r&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">ds1</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">landunit</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">flatten</span><span class="p">()</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+
+    <span class="n">script</span> <span class="o">=</span> <span class="s2">&quot;sudo -S rm -rf &quot;</span> <span class="o">+</span> <span class="n">cesm</span><span class="o">.</span><span class="n">config</span><span class="p">[</span><span class="s1">&#39;local_fsurdat&#39;</span><span class="p">]</span>
+    <span class="n">subprocess</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">script</span><span class="p">,</span> <span class="nb">input</span><span class="o">=</span><span class="n">password</span><span class="p">,</span> <span class="n">text</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">check</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">shell</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">result</span>
+
+<span class="n">Temperature</span> <span class="o">=</span> <span class="p">{}</span>
+
+
+<span class="n">var_ls</span> <span class="o">=</span><span class="p">{</span><span class="s2">&quot;morphological&quot;</span><span class="p">:[</span><span class="s1">&#39;CANYON_HWR&#39;</span><span class="p">,</span><span class="s1">&#39;HT_ROOF&#39;</span><span class="p">,</span><span class="s1">&#39;THICK_ROOF&#39;</span><span class="p">,</span><span class="s1">&#39;THICK_WALL&#39;</span><span class="p">],</span>
+        <span class="s2">&quot;radiative&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;ALB_IMPROAD&#39;</span><span class="p">,</span><span class="s1">&#39;ALB_ROOF&#39;</span><span class="p">,</span><span class="s1">&#39;ALB_WALL&#39;</span><span class="p">],</span>
+        <span class="s2">&quot;thermal&quot;</span><span class="p">:[</span> 
+        <span class="s1">&#39;TK_ROOF&#39;</span><span class="p">,</span><span class="s1">&#39;TK_WALL&#39;</span><span class="p">,</span><span class="s1">&#39;TK_IMPROAD&#39;</span><span class="p">,</span><span class="s1">&#39;CV_ROOF&#39;</span><span class="p">,</span><span class="s1">&#39;CV_WALL&#39;</span><span class="p">,</span><span class="s1">&#39;TK_IMPROAD&#39;</span><span class="p">]</span>
+<span class="p">}</span>
+
+<span class="n">var_ls_ls</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;None&#39;</span><span class="p">]</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">25</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">sur_var</span> <span class="ow">in</span> <span class="n">var_ls_ls</span><span class="p">:</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="n">run_case</span><span class="p">(</span><span class="n">i</span><span class="o">=</span><span class="n">i</span><span class="p">,</span> <span class="n">sur_var</span><span class="o">=</span><span class="n">sur_var</span><span class="p">)</span>
+        <span class="n">Temperature</span><span class="p">[</span><span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="o">+</span><span class="n">sur_var</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s2">&quot;data&quot;</span><span class="p">:</span> <span class="n">result</span><span class="p">,</span>
+            <span class="s2">&quot;loc&quot;</span><span class="p">:</span> <span class="n">case_loc</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> 
+            <span class="s2">&quot;action&quot;</span><span class="p">:</span> <span class="n">sur_var</span>
+        <span class="p">}</span>
+        
+        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;SSP370_urban_properties_none.json&quot;</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+            <span class="n">json</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">Temperature</span><span class="p">,</span> <span class="n">f</span><span class="p">)</span>
+
+    <span class="c1"># reset the cases</span>
+    <span class="n">command_0</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;sudo -S docker exec myclm rm -rf /p/scratch/CESMDATAROOT/CaseOutputs/ssp370up&quot;</span>
+    <span class="n">run_command</span><span class="p">(</span><span class="n">command</span><span class="o">=</span><span class="n">command_0</span><span class="p">,</span> <span class="n">password</span><span class="o">=</span><span class="s2">&quot;Manchestermedal&quot;</span><span class="p">)</span>
+    <span class="n">command_1</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;sudo -S docker exec myclm rm -rf /p/project/clm5.0/cime/scripts/ssp370up&quot;</span>
+    <span class="n">run_command</span><span class="p">(</span><span class="n">command</span><span class="o">=</span><span class="n">command_1</span><span class="p">,</span> <span class="n">password</span><span class="o">=</span><span class="s2">&quot;Manchestermedal&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="modify_urban.html" class="btn btn-neutral float-left" title="How dose the land surface affect the urban cliamte?" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../cesm.html" class="btn btn-neutral float-right" title="python API" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, Junjie Yu.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

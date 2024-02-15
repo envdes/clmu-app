@@ -22,7 +22,7 @@
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Wrokflow of cesm.py" href="5_python_API.html" />
+    <link rel="next" title="Workflow of cesm.py" href="5_python_API.html" />
     <link rel="prev" title="CLM ENV Container detail" href="3_CLMU_env_details.html" /> 
 </head>
 
@@ -48,18 +48,23 @@
               <p class="caption" role="heading"><span class="caption-text">CLMU APP container</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="1_intro_container.html">Introduction</a></li>
-<li class="toctree-l1"><a class="reference internal" href="2_install_docker.html">Install Docker and pull the container</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2_install_docker.html">Docker Tips for clmu-app</a></li>
 <li class="toctree-l1"><a class="reference internal" href="3_CLMU_env_details.html">CLM ENV Container detail</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Run a CLM case</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#try-to-run-a-single-point-case">Try to run a single-point case</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="5_python_API.html">Wrokflow of cesm.py</a></li>
+<li class="toctree-l1"><a class="reference internal" href="5_python_API.html">Workflow of cesm.py</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Examples</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../examples/Single_point_modeling.html">Single point modeling of CLMU</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../examples/modify_urban.html">How dose the land surface affect the urban cliamte?</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Exploration</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../examples/explore_up.html">Exploration of climate sensitive of different urban parameters using clmu-app</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../examples/explore_up.html#results-preview">Results preview</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">API Reference</span></p>
 <ul>
@@ -93,10 +98,11 @@
   <section id="run-a-clm-case">
 <h1>Run a CLM case<a class="headerlink" href="#run-a-clm-case" title="Permalink to this heading"></a></h1>
 <p>We use the interactive way to run CLM case via docker container</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># start the clm container</span>
-<span class="n">sudo</span> <span class="n">docker</span> <span class="n">start</span> <span class="n">myclm</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># start the clmu container</span>
+<span class="n">sudo</span> <span class="n">docker</span> <span class="n">start</span> <span class="n">myclmu</span>
 
-<span class="n">docker</span> <span class="n">exec</span> <span class="o">-</span><span class="n">it</span> <span class="n">myclm</span> <span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">bash</span>
+<span class="c1"># Use interactivate way to operate container</span>
+<span class="n">docker</span> <span class="n">exec</span> <span class="o">-</span><span class="n">it</span> <span class="n">myclmu</span> <span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">bash</span>
 <span class="c1"># Now we are in the Fedora 31 Bash.</span>
 </pre></div>
 </div>
@@ -150,7 +156,7 @@ EOF
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="3_CLMU_env_details.html" class="btn btn-neutral float-left" title="CLM ENV Container detail" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="5_python_API.html" class="btn btn-neutral float-right" title="Wrokflow of cesm.py" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="5_python_API.html" class="btn btn-neutral float-right" title="Workflow of cesm.py" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

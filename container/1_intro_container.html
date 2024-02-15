@@ -22,7 +22,7 @@
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Install Docker and pull the container" href="2_install_docker.html" />
+    <link rel="next" title="Docker Tips for clmu-app" href="2_install_docker.html" />
     <link rel="prev" title="CLMU APP" href="../index.html" /> 
 </head>
 
@@ -54,15 +54,20 @@
 <li class="toctree-l2"><a class="reference internal" href="#python-for-urban-climate-exploration">Python for urban climate exploration</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="2_install_docker.html">Install Docker and pull the container</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2_install_docker.html">Docker Tips for clmu-app</a></li>
 <li class="toctree-l1"><a class="reference internal" href="3_CLMU_env_details.html">CLM ENV Container detail</a></li>
 <li class="toctree-l1"><a class="reference internal" href="4_run_CLM_case.html">Run a CLM case</a></li>
-<li class="toctree-l1"><a class="reference internal" href="5_python_API.html">Wrokflow of cesm.py</a></li>
+<li class="toctree-l1"><a class="reference internal" href="5_python_API.html">Workflow of cesm.py</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Examples</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../examples/Single_point_modeling.html">Single point modeling of CLMU</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../examples/modify_urban.html">How dose the land surface affect the urban cliamte?</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Exploration</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../examples/explore_up.html">Exploration of climate sensitive of different urban parameters using clmu-app</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../examples/explore_up.html#results-preview">Results preview</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">API Reference</span></p>
 <ul>
@@ -104,7 +109,7 @@
 <p>CLMU is the Community Land Model-Urban, hosted by the National Center for Atmospheric Research (NCAR). CLMU acts as an urban model with a single-layer canopy scheme under the Earth system model hierarchy.</p>
 <p>See more details in <a class="reference external" href="https://escomp.github.io/ctsm-docs/versions/master/html/tech_note/Urban/CLM50_Tech_Note_Urban.html">CLM Technical Note</a>.</p>
 <p><img alt="Alt text" src="../_images/clmu.jpg" /></p>
-<center>Urban parameterization in CMLU. <a href="https://escomp.github.io/ctsm-docs/versions/master/html/tech_note/Urban/CLM50_Tech_Note_Urban.html">(Fig sources)</a></center></section>
+<center>Urban parameterization in CLMU. <a href="https://escomp.github.io/ctsm-docs/versions/master/html/tech_note/Urban/CLM50_Tech_Note_Urban.html">(Fig sources)</a></center></section>
 <section id="why-use-a-container-for-clmu">
 <h2>Why use a container for CLMU?<a class="headerlink" href="#why-use-a-container-for-clmu" title="Permalink to this heading"></a></h2>
 <p>Running CMLU within CLM (Community Land Model) requires a Linux operation system with certain <a class="reference external" href="https://escomp.github.io/CESM/versions/cesm2.2/html/introduction.html#cesm2-software-operating-system-prerequisites">software requirements</a>. Without professional support from technicians, it is a challenge for scientists or other potential users to port the CLM running environment by themselves. Here, we use a container to build an ENV fitting the recent version of <a class="reference external" href="https://github.com/ESCOMP/CTSM">CTSM/CLM</a>. Further, we can apply the container on cloud platforms or local computers to conduct some interesting experiments.</p>
@@ -120,7 +125,7 @@
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="../index.html" class="btn btn-neutral float-left" title="CLMU APP" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="2_install_docker.html" class="btn btn-neutral float-right" title="Install Docker and pull the container" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="2_install_docker.html" class="btn btn-neutral float-right" title="Docker Tips for clmu-app" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

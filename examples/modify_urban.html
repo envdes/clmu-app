@@ -25,7 +25,7 @@
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="python API" href="../cesm.html" />
+    <link rel="next" title="Exploration of climate sensitive of different urban parameters using clmu-app" href="explore_up.html" />
     <link rel="prev" title="Single point modeling of CLMU" href="Single_point_modeling.html" /> 
 </head>
 
@@ -51,10 +51,10 @@
               <p class="caption" role="heading"><span class="caption-text">CLMU APP container</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../container/1_intro_container.html">Introduction</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../container/2_install_docker.html">Install Docker and pull the container</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../container/2_install_docker.html">Docker Tips for clmu-app</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../container/3_CLMU_env_details.html">CLM ENV Container detail</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../container/4_run_CLM_case.html">Run a CLM case</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../container/5_python_API.html">Wrokflow of cesm.py</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../container/5_python_API.html">Workflow of cesm.py</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Examples</span></p>
 <ul class="current">
@@ -65,6 +65,11 @@
 <li class="toctree-l2"><a class="reference internal" href="#3-View-the-results">3 View the results</a></li>
 </ul>
 </li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Exploration</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="explore_up.html">Exploration of climate sensitive of different urban parameters using clmu-app</a></li>
+<li class="toctree-l1"><a class="reference internal" href="explore_up.html#results-preview">Results preview</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">API Reference</span></p>
 <ul>
@@ -105,45 +110,132 @@
 <p>New York City coordinates can be replaced with other city coordinates</p>
 <p>40°42′46″N 74°00′22″W from <a class="reference external" href="https://en.wikipedia.org/wiki/New_York_City">https://en.wikipedia.org/wiki/New_York_City</a></p>
 <p>New York City = {‘lat’: 40.42, ‘lon’: -74.00}</p>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
+<p>initialize</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">utils.cesm</span> <span class="kn">import</span> <span class="o">*</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="n">now_time</span><span class="p">())</span>
 
+
+<span class="c1"># the path of the case script, in clmu-app, clm5.0 was installed in /p/project/clm5.0</span>
 <span class="n">CASESCRIPT</span> <span class="o">=</span> <span class="s2">&quot;/p/project/clm5.0/cime/scripts&quot;</span>
+
+<span class="c1"># the path of the case script, in local machine</span>
+<span class="c1"># we use the (--mount type=bind,source=&quot;$(pwd)&quot;/p,target=/p) to mount the local directory to the docker container</span>
+<span class="c1"># We has the forcing data in local machine, so we want to mount the forcing directory to the container</span>
+<span class="c1"># note that bind the has some constraints, e.g., file fverwriting, file permissions, etc., so we need to be careful</span>
 <span class="n">CASESCRIPT_local</span> <span class="o">=</span> <span class="s2">&quot;/home/zhonghua/p/project/clm5.0/cime/scripts&quot;</span>
+
+<span class="c1"># the path of the case root, in clmu-app, the case root is in /p/scratch/CESMDATAROOT/CaseOutputs</span>
 <span class="n">CASEROOT_local</span> <span class="o">=</span> <span class="s2">&quot;/home/zhonghua/p/scratch/CESMDATAROOT/CaseOutputs&quot;</span>
+
+<span class="c1"># the path of the case root, in local machine</span>
 <span class="n">DOUT_S_ROOT</span> <span class="o">=</span> <span class="s2">&quot;/home/zhonghua/p/scratch/CESMDATAROOT/Archive&quot;</span>
 
+
+<span class="c1"># the path of the script</span>
+<span class="c1"># Here, we provide the script that can be used to create a PTS clm case via cesm.py</span>
 <span class="n">scriptpath</span> <span class="o">=</span> <span class="s2">&quot;./scr/PTS_script.sh&quot;</span>
+
+<span class="c1"># the path of the config file</span>
+<span class="c1"># config for PTS case</span>
 <span class="n">configpath</span> <span class="o">=</span> <span class="s2">&quot;config_newyork.json&quot;</span>
+</pre></div>
+</div>
+</div>
+<p>here are the PTS_script.sh and config</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">scriptpath</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+    <span class="n">script</span> <span class="o">=</span> <span class="n">file</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+
+<span class="n">script</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+&#39;#!/bin/bash\n\n# Junjie Yu, 2023-11-24, Manchester, UK\n# This script is used to create a CESM case with the PTS mode on.\n\nexport USER=root\nsource ~/.bashrc\n\ncd ${CASESCRIPT} # scripts folder\n\nif [ -d &#34;${case_name}&#34; ]; then\n    cd ${case_name}\nelse\n    ./create_newcase --case ${case_name} --res ${resolution} --compset ${compset} --run-unsupported\n    cd ${case_name}\n\n    ./xmlchange PTS_MODE=TRUE,PTS_LAT=${case_lat},PTS_LON=${case_lon}\n\n    ./xmlchange DATM_CLMNCEP_YR_START=${case_start_year}\n    ./xmlchange DATM_CLMNCEP_YR_END=${case_end_year}\n    ./xmlchange RUN_STARTDATE=${case_start_year}-01-01\n    ./xmlchange STOP_OPTION=\&#39;nyear\&#39;\n    ./xmlchange STOP_N=${case_length}\n    ./xmlchange NTASKS=1\n    ./xmlchange CLM_FORCE_COLDSTART=on\n\n    # Set up the case\n    ./case.setup\n\n    # Modify the user_nl_clm file\n\n    echo &#34;hist_avgflag_pertape=\&#39;${hist_avgflag_pertape}\&#39;&#34; &gt;&gt; user_nl_clm\n    echo &#34;hist_nhtfrq=${hist_nhtfrq}&#34; &gt;&gt; user_nl_clm\n    echo &#34;hist_mfilt=${hist_mfilt}&#34; &gt;&gt; user_nl_clm\n\n    echo &#34;hist_empty_htapes = .true.&#34; &gt;&gt; user_nl_clm\n    echo &#34;hist_fincl1=\&#39;TREFMNAV\&#39;,\&#39;TREFMXAV\&#39;&#34; &gt;&gt; user_nl_clm\n\n    echo &#34;hist_dov2xy=.false.&#34; &gt;&gt; user_nl_clm\n    echo &#34;hist_type1d_pertape=\&#39;LAND\&#39;&#34; &gt;&gt; user_nl_clm\n    echo &#34;fsurdat=\&#39;${fsurdat}\&#39;&#34; &gt;&gt; user_nl_clm\n\n    # Set up the case\n    ./case.build\nfi\n\n\n./xmlchange DATM_CLMNCEP_YR_START=${case_start_year}\n./xmlchange DATM_CLMNCEP_YR_END=${case_end_year}\n./xmlchange RUN_STARTDATE=${case_start_year}-06-01\n./xmlchange STOP_OPTION=\&#39;nmonths\&#39;\n./xmlchange STOP_N=${case_length}\n./xmlchange NTASKS=1\n./xmlchange CLM_FORCE_COLDSTART=on\n\n# Submit the case\n./case.submit&#39;
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">json</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">configpath</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">config</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+<span class="n">config</span>
+
+<span class="c1"># we need the &#39;local_fsurdat&#39;, as we need to change the &#39;fsurdat&#39; in jupyter notebook in local</span>
+<span class="c1"># but not in the clmu-app container</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+{&#39;CASESCRIPT&#39;: &#39;/p/project/clm5.0/cime/scripts&#39;,
+ &#39;case_name&#39;: &#39;Newyork1&#39;,
+ &#39;CASEROOT&#39;: &#39;/p/project/clm5.0/cime/scripts/Newyork1&#39;,
+ &#39;resolution&#39;: &#39;f09_g17&#39;,
+ &#39;compset&#39;: &#39;2000_DATM%CRUv7_CLM50%SP_SICE_SOCN_SROF_SGLC_SWAV&#39;,
+ &#39;case_lat&#39;: &#39;40.05&#39;,
+ &#39;case_lon&#39;: &#39;-73.75&#39;,
+ &#39;case_start_year&#39;: &#39;2010&#39;,
+ &#39;case_end_year&#39;: &#39;2010&#39;,
+ &#39;case_length&#39;: &#39;3&#39;,
+ &#39;filemonth&#39;: &#39;07-01-00000&#39;,
+ &#39;hist_avgflag_pertape&#39;: &#39;A&#39;,
+ &#39;hist_nhtfrq&#39;: &#39;0&#39;,
+ &#39;hist_mfilt&#39;: &#39;12&#39;,
+ &#39;fsurdat&#39;: &#39;/p/scratch/CESMDATAROOT/inputdata/lnd/clm2/surfdata_map/release-clm5.0.18/surfdata_0.9x1.25_hist_16pfts_Irrig_CMIP6_simyr2000_c190214_j.nc&#39;,
+ &#39;local_fsurdat&#39;: &#39;/home/zhonghua/p/scratch/CESMDATAROOT/inputdata/lnd/clm2/surfdata_map/release-clm5.0.18/surfdata_0.9x1.25_hist_16pfts_Irrig_CMIP6_simyr2000_c190214_j.nc&#39;}
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">now_time</span><span class="p">())</span>
+
+<span class="c1"># initialize the cesm object</span>
 <span class="n">cesm</span> <span class="o">=</span> <span class="n">cesm_run</span><span class="p">(</span><span class="n">CASESCRIPT</span><span class="p">,</span> <span class="n">CASESCRIPT_local</span><span class="p">,</span> <span class="n">CASEROOT_local</span><span class="p">,</span> <span class="n">DOUT_S_ROOT</span><span class="p">,</span> <span class="n">configpath</span><span class="p">)</span>
 
+<span class="c1"># create the case script</span>
 <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;/home/zhonghua/p/pyscripts/PTS_script.sh&quot;</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
     <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">cesm</span><span class="o">.</span><span class="n">create_case</span><span class="p">(</span><span class="n">scriptpath</span><span class="p">))</span>
-
-<span class="c1">#print(cesm.create_case(scriptpath))</span>
 
 <span class="c1"># password = &quot;***&quot;</span>
 <span class="n">password</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Password of server: &quot;</span><span class="p">)</span>
 
+<span class="c1"># reset the case --&gt; clean the case directory</span>
 <span class="n">cesm</span><span class="o">.</span><span class="n">reset_case</span><span class="p">(</span><span class="n">password</span><span class="o">=</span><span class="n">password</span><span class="p">)</span>
 
 <span class="c1"># change the permission of the script</span>
-<span class="n">command_0</span> <span class="o">=</span> <span class="s2">&quot;sudo -S docker exec myclm chmod +x /p/pyscripts/PTS_script.sh&quot;</span>
+<span class="n">command_0</span> <span class="o">=</span> <span class="s2">&quot;sudo -S docker exec myclmu chmod +x /p/pyscripts/PTS_script.sh&quot;</span>
 <span class="n">run_command</span><span class="p">(</span><span class="n">command_0</span><span class="p">,</span> <span class="n">password</span><span class="p">)</span>
 
 <span class="c1"># run the script</span>
-<span class="n">command</span> <span class="o">=</span> <span class="s2">&quot;sudo -S docker exec myclm sh -c &#39;/p/pyscripts/PTS_script.sh&#39; &quot;</span>
+<span class="n">command</span> <span class="o">=</span> <span class="s2">&quot;sudo -S docker exec myclmu sh -c &#39;/p/pyscripts/PTS_script.sh&#39; &quot;</span>
 <span class="n">run_command</span><span class="p">(</span><span class="n">command</span><span class="p">,</span> <span class="n">password</span><span class="p">)</span>
 
+<span class="c1"># get the result</span>
+<span class="n">d0</span> <span class="o">=</span> <span class="n">cesm</span><span class="o">.</span><span class="n">nc_view</span><span class="p">()[</span><span class="s1">&#39;HIA_U&#39;</span><span class="p">]</span> <span class="o">-</span> <span class="n">cesm</span><span class="o">.</span><span class="n">nc_view</span><span class="p">()[</span><span class="s1">&#39;HIA_R&#39;</span><span class="p">]</span>
 <span class="c1"># HIA indicates the 2 m NWS Heat Index</span>
 <span class="c1"># HIA_U indicates the 2 m NWS Heat Index urban</span>
 <span class="c1"># HIA_R indicates the 2 m NWS Heat Index rural</span>
-<span class="n">d0</span> <span class="o">=</span> <span class="n">cesm</span><span class="o">.</span><span class="n">nc_view</span><span class="p">()[</span><span class="s1">&#39;HIA_U&#39;</span><span class="p">]</span> <span class="o">-</span> <span class="n">cesm</span><span class="o">.</span><span class="n">nc_view</span><span class="p">()[</span><span class="s1">&#39;HIA_R&#39;</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
@@ -173,15 +265,20 @@ Current time: 2023-12-06 10:34:45
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cesm</span><span class="o">.</span><span class="n">modify_surf</span><span class="p">(</span><span class="n">var</span><span class="o">=</span><span class="s2">&quot;ALB_ROOF_DIR&quot;</span><span class="p">,</span> <span class="n">action</span><span class="o">=</span><span class="mf">0.3</span><span class="p">)</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 1 change the surface albedo, here we change the roof albedo (add 0.3)</span>
+<span class="n">cesm</span><span class="o">.</span><span class="n">modify_surf</span><span class="p">(</span><span class="n">var</span><span class="o">=</span><span class="s2">&quot;ALB_ROOF_DIR&quot;</span><span class="p">,</span> <span class="n">action</span><span class="o">=</span><span class="mf">0.3</span><span class="p">)</span>
 <span class="n">run_command</span><span class="p">(</span><span class="n">command</span><span class="p">,</span> <span class="n">password</span><span class="p">)</span>
 <span class="n">d_m_roof</span> <span class="o">=</span> <span class="n">cesm</span><span class="o">.</span><span class="n">nc_view</span><span class="p">()[</span><span class="s1">&#39;HIA_U&#39;</span><span class="p">]</span> <span class="o">-</span> <span class="n">cesm</span><span class="o">.</span><span class="n">nc_view</span><span class="p">()[</span><span class="s1">&#39;HIA_R&#39;</span><span class="p">]</span>
 
+<span class="c1"># 2 change the surface albedo, here we change the wall albedo (add 0.3)</span>
+<span class="c1"># 2.1 as we add 0.3 to the roof albedo, we need to reset the roof albedo</span>
 <span class="n">cesm</span><span class="o">.</span><span class="n">modify_surf</span><span class="p">(</span><span class="n">var</span><span class="o">=</span><span class="s2">&quot;ALB_ROOF_DIR&quot;</span><span class="p">,</span> <span class="n">action</span><span class="o">=-</span><span class="mf">0.3</span><span class="p">)</span>
+<span class="c1"># 2.2 change the wall albedo (add 0.3)</span>
 <span class="n">cesm</span><span class="o">.</span><span class="n">modify_surf</span><span class="p">(</span><span class="n">var</span><span class="o">=</span><span class="s2">&quot;ALB_WALL_DIR&quot;</span><span class="p">,</span> <span class="n">action</span><span class="o">=</span><span class="mf">0.3</span><span class="p">)</span>
 <span class="n">run_command</span><span class="p">(</span><span class="n">command</span><span class="p">,</span> <span class="n">password</span><span class="p">)</span>
 <span class="n">d_m_wall</span> <span class="o">=</span> <span class="n">cesm</span><span class="o">.</span><span class="n">nc_view</span><span class="p">()[</span><span class="s1">&#39;HIA_U&#39;</span><span class="p">]</span> <span class="o">-</span> <span class="n">cesm</span><span class="o">.</span><span class="n">nc_view</span><span class="p">()[</span><span class="s1">&#39;HIA_R&#39;</span><span class="p">]</span>
 
+<span class="c1"># 3 change the surface albedo, here we change the roof and wall albedo (add 0.3)</span>
 <span class="n">cesm</span><span class="o">.</span><span class="n">modify_surf</span><span class="p">(</span><span class="n">var</span><span class="o">=</span><span class="s2">&quot;ALB_ROOF_DIR&quot;</span><span class="p">,</span> <span class="n">action</span><span class="o">=</span><span class="mf">0.3</span><span class="p">)</span>
 <span class="n">run_command</span><span class="p">(</span><span class="n">command</span><span class="p">,</span> <span class="n">password</span><span class="p">)</span>
 <span class="n">d_m_roof_wall</span> <span class="o">=</span> <span class="n">cesm</span><span class="o">.</span><span class="n">nc_view</span><span class="p">()[</span><span class="s1">&#39;HIA_U&#39;</span><span class="p">]</span> <span class="o">-</span> <span class="n">cesm</span><span class="o">.</span><span class="n">nc_view</span><span class="p">()[</span><span class="s1">&#39;HIA_R&#39;</span><span class="p">]</span>
@@ -213,7 +310,6 @@ array([[0.192     , 0.30399999, 0.27200001],
 
 <span class="nb">print</span><span class="p">(</span><span class="n">now_time</span><span class="p">())</span>
 <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
-<span class="n">json_file_path</span> <span class="o">=</span> <span class="s2">&quot;config_newyork.json&quot;</span>
 <span class="c1">#cesm.nc_view()[&#39;HIA_U&#39;].plot(ax = ax)</span>
 <span class="c1">#cesm.nc_view()[&#39;HIA_R&#39;].plot(ax = ax)</span>
 
@@ -249,7 +345,7 @@ Current time: 2023-12-06 10:42:15
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../_images/examples_modify_urban_8_1.png" src="../_images/examples_modify_urban_8_1.png" />
+<img alt="../_images/examples_modify_urban_13_1.png" src="../_images/examples_modify_urban_13_1.png" />
 </div>
 </div>
 </section>
@@ -260,7 +356,7 @@ Current time: 2023-12-06 10:42:15
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="Single_point_modeling.html" class="btn btn-neutral float-left" title="Single point modeling of CLMU" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="../cesm.html" class="btn btn-neutral float-right" title="python API" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="explore_up.html" class="btn btn-neutral float-right" title="Exploration of climate sensitive of different urban parameters using clmu-app" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

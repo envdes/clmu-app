@@ -31,6 +31,119 @@
    ]
   },
   {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "initialize"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "from utils.cesm import *\n",
+    "\n",
+    "\n",
+    "\n",
+    "# the path of the case script, in clmu-app, clm5.0 was installed in /p/project/clm5.0\n",
+    "CASESCRIPT = \"/p/project/clm5.0/cime/scripts\"\n",
+    "\n",
+    "# the path of the case script, in local machine\n",
+    "# we use the (--mount type=bind,source=\"$(pwd)\"/p,target=/p) to mount the local directory to the docker container\n",
+    "# We has the forcing data in local machine, so we want to mount the forcing directory to the container\n",
+    "# note that bind the has some constraints, e.g., file fverwriting, file permissions, etc., so we need to be careful\n",
+    "CASESCRIPT_local = \"/home/zhonghua/p/project/clm5.0/cime/scripts\"\n",
+    "\n",
+    "# the path of the case root, in clmu-app, the case root is in /p/scratch/CESMDATAROOT/CaseOutputs\n",
+    "CASEROOT_local = \"/home/zhonghua/p/scratch/CESMDATAROOT/CaseOutputs\"\n",
+    "\n",
+    "# the path of the case root, in local machine\n",
+    "DOUT_S_ROOT = \"/home/zhonghua/p/scratch/CESMDATAROOT/Archive\"\n",
+    "\n",
+    "\n",
+    "# the path of the script\n",
+    "# Here, we provide the script that can be used to create a PTS clm case via cesm.py\n",
+    "scriptpath = \"./scr/PTS_script.sh\"\n",
+    "\n",
+    "# the path of the config file\n",
+    "# config for PTS case\n",
+    "configpath = \"config_newyork.json\""
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "here are the PTS_script.sh and config"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 4,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "'#!/bin/bash\\n\\n# Junjie Yu, 2023-11-24, Manchester, UK\\n# This script is used to create a CESM case with the PTS mode on.\\n\\nexport USER=root\\nsource ~/.bashrc\\n\\ncd ${CASESCRIPT} # scripts folder\\n\\nif [ -d \"${case_name}\" ]; then\\n    cd ${case_name}\\nelse\\n    ./create_newcase --case ${case_name} --res ${resolution} --compset ${compset} --run-unsupported\\n    cd ${case_name}\\n\\n    ./xmlchange PTS_MODE=TRUE,PTS_LAT=${case_lat},PTS_LON=${case_lon}\\n\\n    ./xmlchange DATM_CLMNCEP_YR_START=${case_start_year}\\n    ./xmlchange DATM_CLMNCEP_YR_END=${case_end_year}\\n    ./xmlchange RUN_STARTDATE=${case_start_year}-01-01\\n    ./xmlchange STOP_OPTION=\\'nyear\\'\\n    ./xmlchange STOP_N=${case_length}\\n    ./xmlchange NTASKS=1\\n    ./xmlchange CLM_FORCE_COLDSTART=on\\n\\n    # Set up the case\\n    ./case.setup\\n\\n    # Modify the user_nl_clm file\\n\\n    echo \"hist_avgflag_pertape=\\'${hist_avgflag_pertape}\\'\" >> user_nl_clm\\n    echo \"hist_nhtfrq=${hist_nhtfrq}\" >> user_nl_clm\\n    echo \"hist_mfilt=${hist_mfilt}\" >> user_nl_clm\\n\\n    echo \"hist_empty_htapes = .true.\" >> user_nl_clm\\n    echo \"hist_fincl1=\\'TREFMNAV\\',\\'TREFMXAV\\'\" >> user_nl_clm\\n\\n    echo \"hist_dov2xy=.false.\" >> user_nl_clm\\n    echo \"hist_type1d_pertape=\\'LAND\\'\" >> user_nl_clm\\n    echo \"fsurdat=\\'${fsurdat}\\'\" >> user_nl_clm\\n\\n    # Set up the case\\n    ./case.build\\nfi\\n\\n\\n./xmlchange DATM_CLMNCEP_YR_START=${case_start_year}\\n./xmlchange DATM_CLMNCEP_YR_END=${case_end_year}\\n./xmlchange RUN_STARTDATE=${case_start_year}-06-01\\n./xmlchange STOP_OPTION=\\'nmonths\\'\\n./xmlchange STOP_N=${case_length}\\n./xmlchange NTASKS=1\\n./xmlchange CLM_FORCE_COLDSTART=on\\n\\n# Submit the case\\n./case.submit'"
+      ]
+     },
+     "execution_count": 4,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "with open(scriptpath, 'r') as file:\n",
+    "    script = file.read()\n",
+    "\n",
+    "script"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 2,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "{'CASESCRIPT': '/p/project/clm5.0/cime/scripts',\n",
+       " 'case_name': 'Newyork1',\n",
+       " 'CASEROOT': '/p/project/clm5.0/cime/scripts/Newyork1',\n",
+       " 'resolution': 'f09_g17',\n",
+       " 'compset': '2000_DATM%CRUv7_CLM50%SP_SICE_SOCN_SROF_SGLC_SWAV',\n",
+       " 'case_lat': '40.05',\n",
+       " 'case_lon': '-73.75',\n",
+       " 'case_start_year': '2010',\n",
+       " 'case_end_year': '2010',\n",
+       " 'case_length': '3',\n",
+       " 'filemonth': '07-01-00000',\n",
+       " 'hist_avgflag_pertape': 'A',\n",
+       " 'hist_nhtfrq': '0',\n",
+       " 'hist_mfilt': '12',\n",
+       " 'fsurdat': '/p/scratch/CESMDATAROOT/inputdata/lnd/clm2/surfdata_map/release-clm5.0.18/surfdata_0.9x1.25_hist_16pfts_Irrig_CMIP6_simyr2000_c190214_j.nc',\n",
+       " 'local_fsurdat': '/home/zhonghua/p/scratch/CESMDATAROOT/inputdata/lnd/clm2/surfdata_map/release-clm5.0.18/surfdata_0.9x1.25_hist_16pfts_Irrig_CMIP6_simyr2000_c190214_j.nc'}"
+      ]
+     },
+     "execution_count": 2,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "import json\n",
+    "with open(configpath, 'r') as f:\n",
+    "    config = json.load(f)\n",
+    "config\n",
+    "\n",
+    "# we need the 'local_fsurdat', as we need to change the 'fsurdat' in jupyter notebook in local\n",
+    "# but not in the clmu-app container "
+   ]
+  },
+  {
    "cell_type": "code",
    "execution_count": 1,
    "metadata": {},
@@ -52,41 +165,34 @@
     }
    ],
    "source": [
-    "from utils.cesm import *\n",
-    "\n",
     "print(now_time())\n",
     "\n",
-    "CASESCRIPT = \"/p/project/clm5.0/cime/scripts\"\n",
-    "CASESCRIPT_local = \"/home/zhonghua/p/project/clm5.0/cime/scripts\"\n",
-    "CASEROOT_local = \"/home/zhonghua/p/scratch/CESMDATAROOT/CaseOutputs\"\n",
-    "DOUT_S_ROOT = \"/home/zhonghua/p/scratch/CESMDATAROOT/Archive\"\n",
-    "\n",
-    "scriptpath = \"./scr/PTS_script.sh\"\n",
-    "configpath = \"config_newyork.json\"\n",
+    "# initialize the cesm object\n",
     "cesm = cesm_run(CASESCRIPT, CASESCRIPT_local, CASEROOT_local, DOUT_S_ROOT, configpath)\n",
     "\n",
+    "# create the case script\n",
     "with open(\"/home/zhonghua/p/pyscripts/PTS_script.sh\", \"w\") as f:\n",
     "    f.write(cesm.create_case(scriptpath))\n",
-    "\n",
-    "#print(cesm.create_case(scriptpath))\n",
     "\n",
     "# password = \"***\"\n",
     "password = input(\"Password of server: \")\n",
     "\n",
+    "# reset the case --> clean the case directory\n",
     "cesm.reset_case(password=password)\n",
     "\n",
     "# change the permission of the script\n",
-    "command_0 = \"sudo -S docker exec myclm chmod +x /p/pyscripts/PTS_script.sh\"\n",
+    "command_0 = \"sudo -S docker exec myclmu chmod +x /p/pyscripts/PTS_script.sh\"\n",
     "run_command(command_0, password)\n",
     "\n",
     "# run the script\n",
-    "command = \"sudo -S docker exec myclm sh -c '/p/pyscripts/PTS_script.sh' \"\n",
+    "command = \"sudo -S docker exec myclmu sh -c '/p/pyscripts/PTS_script.sh' \"\n",
     "run_command(command, password)\n",
     "\n",
+    "# get the result\n",
+    "d0 = cesm.nc_view()['HIA_U'] - cesm.nc_view()['HIA_R']\n",
     "# HIA indicates the 2 m NWS Heat Index\n",
     "# HIA_U indicates the 2 m NWS Heat Index urban\n",
-    "# HIA_R indicates the 2 m NWS Heat Index rural \n",
-    "d0 = cesm.nc_view()['HIA_U'] - cesm.nc_view()['HIA_R']"
+    "# HIA_R indicates the 2 m NWS Heat Index rural "
    ]
   },
   {
@@ -123,15 +229,20 @@
     }
    ],
    "source": [
+    "# 1 change the surface albedo, here we change the roof albedo (add 0.3)\n",
     "cesm.modify_surf(var=\"ALB_ROOF_DIR\", action=0.3)\n",
     "run_command(command, password)\n",
     "d_m_roof = cesm.nc_view()['HIA_U'] - cesm.nc_view()['HIA_R']\n",
     "\n",
+    "# 2 change the surface albedo, here we change the wall albedo (add 0.3)\n",
+    "# 2.1 as we add 0.3 to the roof albedo, we need to reset the roof albedo\n",
     "cesm.modify_surf(var=\"ALB_ROOF_DIR\", action=-0.3)\n",
+    "# 2.2 change the wall albedo (add 0.3)\n",
     "cesm.modify_surf(var=\"ALB_WALL_DIR\", action=0.3)\n",
     "run_command(command, password)\n",
     "d_m_wall = cesm.nc_view()['HIA_U'] - cesm.nc_view()['HIA_R']\n",
     "\n",
+    "# 3 change the surface albedo, here we change the roof and wall albedo (add 0.3)\n",
     "cesm.modify_surf(var=\"ALB_ROOF_DIR\", action=0.3)\n",
     "run_command(command, password)\n",
     "d_m_roof_wall = cesm.nc_view()['HIA_U'] - cesm.nc_view()['HIA_R']\n",
@@ -177,7 +288,6 @@
     "\n",
     "print(now_time())\n",
     "fig, ax = plt.subplots(1, 1, figsize=(10, 5))\n",
-    "json_file_path = \"config_newyork.json\"\n",
     "#cesm.nc_view()['HIA_U'].plot(ax = ax)\n",
     "#cesm.nc_view()['HIA_R'].plot(ax = ax)\n",
     "\n",
@@ -216,7 +326,7 @@
    "name": "python",
    "nbconvert_exporter": "python",
    "pygments_lexer": "ipython3",
-   "version": "3.12.0"
+   "version": "3.9.18"
   }
  },
  "nbformat": 4,

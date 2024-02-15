@@ -1,4 +1,4 @@
-# Wrokflow of cesm.py
+# Workflow of cesm.py
 
 Python API for driving clmu-app single point modeling
 

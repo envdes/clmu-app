@@ -2,10 +2,11 @@
 We use the interactive way to run CLM case via docker container
 
 ```
-# start the clm container
-sudo docker start myclm
+# start the clmu container
+sudo docker start myclmu
 
-docker exec -it myclm /bin/bash
+# Use interactivate way to operate container
+docker exec -it myclmu /bin/bash
 # Now we are in the Fedora 31 Bash.
 ```
 
