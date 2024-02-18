@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>How dose the land surface affect the urban cliamte? &mdash; clmu-app v0.0.0 documentation</title>
+  <title>How dose the land surface affect the urban climate? &mdash; clmu-app v0.0.0 documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
       <link rel="stylesheet" type="text/css" href="../_static/nbsphinx-code-cells.css" />
@@ -51,15 +51,16 @@
               <p class="caption" role="heading"><span class="caption-text">CLMU APP container</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../container/1_intro_container.html">Introduction</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../container/2_install_docker.html">Docker Tips for clmu-app</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../container/3_CLMU_env_details.html">CLM ENV Container detail</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../container/2_install_docker.html">Install Docker</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../container/run_container.html">Run container</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../container/4_run_CLM_case.html">Run a CLM case</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../container/3_CLMU_env_details.html">CLM ENV Container detail</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../container/5_python_API.html">Workflow of cesm.py</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Examples</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="Single_point_modeling.html">Single point modeling of CLMU</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">How dose the land surface affect the urban cliamte?</a><ul>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">How dose the land surface affect the urban climate?</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#1-Get-the-shell-script-for-running-CESM/CLM">1 Get the shell script for running CESM/CLM</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#2-Modify-the-surface-data">2 Modify the surface data</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#3-View-the-results">3 View the results</a></li>
@@ -69,7 +70,6 @@
 <p class="caption" role="heading"><span class="caption-text">Exploration</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="explore_up.html">Exploration of climate sensitive of different urban parameters using clmu-app</a></li>
-<li class="toctree-l1"><a class="reference internal" href="explore_up.html#results-preview">Results preview</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">API Reference</span></p>
 <ul>
@@ -90,7 +90,7 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
-      <li class="breadcrumb-item active">How dose the land surface affect the urban cliamte?</li>
+      <li class="breadcrumb-item active">How dose the land surface affect the urban climate?</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../_sources/examples/modify_urban.ipynb.txt" rel="nofollow"> View page source</a>
       </li>
@@ -100,8 +100,8 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="How-dose-the-land-surface-affect-the-urban-cliamte?">
-<h1>How dose the land surface affect the urban cliamte?<a class="headerlink" href="#How-dose-the-land-surface-affect-the-urban-cliamte?" title="Permalink to this heading"></a></h1>
+  <section id="How-dose-the-land-surface-affect-the-urban-climate?">
+<h1>How dose the land surface affect the urban climate?<a class="headerlink" href="#How-dose-the-land-surface-affect-the-urban-climate?" title="Permalink to this heading"></a></h1>
 <p>Junjie Yu, 2023-12-06, Manchester, UK</p>
 <p>ENV: RL_urban; docker container: clmu; docker image: clmu-app:1</p>
 <section id="1-Get-the-shell-script-for-running-CESM/CLM">
@@ -110,14 +110,13 @@
 <p>New York City coordinates can be replaced with other city coordinates</p>
 <p>40°42′46″N 74°00′22″W from <a class="reference external" href="https://en.wikipedia.org/wiki/New_York_City">https://en.wikipedia.org/wiki/New_York_City</a></p>
 <p>New York City = {‘lat’: 40.42, ‘lon’: -74.00}</p>
+<p>Detailed configuration of the simulation are shown in below.</p>
 <p>initialize</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">utils.cesm</span> <span class="kn">import</span> <span class="o">*</span>
-
-
 
 <span class="c1"># the path of the case script, in clmu-app, clm5.0 was installed in /p/project/clm5.0</span>
 <span class="n">CASESCRIPT</span> <span class="o">=</span> <span class="s2">&quot;/p/project/clm5.0/cime/scripts&quot;</span>

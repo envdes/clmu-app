@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Run container &mdash; clmu-app v0.0.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js?v=f3b75425"></script>
+        <script src="../_static/doctools.js?v=888ff710"></script>
+        <script src="../_static/sphinx_highlight.js?v=4825356b"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Run a CLM case" href="4_run_CLM_case.html" />
+    <link rel="prev" title="Install Docker" href="2_install_docker.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            clmu-app
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">CLMU APP container</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="1_intro_container.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2_install_docker.html">Install Docker</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Run container</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#docker">Docker</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#pull-the-clmu-app-image">Pull the clmu-app image</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#build-container">Build container</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#install-clm5-0-installed-in-clmu-app">Install CLM5.0 (installed in clmu-app)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#optional-singularity-container-software-for-hpc">Optional: Singularity (Container software for HPC)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#tips-for-docker-commander">Tips for docker commander</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="4_run_CLM_case.html">Run a CLM case</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3_CLMU_env_details.html">CLM ENV Container detail</a></li>
+<li class="toctree-l1"><a class="reference internal" href="5_python_API.html">Workflow of cesm.py</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Examples</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../examples/Single_point_modeling.html">Single point modeling of CLMU</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../examples/modify_urban.html">How dose the land surface affect the urban climate?</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Exploration</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../examples/explore_up.html">Exploration of climate sensitive of different urban parameters using clmu-app</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">API Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../cesm.html">python API</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">clmu-app</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Run container</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/container/run_container.md.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="run-container">
+<h1>Run container<a class="headerlink" href="#run-container" title="Permalink to this heading"></a></h1>
+<p>We can use docker or singularity to run a container.</p>
+<section id="docker">
+<h2>Docker<a class="headerlink" href="#docker" title="Permalink to this heading"></a></h2>
+<section id="pull-the-clmu-app-image">
+<h3>Pull the clmu-app image<a class="headerlink" href="#pull-the-clmu-app-image" title="Permalink to this heading"></a></h3>
+<p>https://hub.docker.com/, the official sources of docker images.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">docker</span> <span class="n">pull</span> <span class="n">clmu</span><span class="o">-</span><span class="n">app</span> <span class="c1"># pull the image</span>
+</pre></div>
+</div>
+</section>
+<section id="build-container">
+<h3>Build container<a class="headerlink" href="#build-container" title="Permalink to this heading"></a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Do not change the hostname</span>
+<span class="c1"># ContainerName --&gt; user defines</span>
+<span class="n">docker</span> <span class="n">run</span> <span class="o">--</span><span class="n">hostname</span> <span class="n">clmu</span><span class="o">-</span><span class="n">app</span> <span class="o">--</span><span class="n">name</span> <span class="n">ContainerName</span> <span class="o">-</span><span class="n">it</span> <span class="n">clmu</span><span class="o">-</span><span class="n">app</span><span class="p">:</span><span class="mi">1</span>
+</pre></div>
+</div>
+<p>If user wants to change the hostname, make sure to change the configuration of CESM/CTSM. See Ref()</p>
+</section>
+<section id="install-clm5-0-installed-in-clmu-app">
+<h3>Install CLM5.0 (installed in clmu-app)<a class="headerlink" href="#install-clm5-0-installed-in-clmu-app" title="Permalink to this heading"></a></h3>
+<p>The CLM v5.0 was install in /p/project/clm5.0.</p>
+<p>User can install it other dir using commanders below, but make sure the container environment are suitable for the installed CLM.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Noted, clm5.0 has beed installed in /p/project</span>
+<span class="c1"># In the container directory</span>
+<span class="n">cd</span> <span class="o">/</span><span class="n">p</span><span class="o">/</span><span class="n">project</span>
+<span class="n">git</span> <span class="n">clone</span> <span class="o">-</span><span class="n">b</span> <span class="n">release</span><span class="o">-</span><span class="n">clm5</span><span class="mf">.0</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">ESCOMP</span><span class="o">/</span><span class="n">CTSM</span><span class="o">.</span><span class="n">git</span> <span class="n">clm5</span><span class="mf">.0</span>
+<span class="n">cd</span> <span class="n">clm5</span><span class="mf">.0</span>
+<span class="o">./</span><span class="n">manage_externals</span><span class="o">/</span><span class="n">checkout_externals</span>
+
+<span class="c1"># Check if all components needed are downloaded</span>
+<span class="o">./</span><span class="n">manage_externals</span><span class="o">/</span><span class="n">checkout_externals</span> <span class="o">-</span><span class="n">S</span>
+</pre></div>
+</div>
+<p>If you want to modify model configuration, please refer to <a class="reference external" href="https://bb.cgd.ucar.edu/cesm/threads/issue-installing-on-centos-8-with-slurm-and-lmod.5884/#post-39110">key notes for setting config_manchine.xml</a>.</p>
+</section>
+<section id="optional-singularity-container-software-for-hpc">
+<h3>Optional: Singularity (Container software for HPC)<a class="headerlink" href="#optional-singularity-container-software-for-hpc" title="Permalink to this heading"></a></h3>
+<p>Singularity is a container software usually employed in HPC. It provides a mechanism to run containers where containers can be used to package entire scientific workflows, software and libraries, and even data.
+Ref: https://ri.itservices.manchester.ac.uk/csf3/software/applications/singularity/</p>
+<p>Using Singularity from the docker image</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Save image as tar file</span>
+<span class="n">docker</span> <span class="n">save</span> <span class="o">-</span><span class="n">o</span> <span class="o">~/</span><span class="n">docker</span><span class="o">/</span><span class="n">clmu</span><span class="o">-</span><span class="n">app</span><span class="o">.</span><span class="n">tar</span> <span class="n">clmu</span><span class="o">-</span><span class="n">app</span><span class="p">:</span><span class="mi">1</span>
+<span class="c1"># Transport tar file</span>
+<span class="n">scp</span> <span class="o">~/</span><span class="n">docker</span><span class="o">/</span><span class="n">clmu</span><span class="o">-</span><span class="n">app</span><span class="o">.</span><span class="n">tar</span> <span class="o">...</span>
+<span class="c1"># Biuld image form tar</span>
+<span class="n">singularity</span> <span class="n">build</span> <span class="n">clmu</span><span class="o">-</span><span class="n">app</span><span class="o">.</span><span class="n">sif</span> <span class="n">docker</span><span class="o">-</span><span class="n">archive</span><span class="p">:</span><span class="o">//</span><span class="n">clmu</span><span class="o">-</span><span class="n">app</span><span class="o">.</span><span class="n">tar</span>
+
+<span class="c1"># run the container via sif image</span>
+<span class="c1"># singularity only need image to run container</span>
+<span class="n">singularity</span> <span class="n">run</span> <span class="o">--</span><span class="n">hostname</span> <span class="n">clmu</span><span class="o">-</span><span class="n">app</span> <span class="n">clmu</span><span class="o">-</span><span class="n">app</span><span class="o">.</span><span class="n">sif</span> 
+<span class="c1"># we can also bind the p dir in local to contianer</span>
+<span class="n">singularity</span> <span class="n">run</span> <span class="o">--</span><span class="n">hostname</span> <span class="n">clmu</span><span class="o">-</span><span class="n">app</span> <span class="o">-</span><span class="n">B</span> <span class="s2">&quot;$(pwd)&quot;</span><span class="o">/</span><span class="n">p</span><span class="p">:</span><span class="o">/</span><span class="n">p</span> <span class="n">clmu</span><span class="o">-</span><span class="n">app</span><span class="o">.</span><span class="n">sif</span> 
+<span class="c1"># Do not change hostname, either need to change cime.config file </span>
+
+<span class="c1"># Note to export the environment variables if using singularity clmu-app</span>
+<span class="c1"># Export CLM5 environment variables</span>
+<span class="n">export</span> <span class="n">PROJECT</span><span class="o">=/</span><span class="n">p</span><span class="o">/</span><span class="n">project</span>
+<span class="n">export</span> <span class="n">SCRATCH</span><span class="o">=/</span><span class="n">p</span><span class="o">/</span><span class="n">scratch</span>
+<span class="n">export</span> <span class="n">BUDGET_ACCOUNTS</span><span class="o">=</span><span class="n">slts</span>
+<span class="n">export</span> <span class="n">CESMDATAROOT</span><span class="o">=/</span><span class="n">p</span><span class="o">/</span><span class="n">scratch</span><span class="o">/</span><span class="n">CESMDATAROOT</span>
+<span class="n">export</span> <span class="n">CSMDATA</span><span class="o">=/</span><span class="n">p</span><span class="o">/</span><span class="n">scratch</span><span class="o">/</span><span class="n">CESMDATAROOT</span><span class="o">/</span><span class="n">inputdata</span>
+<span class="n">export</span> <span class="n">CASESCRIPT</span><span class="o">=/</span><span class="n">p</span><span class="o">/</span><span class="n">project</span><span class="o">/</span><span class="n">myclm</span><span class="o">/</span><span class="n">cime</span><span class="o">/</span><span class="n">scripts</span>
+</pre></div>
+</div>
+</section>
+<section id="tips-for-docker-commander">
+<h3>Tips for docker commander<a class="headerlink" href="#tips-for-docker-commander" title="Permalink to this heading"></a></h3>
+<ul class="simple">
+<li><p>docker ps: check for the running container</p></li>
+<li><p>docker stop <container-id>: stop the container</p></li>
+<li><p>docker start <container-id>: start the container</p></li>
+<li><p>docker restart <container-id>: restart the container</p></li>
+<li><p>docker rm <container-id>: remove a container</p></li>
+<li><p>docker logs <container-id>: check the logs</p></li>
+<li><p>docker exec -it <container-id> /bin/bash: get into a running docker container with Bash shell</p></li>
+</ul>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="2_install_docker.html" class="btn btn-neutral float-left" title="Install Docker" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="4_run_CLM_case.html" class="btn btn-neutral float-right" title="Run a CLM case" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, Junjie Yu.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -25,7 +25,7 @@
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="How dose the land surface affect the urban cliamte?" href="modify_urban.html" />
+    <link rel="next" title="How dose the land surface affect the urban climate?" href="modify_urban.html" />
     <link rel="prev" title="Workflow of cesm.py" href="../container/5_python_API.html" /> 
 </head>
 
@@ -51,9 +51,10 @@
               <p class="caption" role="heading"><span class="caption-text">CLMU APP container</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../container/1_intro_container.html">Introduction</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../container/2_install_docker.html">Docker Tips for clmu-app</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../container/3_CLMU_env_details.html">CLM ENV Container detail</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../container/2_install_docker.html">Install Docker</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../container/run_container.html">Run container</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../container/4_run_CLM_case.html">Run a CLM case</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../container/3_CLMU_env_details.html">CLM ENV Container detail</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../container/5_python_API.html">Workflow of cesm.py</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Examples</span></p>
@@ -64,12 +65,11 @@
 <li class="toctree-l2"><a class="reference internal" href="#3-View-the-results">3 View the results</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="modify_urban.html">How dose the land surface affect the urban cliamte?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modify_urban.html">How dose the land surface affect the urban climate?</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Exploration</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="explore_up.html">Exploration of climate sensitive of different urban parameters using clmu-app</a></li>
-<li class="toctree-l1"><a class="reference internal" href="explore_up.html#results-preview">Results preview</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">API Reference</span></p>
 <ul>
@@ -110,6 +110,8 @@
 <p>New York City coordinates can be replaced with other city coordinates</p>
 <p>40°42′46″N 74°00′22″W from <a class="reference external" href="https://en.wikipedia.org/wiki/New_York_City">https://en.wikipedia.org/wiki/New_York_City</a></p>
 <p>New York City = {‘lat’: 40.42, ‘lon’: -74.00}</p>
+<p>This case was forced with data from the previous simulation under SSP3-7.0 scenario. <a class="reference external" href="https://escomp.github.io/ctsm-docs/versions/master/html/users_guide/running-special-cases/Running-with-your-own-previous-simulation-as-atmospheric-forcing-to-spinup-the-model.html">ref</a></p>
+<p>This case requires users to manually download certain forcing data and make changes to the case configuration. Therefore, the user can choose to practice with a CTSM history simulation, which will automatically download all the required data for the user.</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
 </pre></div>
@@ -685,7 +687,7 @@ Current time: 2023-12-09 16:29:16
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../_images/examples_Single_point_modeling_8_1.png" src="../_images/examples_Single_point_modeling_8_1.png" />
+<img alt="../_images/examples_Single_point_modeling_9_1.png" src="../_images/examples_Single_point_modeling_9_1.png" />
 </div>
 </div>
 </section>
@@ -696,7 +698,7 @@ Current time: 2023-12-09 16:29:16
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="../container/5_python_API.html" class="btn btn-neutral float-left" title="Workflow of cesm.py" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="modify_urban.html" class="btn btn-neutral float-right" title="How dose the land surface affect the urban cliamte?" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="modify_urban.html" class="btn btn-neutral float-right" title="How dose the land surface affect the urban climate?" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

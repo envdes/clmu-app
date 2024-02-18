@@ -16,6 +16,14 @@ See more details in [CLM Technical Note](https://escomp.github.io/ctsm-docs/vers
 
 Running CMLU within CLM (Community Land Model) requires a Linux operation system with certain [software requirements](https://escomp.github.io/CESM/versions/cesm2.2/html/introduction.html#cesm2-software-operating-system-prerequisites). Without professional support from technicians, it is a challenge for scientists or other potential users to port the CLM running environment by themselves. Here, we use a container to build an ENV fitting the recent version of [CTSM/CLM](https://github.com/ESCOMP/CTSM). Further, we can apply the container on cloud platforms or local computers to conduct some interesting experiments.
 
+### User notice
+
+Running a global CESM/CTSM case requires a lot of computing resources that cannot be done on a local computer. Therefore, the clmu-app only serves a single point of simulation, and it is not recommended to use container for global simulation. In addition, running a long CESM/CTSM case requires a lot of forcing data, so running it locally will also be taxing. Therefore, we recommend using this container for the following related research:
+
+- single point case, [ref](https://escomp.github.io/ctsm-docs/versions/master/html/users_guide/running-single-points/index.html)
+- test case on local before an expensive simulation
+- test parameter sensitivity
+
 ### [Python for urban climate exploration](5_python_API.md)
 We apply some Python codes to help run a case of CLM to explore urban climate. 
 

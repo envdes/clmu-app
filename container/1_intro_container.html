@@ -22,7 +22,7 @@
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Docker Tips for clmu-app" href="2_install_docker.html" />
+    <link rel="next" title="Install Docker" href="2_install_docker.html" />
     <link rel="prev" title="CLMU APP" href="../index.html" /> 
 </head>
 
@@ -51,23 +51,24 @@
 <li class="toctree-l2"><a class="reference internal" href="#what-is-a-container">What is a container?</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#what-is-clmu">What is CLMU?</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#why-use-a-container-for-clmu">Why use a container for CLMU?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#user-notice">User notice</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#python-for-urban-climate-exploration">Python for urban climate exploration</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="2_install_docker.html">Docker Tips for clmu-app</a></li>
-<li class="toctree-l1"><a class="reference internal" href="3_CLMU_env_details.html">CLM ENV Container detail</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2_install_docker.html">Install Docker</a></li>
+<li class="toctree-l1"><a class="reference internal" href="run_container.html">Run container</a></li>
 <li class="toctree-l1"><a class="reference internal" href="4_run_CLM_case.html">Run a CLM case</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3_CLMU_env_details.html">CLM ENV Container detail</a></li>
 <li class="toctree-l1"><a class="reference internal" href="5_python_API.html">Workflow of cesm.py</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Examples</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../examples/Single_point_modeling.html">Single point modeling of CLMU</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../examples/modify_urban.html">How dose the land surface affect the urban cliamte?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../examples/modify_urban.html">How dose the land surface affect the urban climate?</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Exploration</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../examples/explore_up.html">Exploration of climate sensitive of different urban parameters using clmu-app</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../examples/explore_up.html#results-preview">Results preview</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">API Reference</span></p>
 <ul>
@@ -114,6 +115,15 @@
 <h2>Why use a container for CLMU?<a class="headerlink" href="#why-use-a-container-for-clmu" title="Permalink to this heading"></a></h2>
 <p>Running CMLU within CLM (Community Land Model) requires a Linux operation system with certain <a class="reference external" href="https://escomp.github.io/CESM/versions/cesm2.2/html/introduction.html#cesm2-software-operating-system-prerequisites">software requirements</a>. Without professional support from technicians, it is a challenge for scientists or other potential users to port the CLM running environment by themselves. Here, we use a container to build an ENV fitting the recent version of <a class="reference external" href="https://github.com/ESCOMP/CTSM">CTSM/CLM</a>. Further, we can apply the container on cloud platforms or local computers to conduct some interesting experiments.</p>
 </section>
+<section id="user-notice">
+<h2>User notice<a class="headerlink" href="#user-notice" title="Permalink to this heading"></a></h2>
+<p>Running a global CESM/CTSM case requires a lot of computing resources that cannot be done on a local computer. Therefore, the clmu-app only serves a single point of simulation, and it is not recommended to use container for global simulation. In addition, running a long CESM/CTSM case requires a lot of forcing data, so running it locally will also be taxing. Therefore, we recommend using this container for the following related research:</p>
+<ul class="simple">
+<li><p>single point case, <a class="reference external" href="https://escomp.github.io/ctsm-docs/versions/master/html/users_guide/running-single-points/index.html">ref</a></p></li>
+<li><p>test case on local before an expensive simulation</p></li>
+<li><p>test parameter sensitivity</p></li>
+</ul>
+</section>
 <section id="python-for-urban-climate-exploration">
 <h2><a class="reference internal" href="5_python_API.html"><span class="doc">Python for urban climate exploration</span></a><a class="headerlink" href="#python-for-urban-climate-exploration" title="Permalink to this heading"></a></h2>
 <p>We apply some Python codes to help run a case of CLM to explore urban climate.</p>
@@ -125,7 +135,7 @@
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="../index.html" class="btn btn-neutral float-left" title="CLMU APP" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="2_install_docker.html" class="btn btn-neutral float-right" title="Docker Tips for clmu-app" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="2_install_docker.html" class="btn btn-neutral float-right" title="Install Docker" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

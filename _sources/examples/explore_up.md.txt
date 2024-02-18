@@ -1,14 +1,15 @@
 # Exploration of climate sensitive of different urban parameters using clmu-app
-Junjie Yu 2024-02-15, Manchester
----
-As the examples describe, one of the useful function of clmu-app is to explore the change climate with a changing urban surface parameters. Investigating this, we can gain information on urban planning/design or offer opportunities for other urban related subjects.
+
+
+As the examples describe, one of the useful functions of clmu-app is to explore the urban climate with a changing urban surface parameters. Investigating this, we can gain information on urban planning/design or offer opportunities for other urban related subjects.
 
 Here we explored the 24 gird that contains most developed cities in the world (ref: https://en.wikipedia.org/wiki/Globalization_and_World_Cities_Research_Network ). 
 
 We selected three categories of urban parameters, including morphological, radiative and thermal index.
 
-# Results preview
----
+**Results preview**
+
+
 Env: clmu-app
 
 - Forcing: DATM SSP370
@@ -38,8 +39,8 @@ Each urban surface parameters increased by 1.2 times respectively.
 ![Alt text](figs/TSA_diff_thm.png "Thermal sensitives.")
 <center>Thermal sensitives. </a></center>
 
-### ref code
----
+**ref code**
+
 ```
 
 import os

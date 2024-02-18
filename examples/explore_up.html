@@ -23,7 +23,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="python API" href="../cesm.html" />
-    <link rel="prev" title="How dose the land surface affect the urban cliamte?" href="modify_urban.html" /> 
+    <link rel="prev" title="How dose the land surface affect the urban climate?" href="modify_urban.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -48,26 +48,20 @@
               <p class="caption" role="heading"><span class="caption-text">CLMU APP container</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../container/1_intro_container.html">Introduction</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../container/2_install_docker.html">Docker Tips for clmu-app</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../container/3_CLMU_env_details.html">CLM ENV Container detail</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../container/2_install_docker.html">Install Docker</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../container/run_container.html">Run container</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../container/4_run_CLM_case.html">Run a CLM case</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../container/3_CLMU_env_details.html">CLM ENV Container detail</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../container/5_python_API.html">Workflow of cesm.py</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Examples</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="Single_point_modeling.html">Single point modeling of CLMU</a></li>
-<li class="toctree-l1"><a class="reference internal" href="modify_urban.html">How dose the land surface affect the urban cliamte?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modify_urban.html">How dose the land surface affect the urban climate?</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Exploration</span></p>
 <ul class="current">
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Exploration of climate sensitive of different urban parameters using clmu-app</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#junjie-yu-2024-02-15-manchester">Junjie Yu 2024-02-15, Manchester</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="#results-preview">Results preview</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#ref-code">ref code</a></li>
-</ul>
-</li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Exploration of climate sensitive of different urban parameters using clmu-app</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">API Reference</span></p>
 <ul>
@@ -100,16 +94,10 @@
              
   <section id="exploration-of-climate-sensitive-of-different-urban-parameters-using-clmu-app">
 <h1>Exploration of climate sensitive of different urban parameters using clmu-app<a class="headerlink" href="#exploration-of-climate-sensitive-of-different-urban-parameters-using-clmu-app" title="Permalink to this heading"></a></h1>
-<section id="junjie-yu-2024-02-15-manchester">
-<h2>Junjie Yu 2024-02-15, Manchester<a class="headerlink" href="#junjie-yu-2024-02-15-manchester" title="Permalink to this heading"></a></h2>
-<p>As the examples describe, one of the useful function of clmu-app is to explore the change climate with a changing urban surface parameters. Investigating this, we can gain information on urban planning/design or offer opportunities for other urban related subjects.</p>
+<p>As the examples describe, one of the useful functions of clmu-app is to explore the urban climate with a changing urban surface parameters. Investigating this, we can gain information on urban planning/design or offer opportunities for other urban related subjects.</p>
 <p>Here we explored the 24 gird that contains most developed cities in the world (ref: https://en.wikipedia.org/wiki/Globalization_and_World_Cities_Research_Network ).</p>
 <p>We selected three categories of urban parameters, including morphological, radiative and thermal index.</p>
-</section>
-</section>
-<section id="results-preview">
-<h1>Results preview<a class="headerlink" href="#results-preview" title="Permalink to this heading"></a></h1>
-<hr class="docutils" />
+<p><strong>Results preview</strong></p>
 <p>Env: clmu-app</p>
 <ul class="simple">
 <li><p>Forcing: DATM SSP370</p></li>
@@ -129,9 +117,7 @@ Each urban surface parameters increased by 1.2 times respectively.</p>
 <p><img alt="Alt text" src="../_images/TSA_diff_mod.png" /></p>
 <center>Morphological sensitives. </a></center><hr class="docutils" />
 <p><img alt="Alt text" src="../_images/TSA_diff_thm.png" /></p>
-<center>Thermal sensitives. </a></center><section id="ref-code">
-<h2>ref code<a class="headerlink" href="#ref-code" title="Permalink to this heading"></a></h2>
-<hr class="docutils" />
+<center>Thermal sensitives. </a></center><p><strong>ref code</strong></p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
 <span class="kn">import</span> <span class="nn">os</span>
 <span class="n">os</span><span class="o">.</span><span class="n">chdir</span><span class="p">(</span><span class="s1">&#39;/home/zhonghua/docker/DRL_urban_climate_adaptation/RLctsm/&#39;</span><span class="p">)</span>
@@ -252,13 +238,12 @@ Each urban surface parameters increased by 1.2 times respectively.</p>
 </pre></div>
 </div>
 </section>
-</section>
 
 
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="modify_urban.html" class="btn btn-neutral float-left" title="How dose the land surface affect the urban cliamte?" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="modify_urban.html" class="btn btn-neutral float-left" title="How dose the land surface affect the urban climate?" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
         <a href="../cesm.html" class="btn btn-neutral float-right" title="python API" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 

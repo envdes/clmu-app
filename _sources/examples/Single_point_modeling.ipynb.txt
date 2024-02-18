@@ -31,6 +31,16 @@
    ]
   },
   {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "This case was forced with data from the previous simulation under SSP3-7.0 scenario. [ref](https://escomp.github.io/ctsm-docs/versions/master/html/users_guide/running-special-cases/Running-with-your-own-previous-simulation-as-atmospheric-forcing-to-spinup-the-model.html)\n",
+    "\n",
+    "This case requires users to manually download certain forcing data and make changes to the case configuration. Therefore, the user can choose to practice with a CTSM history simulation, which will automatically download all the required data for the user.\n",
+    "\n"
+   ]
+  },
+  {
    "cell_type": "code",
    "execution_count": 1,
    "metadata": {},
