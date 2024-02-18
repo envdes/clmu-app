@@ -31,8 +31,9 @@ Author: `Junjie Yu <https://junjieyu-uom.github.io>`_, `Dr. Zhonghua Zheng <http
 
    container/1_intro_container.md
    container/2_install_docker.md
-   container/3_CLMU_env_details.md
+   container/run_container.md
    container/4_run_CLM_case.md
+   container/3_CLMU_env_details.md
    container/5_python_API.md
 
 .. toctree::
