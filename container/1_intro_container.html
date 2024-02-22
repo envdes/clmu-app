@@ -117,12 +117,30 @@
 </section>
 <section id="user-notice">
 <h2>User notice<a class="headerlink" href="#user-notice" title="Permalink to this heading"></a></h2>
-<p>Running a global CESM/CTSM case requires a lot of computing resources that cannot be done on a local computer. Therefore, the clmu-app only serves a single point of simulation, and it is not recommended to use container for global simulation. In addition, running a long CESM/CTSM case requires a lot of forcing data, so running it locally will also be taxing. Therefore, we recommend using this container for the following related research:</p>
+<p>Running a global CESM/CTSM case requires a lot of computing resources that cannot be done on a local computer. Therefore, the clmu-app only serves a single point of simulation, and it is not recommended to use container for global simulation. Therefore, we recommend using this container for the following related research:</p>
 <ul class="simple">
-<li><p>single point case, <a class="reference external" href="https://escomp.github.io/ctsm-docs/versions/master/html/users_guide/running-single-points/index.html">ref</a></p></li>
+<li><p>single point case <a class="reference external" href="https://escomp.github.io/ctsm-docs/versions/master/html/users_guide/running-single-points/running-pts_mode-configurations.html">PTS mode</a></p></li>
 <li><p>test case on local before an expensive simulation</p></li>
 <li><p>test parameter sensitivity</p></li>
 </ul>
+<p><strong>Notice</strong>
+The clmu-app currently does not provide ESMF as we want a compact container. The ESMF is important for making your own data of other mode of single points. We recommend to prepare the date out of the clmu-app, and then bind/import them to clmu-app to run the special single point case. If ESMF is still need, user can install it as follow:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Required envs for building libraries</span>
+<span class="n">ENV</span> <span class="n">ESMF_DIR</span><span class="o">=/</span><span class="n">tmp</span><span class="o">/</span><span class="n">bld</span><span class="o">/</span><span class="n">esmf</span><span class="o">-</span><span class="n">ESMF_8_0_1</span>
+<span class="n">ENV</span> <span class="n">ESMF_INSTALL_PREFIX</span><span class="o">=/</span><span class="n">usr</span><span class="o">/</span><span class="n">local</span>
+<span class="n">ENV</span> <span class="n">ESMF_INSTALL_MODDIR</span><span class="o">=</span><span class="n">include</span>
+<span class="n">ENV</span> <span class="n">ESMF_INSTALL_LIBDIR</span><span class="o">=</span><span class="n">lib</span>
+<span class="n">ENV</span> <span class="n">ESMF_INSTALL_BINDIR</span><span class="o">=</span><span class="nb">bin</span>
+<span class="n">ENV</span> <span class="n">PATH</span><span class="o">=</span><span class="s2">&quot;/usr/lib64/openmpi/bin:$</span><span class="si">{PATH}</span><span class="s2">&quot;</span>
+
+<span class="c1"># Build and install ESMF libraries</span>
+<span class="n">cd</span> <span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">bld</span> 
+<span class="n">wget</span> <span class="o">-</span><span class="n">c</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">esmf</span><span class="o">-</span><span class="n">org</span><span class="o">/</span><span class="n">esmf</span><span class="o">/</span><span class="n">archive</span><span class="o">/</span><span class="n">ESMF_8_0_1</span><span class="o">.</span><span class="n">tar</span><span class="o">.</span><span class="n">gz</span> 
+<span class="n">tar</span> <span class="n">zxf</span> <span class="n">ESMF_8_0_1</span><span class="o">.</span><span class="n">tar</span><span class="o">.</span><span class="n">gz</span> 
+<span class="n">cd</span> <span class="n">esmf</span><span class="o">-</span><span class="n">ESMF_8_0_1</span> 
+<span class="n">make</span> <span class="o">-</span><span class="n">j</span> <span class="o">&amp;&amp;</span> <span class="n">make</span> <span class="n">install</span> 
+</pre></div>
+</div>
 </section>
 <section id="python-for-urban-climate-exploration">
 <h2><a class="reference internal" href="5_python_API.html"><span class="doc">Python for urban climate exploration</span></a><a class="headerlink" href="#python-for-urban-climate-exploration" title="Permalink to this heading"></a></h2>
