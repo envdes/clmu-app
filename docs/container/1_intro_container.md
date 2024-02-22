@@ -18,11 +18,31 @@ Running CMLU within CLM (Community Land Model) requires a Linux operation system
 
 ### User notice
 
-Running a global CESM/CTSM case requires a lot of computing resources that cannot be done on a local computer. Therefore, the clmu-app only serves a single point of simulation, and it is not recommended to use container for global simulation. In addition, running a long CESM/CTSM case requires a lot of forcing data, so running it locally will also be taxing. Therefore, we recommend using this container for the following related research:
+Running a global CESM/CTSM case requires a lot of computing resources that cannot be done on a local computer. Therefore, the clmu-app only serves a single point of simulation, and it is not recommended to use container for global simulation. Therefore, we recommend using this container for the following related research:
 
-- single point case, [ref](https://escomp.github.io/ctsm-docs/versions/master/html/users_guide/running-single-points/index.html)
+- single point case [PTS mode](https://escomp.github.io/ctsm-docs/versions/master/html/users_guide/running-single-points/running-pts_mode-configurations.html)
 - test case on local before an expensive simulation
 - test parameter sensitivity
+
+**Notice**
+The clmu-app currently does not provide ESMF as we want a compact container. The ESMF is important for making your own data of other mode of single points. We recommend to prepare the date out of the clmu-app, and then bind/import them to clmu-app to run the special single point case. If ESMF is still need, user can install it as follow:
+
+```
+# Required envs for building libraries
+ENV ESMF_DIR=/tmp/bld/esmf-ESMF_8_0_1
+ENV ESMF_INSTALL_PREFIX=/usr/local
+ENV ESMF_INSTALL_MODDIR=include
+ENV ESMF_INSTALL_LIBDIR=lib
+ENV ESMF_INSTALL_BINDIR=bin
+ENV PATH="/usr/lib64/openmpi/bin:${PATH}"
+
+# Build and install ESMF libraries
+cd /tmp/bld 
+wget -c https://github.com/esmf-org/esmf/archive/ESMF_8_0_1.tar.gz 
+tar zxf ESMF_8_0_1.tar.gz 
+cd esmf-ESMF_8_0_1 
+make -j && make install 
+```
 
 ### [Python for urban climate exploration](5_python_API.md)
 We apply some Python codes to help run a case of CLM to explore urban climate. 
