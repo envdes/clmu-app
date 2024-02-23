@@ -21,7 +21,9 @@
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
-    <link rel="search" title="Search" href="../search.html" /> 
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Install Docker" href="install_docker.html" />
+    <link rel="prev" title="CLMU APP" href="../index.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -44,8 +46,14 @@
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption" role="heading"><span class="caption-text">CLMU APP container</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="intro.html">Introduction</a></li>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Introduction</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#id1">What is a container?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#what-is-clmu">What is CLMU?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#why-use-a-container-for-clmu">Why use a container for CLMU?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#python-for-urban-climate-exploration">Python for urban climate exploration</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="install_docker.html">Install Docker</a></li>
 <li class="toctree-l1"><a class="reference internal" href="run_container.html">Run container</a></li>
 <li class="toctree-l1"><a class="reference internal" href="4_run_CLM_case.html">Run a CLM case</a></li>
@@ -82,7 +90,7 @@
       <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
       <li class="breadcrumb-item active">Introduction</li>
       <li class="wy-breadcrumbs-aside">
-            <a href="../_sources/container/1_intro_container.md.txt" rel="nofollow"> View page source</a>
+            <a href="../_sources/container/intro.rst.txt" rel="nofollow"> View page source</a>
       </li>
   </ul>
   <hr/>
@@ -92,51 +100,36 @@
              
   <section id="introduction">
 <h1>Introduction<a class="headerlink" href="#introduction" title="Permalink to this heading"></a></h1>
-<section id="what-is-a-container">
-<h2><a class="reference external" href="https://docs.docker.com/guides/walkthroughs/what-is-a-container/">What is a container?</a><a class="headerlink" href="#what-is-a-container" title="Permalink to this heading"></a></h2>
+<section id="id1">
+<h2><a class="reference external" href="https://docs.docker.com/guides/walkthroughs/what-is-a-container/">What is a container?</a><a class="headerlink" href="#id1" title="Permalink to this heading"></a></h2>
 <p>From docker: A container is an isolated environment for your code. This means that a container does not know the machine’s operating system or your files. It runs on the environment provided to you by Docker Desktop. Containers have everything that your code needs to run, down to a base operating system. You can use Docker Desktop to manage and explore your containers.</p>
 </section>
 <section id="what-is-clmu">
 <h2>What is CLMU?<a class="headerlink" href="#what-is-clmu" title="Permalink to this heading"></a></h2>
 <p>CLMU is the Community Land Model-Urban, hosted by the National Center for Atmospheric Research (NCAR). CLMU acts as an urban model with a single-layer canopy scheme under the Earth system model hierarchy.</p>
 <p>See more details in <a class="reference external" href="https://escomp.github.io/ctsm-docs/versions/master/html/tech_note/Urban/CLM50_Tech_Note_Urban.html">CLM Technical Note</a>.</p>
-<p><img alt="Alt text" src="../_images/clmu.jpg" /></p>
-<center>Urban parameterization in CLMU. <a href="https://escomp.github.io/ctsm-docs/versions/master/html/tech_note/Urban/CLM50_Tech_Note_Urban.html">(Fig sources)</a></center></section>
+<a class="reference external image-reference" href="https://escomp.github.io/ctsm-docs/versions/master/html/tech_note/Urban/CLM50_Tech_Note_Urban.html"><img alt="CLMU" class="align-center" src="../_images/clmu.jpg" /></a>
+</section>
 <section id="why-use-a-container-for-clmu">
 <h2>Why use a container for CLMU?<a class="headerlink" href="#why-use-a-container-for-clmu" title="Permalink to this heading"></a></h2>
 <p>Running CMLU within CLM (Community Land Model) requires a Linux operation system with certain <a class="reference external" href="https://escomp.github.io/CESM/versions/cesm2.2/html/introduction.html#cesm2-software-operating-system-prerequisites">software requirements</a>. Without professional support from technicians, it is a challenge for scientists or other potential users to port the CLM running environment by themselves. Here, we use a container to build an ENV fitting the recent version of <a class="reference external" href="https://github.com/ESCOMP/CTSM">CTSM/CLM</a>. Further, we can apply the container on cloud platforms or local computers to conduct some interesting experiments.</p>
-</section>
-<section id="user-notice">
-<h2>User notice<a class="headerlink" href="#user-notice" title="Permalink to this heading"></a></h2>
-<p>Running a global CESM/CTSM case requires a lot of computing resources that cannot be done on a local computer. Therefore, the clmu-app only serves a single point of simulation, and it is not recommended to use container for global simulation. Therefore, we recommend using this container for the following related research:</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Running a global CESM/CTSM case requires a lot of computing resources that <strong>HARDLY</strong> be done on a local computer. Therefore, the clmu-app only serves a <strong>single point</strong> of simulation, and it is not recommended to use container for global simulation. Therefore, we recommend using this container for the following related research:</p>
 <ul class="simple">
-<li><p>single point case <a class="reference external" href="https://escomp.github.io/ctsm-docs/versions/master/html/users_guide/running-single-points/running-pts_mode-configurations.html">PTS mode</a></p></li>
+<li><p>single point case, e.g., <a class="reference external" href="https://escomp.github.io/ctsm-docs/versions/master/html/users_guide/running-single-points/running-pts_mode-configurations.html">PTS mode</a></p></li>
 <li><p>test case on local before an expensive simulation</p></li>
-<li><p>test parameter sensitivity</p></li>
+<li><p>urban climate exploration e.g., test urban parameter sensitivity</p></li>
 </ul>
-<p><strong>Notice1</strong>
-PTS mode currently CAN NOT run with initial conditions., however, we can still can take advantage of this mode. Firstly, we can run case for longer time simulation to get the stable conditions. Moreover, although the land use models is model simulations are sensitive to initial soil moisture conditions, the urban module (CLMU) is less affected by soil. We compared two cases of different simulation time of New York Grid <code class="docutils literal notranslate"><span class="pre">lat=40.05</span></code>, <code class="docutils literal notranslate"><span class="pre">lon=-73.75</span></code>, <code class="docutils literal notranslate"><span class="pre">res=f09_g16</span></code>, <code class="docutils literal notranslate"><span class="pre">compset=2000_DATM%CRUv7_CLM50%SP_SICE_SOCN_SROF_SGLC_SWAV</span></code>. The 2015 JJA average <code class="docutils literal notranslate"><span class="pre">TREFMXAV</span></code> of High density urban between the case of simulation time of 2005-2015 and the case of simulation time of 2015 JJA were compared. Their difference is <code class="docutils literal notranslate"><span class="pre">0.009</span> <span class="pre">K</span></code>. However, it should be noted that the difference in <code class="docutils literal notranslate"><span class="pre">vegetated_or_bare_soil</span></code> land unit is <code class="docutils literal notranslate"><span class="pre">0.123</span> <span class="pre">K</span></code>, which is more significantly affected than urban. We recommend a long time simulation or spin-up for the experiments need non-urban variables.</p>
-<p><strong>Notice2</strong>
-The clmu-app currently does not provide ESMF as we want a compact container. The ESMF is important for making your own data of other mode of single points. We recommend to prepare the date out of the clmu-app, and then bind/import them to clmu-app to run the special single point case. If ESMF is still need, user can install it as follow:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Required envs for building libraries</span>
-<span class="n">ENV</span> <span class="n">ESMF_DIR</span><span class="o">=/</span><span class="n">tmp</span><span class="o">/</span><span class="n">bld</span><span class="o">/</span><span class="n">esmf</span><span class="o">-</span><span class="n">ESMF_8_0_1</span>
-<span class="n">ENV</span> <span class="n">ESMF_INSTALL_PREFIX</span><span class="o">=/</span><span class="n">usr</span><span class="o">/</span><span class="n">local</span>
-<span class="n">ENV</span> <span class="n">ESMF_INSTALL_MODDIR</span><span class="o">=</span><span class="n">include</span>
-<span class="n">ENV</span> <span class="n">ESMF_INSTALL_LIBDIR</span><span class="o">=</span><span class="n">lib</span>
-<span class="n">ENV</span> <span class="n">ESMF_INSTALL_BINDIR</span><span class="o">=</span><span class="nb">bin</span>
-<span class="n">ENV</span> <span class="n">PATH</span><span class="o">=</span><span class="s2">&quot;/usr/lib64/openmpi/bin:$</span><span class="si">{PATH}</span><span class="s2">&quot;</span>
-
-<span class="c1"># Build and install ESMF libraries</span>
-<span class="n">cd</span> <span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">bld</span> 
-<span class="n">wget</span> <span class="o">-</span><span class="n">c</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">esmf</span><span class="o">-</span><span class="n">org</span><span class="o">/</span><span class="n">esmf</span><span class="o">/</span><span class="n">archive</span><span class="o">/</span><span class="n">ESMF_8_0_1</span><span class="o">.</span><span class="n">tar</span><span class="o">.</span><span class="n">gz</span> 
-<span class="n">tar</span> <span class="n">zxf</span> <span class="n">ESMF_8_0_1</span><span class="o">.</span><span class="n">tar</span><span class="o">.</span><span class="n">gz</span> 
-<span class="n">cd</span> <span class="n">esmf</span><span class="o">-</span><span class="n">ESMF_8_0_1</span> 
-<span class="n">make</span> <span class="o">-</span><span class="n">j</span> <span class="o">&amp;&amp;</span> <span class="n">make</span> <span class="n">install</span> 
-</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>PTS mode currently <strong>CAN NOT</strong> run with initial conditions., however, we can still can take advantage of this mode. Firstly, we can run case for longer time simulation to get the stable conditions. Moreover, although the land use models is model simulations are sensitive to initial soil moisture conditions, the urban module (CLMU) is less affected by soil.</p>
+<p>We compared two cases of different simulation time of New York Grid <code class="docutils literal notranslate"><span class="pre">lat=40.05</span></code>, <code class="docutils literal notranslate"><span class="pre">lon=-73.75</span></code>, <code class="docutils literal notranslate"><span class="pre">res=f09_g16</span></code>, <code class="docutils literal notranslate"><span class="pre">compset=2000_DATM%CRUv7_CLM50%SP_SICE_SOCN_SROF_SGLC_SWAV</span></code>. The 2015 JJA average <strong>TREFMXAV</strong> of High density urban between the case of simulation time of 2005-2015 and the case of simulation time of 2015 JJA were compared. Their difference is <cite>0.009 K</cite>. However, it should be noted that the difference in <cite>vegetated_or_bare_soil</cite> land unit is <cite>0.123 K</cite>, which is more significantly affected than urban. We recommend a long time simulation or spin-up for the experiments need non-urban variables.</p>
 </div>
 </section>
 <section id="python-for-urban-climate-exploration">
-<h2><a class="reference internal" href="5_python_API.html"><span class="doc">Python for urban climate exploration</span></a><a class="headerlink" href="#python-for-urban-climate-exploration" title="Permalink to this heading"></a></h2>
+<h2>Python for urban climate exploration<a class="headerlink" href="#python-for-urban-climate-exploration" title="Permalink to this heading"></a></h2>
 <p>We apply some Python codes to help run a case of CLM to explore urban climate.</p>
 </section>
 </section>
@@ -144,7 +137,10 @@ The clmu-app currently does not provide ESMF as we want a compact container. The
 
            </div>
           </div>
-          <footer>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../index.html" class="btn btn-neutral float-left" title="CLMU APP" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="install_docker.html" class="btn btn-neutral float-right" title="Install Docker" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
 
   <hr/>
 

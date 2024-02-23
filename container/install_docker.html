@@ -21,7 +21,9 @@
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
-    <link rel="search" title="Search" href="../search.html" /> 
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Run container" href="run_container.html" />
+    <link rel="prev" title="Introduction" href="intro.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -44,9 +46,13 @@
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption" role="heading"><span class="caption-text">CLMU APP container</span></p>
-<ul>
+<ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="intro.html">Introduction</a></li>
-<li class="toctree-l1"><a class="reference internal" href="install_docker.html">Install Docker</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Install Docker</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#check-system-info">Check system info</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id1">Install docker</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="run_container.html">Run container</a></li>
 <li class="toctree-l1"><a class="reference internal" href="4_run_CLM_case.html">Run a CLM case</a></li>
 <li class="toctree-l1"><a class="reference internal" href="clmu_env.html">CLM ENV Container detail</a></li>
@@ -82,7 +88,7 @@
       <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
       <li class="breadcrumb-item active">Install Docker</li>
       <li class="wy-breadcrumbs-aside">
-            <a href="../_sources/container/2_install_docker.md.txt" rel="nofollow"> View page source</a>
+            <a href="../_sources/container/install_docker.rst.txt" rel="nofollow"> View page source</a>
       </li>
   </ul>
   <hr/>
@@ -95,8 +101,7 @@
 <section id="check-system-info">
 <h2>Check system info<a class="headerlink" href="#check-system-info" title="Permalink to this heading"></a></h2>
 <p>First of all, get familiar with our computer system before the next steps. Noted that the commands below run in Linux.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">lsb_release</span> <span class="o">-</span><span class="n">a</span>
-
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>lsb_release<span class="w"> </span>-a
 <span class="c1">#LSB Version:    core-4.1-amd64:core-4.1-noarch</span>
 <span class="c1">#Distributor ID: CentOS</span>
 <span class="c1">#Description:    CentOS Linux release 7.9.2009 (Core)</span>
@@ -108,39 +113,39 @@
 <section id="id1">
 <h2>Install docker<a class="headerlink" href="#id1" title="Permalink to this heading"></a></h2>
 <p>Use <strong>yum</strong> to install packages in CentOS.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># 1 Make your packages updated, if needed.</span>
-<span class="n">sudo</span> <span class="n">yum</span> <span class="n">makecache</span> <span class="n">fast</span> 
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># 1 Make your packages updated, if needed.</span>
+sudo<span class="w"> </span>yum<span class="w"> </span>makecache<span class="w"> </span>fast
 
 <span class="c1"># 2 Install docker dependences</span>
-<span class="n">sudo</span> <span class="n">yum</span> <span class="n">install</span> <span class="o">-</span><span class="n">y</span> <span class="n">yum</span><span class="o">-</span><span class="n">utils</span> <span class="n">device</span><span class="o">-</span><span class="n">mapper</span><span class="o">-</span><span class="n">persistent</span><span class="o">-</span><span class="n">data</span> <span class="n">lvm2</span>
+sudo<span class="w"> </span>yum<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>yum-utils<span class="w"> </span>device-mapper-persistent-data<span class="w"> </span>lvm2
 
 <span class="c1"># 3 Add docker repo</span>
-<span class="n">sudo</span> <span class="n">yum</span><span class="o">-</span><span class="n">config</span><span class="o">-</span><span class="n">manager</span> <span class="o">--</span><span class="n">add</span><span class="o">-</span><span class="n">repo</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">download</span><span class="o">.</span><span class="n">docker</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">linux</span><span class="o">/</span><span class="n">centos</span><span class="o">/</span><span class="n">docker</span><span class="o">-</span><span class="n">ce</span><span class="o">.</span><span class="n">repo</span>
+sudo<span class="w"> </span>yum-config-manager<span class="w"> </span>--add-repo<span class="w"> </span>https://download.docker.com/linux/centos/docker-ce.repo
 
 <span class="c1"># 4 Install docker</span>
-<span class="n">sudo</span> <span class="n">yum</span> <span class="n">install</span> <span class="o">-</span><span class="n">y</span> <span class="n">docker</span><span class="o">-</span><span class="n">ce</span> <span class="n">docker</span><span class="o">-</span><span class="n">ce</span><span class="o">-</span><span class="n">cli</span> <span class="n">containerd</span><span class="o">.</span><span class="n">io</span>
+sudo<span class="w"> </span>yum<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>docker-ce<span class="w"> </span>docker-ce-cli<span class="w"> </span>containerd.io
 
 <span class="c1"># 5 Start docker</span>
-<span class="n">sudo</span> <span class="n">systemctl</span> <span class="n">start</span> <span class="n">docker</span>
+sudo<span class="w"> </span>systemctl<span class="w"> </span>start<span class="w"> </span>docker
 
 <span class="c1"># 6 Set Docker to boot automatically</span>
-<span class="n">sudo</span> <span class="n">systemctl</span> <span class="n">enable</span> <span class="n">docker</span>
+sudo<span class="w"> </span>systemctl<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>docker
 <span class="c1"># Created symlink from /etc/systemd/system/multi-user.target.wants/docker.service to /usr/lib/systemd/system/docker.service.</span>
 
 <span class="c1"># 7 Check docker</span>
-<span class="n">sudo</span> <span class="n">docker</span> <span class="o">--</span><span class="n">version</span>
+sudo<span class="w"> </span>docker<span class="w"> </span>--version
 <span class="c1"># Docker version 24.0.6, build ed223bc</span>
 
 <span class="c1"># 8 Check more docker info</span>
-<span class="n">docker</span> <span class="n">info</span>
+docker<span class="w"> </span>info
 
 <span class="c1"># 9 We can reset the Docker Root Dir (/var/lib/docker, for default)</span>
 
-<span class="n">sudo</span> <span class="n">systemctl</span> <span class="n">stop</span> <span class="n">docker</span> <span class="c1"># stop docker</span>
+sudo<span class="w"> </span>systemctl<span class="w"> </span>stop<span class="w"> </span>docker<span class="w"> </span><span class="c1"># stop docker</span>
 
-<span class="n">sudo</span> <span class="n">mkdir</span> <span class="o">-</span><span class="n">p</span> <span class="n">your_loc</span><span class="o">/</span><span class="n">docker</span><span class="o">/</span><span class="n">storage</span> <span class="c1"># create docker dir</span>
+sudo<span class="w"> </span>mkdir<span class="w"> </span>-p<span class="w"> </span>your_loc/docker/storage<span class="w"> </span><span class="c1"># create docker dir</span>
 
-<span class="n">cat</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">docker</span><span class="o">/</span><span class="n">daemon</span><span class="o">.</span><span class="n">json</span> <span class="c1"># check the docker configuration</span>
+cat<span class="w"> </span>/etc/docker/daemon.json<span class="w"> </span><span class="c1"># check the docker configuration</span>
 
 <span class="c1"># if not exsit /etc/docker/daemon.json</span>
 <span class="c1"># create a json file using vi/vim or nona</span>
@@ -148,8 +153,8 @@
 <span class="c1">#    &quot;data-root&quot;: &quot;/datadisk/docker/storage&quot;</span>
 <span class="c1">#}</span>
 
-<span class="n">sudo</span> <span class="n">systemctl</span> <span class="n">start</span> <span class="n">docker</span> <span class="c1"># reopen docker</span>
-<span class="n">docker</span> <span class="n">info</span> <span class="c1"># check docker configuration</span>
+sudo<span class="w"> </span>systemctl<span class="w"> </span>start<span class="w"> </span>docker<span class="w"> </span><span class="c1"># reopen docker</span>
+docker<span class="w"> </span>info<span class="w"> </span><span class="c1"># check docker configuration</span>
 </pre></div>
 </div>
 </section>
@@ -158,7 +163,10 @@
 
            </div>
           </div>
-          <footer>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="intro.html" class="btn btn-neutral float-left" title="Introduction" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="run_container.html" class="btn btn-neutral float-right" title="Run container" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
 
   <hr/>
 

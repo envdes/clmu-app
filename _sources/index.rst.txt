@@ -29,11 +29,11 @@ Author: `Junjie Yu <https://junjieyu-uom.github.io>`_, `Dr. Zhonghua Zheng <http
    :maxdepth: 2
    :caption: CLMU APP container
 
-   container/1_intro_container.md
-   container/2_install_docker.md
+   container/intro.rst
+   container/install_docker.rst
    container/run_container.md
-   container/4_run_CLM_case.md
-   container/3_CLMU_env_details.md
+   container/4_run_CLM_case.rst
+   container/clmu_env.rst
    container/5_python_API.md
 
 .. toctree::

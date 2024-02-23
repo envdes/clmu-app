@@ -22,7 +22,7 @@
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="CLM ENV Container detail" href="3_CLMU_env_details.html" />
+    <link rel="next" title="CLM ENV Container detail" href="clmu_env.html" />
     <link rel="prev" title="Run container" href="run_container.html" /> 
 </head>
 
@@ -47,14 +47,14 @@
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption" role="heading"><span class="caption-text">CLMU APP container</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="1_intro_container.html">Introduction</a></li>
-<li class="toctree-l1"><a class="reference internal" href="2_install_docker.html">Install Docker</a></li>
+<li class="toctree-l1"><a class="reference internal" href="intro.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="install_docker.html">Install Docker</a></li>
 <li class="toctree-l1"><a class="reference internal" href="run_container.html">Run container</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Run a CLM case</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#try-to-run-a-single-point-case">Try to run a single-point case</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="3_CLMU_env_details.html">CLM ENV Container detail</a></li>
+<li class="toctree-l1"><a class="reference internal" href="clmu_env.html">CLM ENV Container detail</a></li>
 <li class="toctree-l1"><a class="reference internal" href="5_python_API.html">Workflow of cesm.py</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Examples</span></p>
@@ -87,7 +87,7 @@
       <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
       <li class="breadcrumb-item active">Run a CLM case</li>
       <li class="wy-breadcrumbs-aside">
-            <a href="../_sources/container/4_run_CLM_case.md.txt" rel="nofollow"> View page source</a>
+            <a href="../_sources/container/4_run_CLM_case.rst.txt" rel="nofollow"> View page source</a>
       </li>
   </ul>
   <hr/>
@@ -98,52 +98,51 @@
   <section id="run-a-clm-case">
 <h1>Run a CLM case<a class="headerlink" href="#run-a-clm-case" title="Permalink to this heading"></a></h1>
 <p>We use the interactive way to run CLM case via docker container</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># start the clmu container</span>
-<span class="n">sudo</span> <span class="n">docker</span> <span class="n">start</span> <span class="n">myclmu</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># start the clmu container</span>
+sudo<span class="w"> </span>docker<span class="w"> </span>start<span class="w"> </span>myclmu
 
 <span class="c1"># Use interactivate way to operate container</span>
-<span class="n">docker</span> <span class="n">exec</span> <span class="o">-</span><span class="n">it</span> <span class="n">myclmu</span> <span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">bash</span>
+docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>-it<span class="w"> </span>myclmu<span class="w"> </span>/bin/bash
 <span class="c1"># Now we are in the Fedora 31 Bash.</span>
 </pre></div>
 </div>
 <section id="try-to-run-a-single-point-case">
 <h2>Try to run a single-point case<a class="headerlink" href="#try-to-run-a-single-point-case" title="Permalink to this heading"></a></h2>
 <p><a class="reference external" href="https://escomp.github.io/ctsm-docs/versions/master/html/users_guide/running-single-points/index.html">How to run a single-point case?</a></p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>&gt; cd scripts
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>scripts
+<span class="c1"># Create a case at the single-point resolutions with their forcing</span>
+./create_newcase<span class="w"> </span>-case<span class="w"> </span>testSPDATASETnAtmForcing<span class="w"> </span>-res<span class="w"> </span>1x1_vancouverCAN<span class="w"> </span>-compset<span class="w"> </span>I1PtClm50SpGs
+<span class="nb">cd</span><span class="w"> </span>testSPDATASETnAtmForcing
 
-# Create a case at the single-point resolutions with their forcing
-&gt; ./create_newcase -case testSPDATASETnAtmForcing -res 1x1_vancouverCAN -compset I1PtClm50SpGs
-&gt; cd testSPDATASETnAtmForcing
+<span class="c1"># Figure out the start and end date for this dataset</span>
+<span class="c1"># You can do this by examining the datafile.</span>
+<span class="nb">set</span><span class="w"> </span><span class="nv">STOP_N</span><span class="o">=</span><span class="m">330</span>
+<span class="nb">set</span><span class="w"> </span><span class="nv">START_YEAR</span><span class="o">=</span><span class="m">1992</span>
+<span class="nb">set</span><span class="w"> </span><span class="nv">STARTDATE</span><span class="o">=</span><span class="si">${</span><span class="nv">START_YEAR</span><span class="si">}</span>-08-12
+@<span class="w"> </span><span class="nv">NDAYS</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">$STOP_N</span><span class="w"> </span>/<span class="w"> </span><span class="m">24</span>
+./xmlchange<span class="w"> </span><span class="nv">RUN_STARTDATE</span><span class="o">=</span><span class="nv">$STARTDATE</span>,STOP_N<span class="o">=</span><span class="nv">$STOP_N</span>,STOP_OPTION<span class="o">=</span>nsteps
 
-# Figure out the start and end date for this dataset
-# You can do this by examining the datafile.
-&gt; set STOP_N=330
-&gt; set START_YEAR=1992
-&gt; set STARTDATE=${START_YEAR}-08-12
-&gt; @ NDAYS = $STOP_N / 24
-&gt; ./xmlchange RUN_STARTDATE=$STARTDATE,STOP_N=$STOP_N,STOP_OPTION=nsteps
+<span class="c1"># Set the User namelist to set the output frequencies of the history files</span>
+<span class="c1"># Setting the stdurbpt use-case option create three history file streams</span>
+<span class="c1"># Set frequencies and numbers of time-samples for outputs</span>
+cat<span class="w"> </span><span class="s">&lt;&lt; EOF &gt; user_nl_clm</span>
+<span class="s">hist_mfilt = $NDAYS,$STOP_N,$STOP_N</span>
+<span class="s">hist_nhtfrq = -1,1,1</span>
+<span class="s">EOF</span>
 
-# Set the User namelist to set the output frequencies of the history files
-# Setting the stdurbpt use-case option create three history file streams
-# Set frequencies and numbers of time-samples for outputs
-&gt; cat &lt;&lt; EOF &gt; user_nl_clm
-hist_mfilt = $NDAYS,$STOP_N,$STOP_N
-hist_nhtfrq = -1,1,1
-EOF
-
-&gt; ./case.setup
-&gt; ./case.build
-&gt; ./case.submit
+./case.setup
+./case.build
+./case.submit
 </pre></div>
 </div>
 <p>If you get the result like</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">...</span>
-<span class="n">check</span> <span class="k">for</span> <span class="n">resubmit</span>
-<span class="n">dout_s</span> <span class="kc">True</span> 
-<span class="n">mach</span> <span class="n">clm5</span><span class="o">-</span><span class="n">docker</span> 
-<span class="n">resubmit_num</span> <span class="mi">0</span>
-<span class="n">Submit</span> <span class="n">job</span> <span class="n">case</span><span class="o">.</span><span class="n">st_archive</span>
-<span class="n">ERROR</span><span class="p">:</span> <span class="n">No</span> <span class="n">result</span> <span class="kn">from</span> <span class="nn">jobs</span> <span class="p">[(</span><span class="s1">&#39;case.run&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;case.st_archive&#39;</span><span class="p">,</span> <span class="s1">&#39;case.run or case.test&#39;</span><span class="p">)]</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>./case.submit
+Submitting<span class="w"> </span><span class="k">case</span>...
+check<span class="w"> </span><span class="k">for</span><span class="w"> </span>resubmit
+dout_s<span class="w"> </span>True
+resubmit_num<span class="w"> </span><span class="m">0</span>
+Submit<span class="w"> </span>job<span class="w"> </span><span class="k">case</span>.st_archive
+ERROR:<span class="w"> </span>No<span class="w"> </span>result<span class="w"> </span>from<span class="w"> </span><span class="nb">jobs</span><span class="w"> </span><span class="o">[(</span><span class="s1">&#39;case.run&#39;</span>,<span class="w"> </span>None<span class="o">)</span>,<span class="w"> </span><span class="o">(</span><span class="s1">&#39;case.st_archive&#39;</span>,<span class="w"> </span><span class="s1">&#39;case.run or case.test&#39;</span><span class="o">)]</span>
 </pre></div>
 </div>
 <p><strong>Congratulations</strong>, you mostly successfully run your case.</p>
@@ -156,7 +155,7 @@ EOF
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="run_container.html" class="btn btn-neutral float-left" title="Run container" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="3_CLMU_env_details.html" class="btn btn-neutral float-right" title="CLM ENV Container detail" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="clmu_env.html" class="btn btn-neutral float-right" title="CLM ENV Container detail" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

@@ -47,11 +47,11 @@
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption" role="heading"><span class="caption-text">CLMU APP container</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../container/1_intro_container.html">Introduction</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../container/2_install_docker.html">Install Docker</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../container/intro.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../container/install_docker.html">Install Docker</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../container/run_container.html">Run container</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../container/4_run_CLM_case.html">Run a CLM case</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../container/3_CLMU_env_details.html">CLM ENV Container detail</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../container/clmu_env.html">CLM ENV Container detail</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../container/5_python_API.html">Workflow of cesm.py</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Examples</span></p>
@@ -96,7 +96,7 @@
 <h1>Exploration of climate sensitive of different urban parameters using clmu-app<a class="headerlink" href="#exploration-of-climate-sensitive-of-different-urban-parameters-using-clmu-app" title="Permalink to this heading"></a></h1>
 <p>As the examples describe, one of the useful functions of clmu-app is to explore the urban climate with a changing urban surface parameters. Investigating this, we can gain information on urban planning/design or offer opportunities for other urban related subjects.</p>
 <p>Here we explored the 24 girds that contain most developed cities in the world (ref: https://en.wikipedia.org/wiki/Globalization_and_World_Cities_Research_Network ).</p>
-<p>We selected three categories of urban parameters, including morphological, radiative and thermal index.</p>
+<p>We selected three categories of urban parameters, including morphological, radiative and thermal index. The CLMU can simulate 3 urban class. Only the high density urban is considered in this experiment as HD has an obvious urban effect and is ubiquitous in each grid.</p>
 <p><strong>Results preview</strong></p>
 <p>Env: clmu-app</p>
 <ul class="simple">
@@ -105,9 +105,10 @@
 <li><p>New York Grid</p></li>
 <li><p>Compset:SSP370_DATM%CPLHIST_CLM50%SP_SICE_SOCN_SROF_SGLC_SWAV</p></li>
 <li><p>Resolution: f09_g17</p></li>
+<li><p>Run type: cold start</p></li>
 </ul>
 <p>Primary results:
-Each urban surface parameters increased by 1.2 times respectively.</p>
+Each HD urban surface parameters increased by 1.2 times respectively.</p>
 <ul class="simple">
 <li><p>TSA: Surface 2m temperature (yearly average), K</p></li>
 <li><p>TSA difference: difference in result of changed urban surface and no change.</p></li>
@@ -182,7 +183,7 @@ Each urban surface parameters increased by 1.2 times respectively.</p>
         <span class="n">cesm</span><span class="o">.</span><span class="n">modify_surf</span><span class="p">(</span><span class="n">var</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">action</span><span class="o">=</span><span class="n">actions</span><span class="p">,</span> <span class="n">param_location</span><span class="o">=</span><span class="n">alb_paramdict</span><span class="p">)</span>
 
     <span class="c1"># password = &quot;***&quot;</span>
-    <span class="n">password</span> <span class="o">=</span> <span class="s2">&quot;Manchestermedal&quot;</span>
+    <span class="n">password</span> <span class="o">=</span> <span class="s2">&quot;***&quot;</span>
 
     <span class="c1"># change the permission of the script</span>
     <span class="n">command_0</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;sudo -S docker exec myclmu chmod +x /p/pyscripts/</span><span class="si">{</span><span class="n">script_name</span><span class="si">}</span><span class="s2">&quot;</span>
