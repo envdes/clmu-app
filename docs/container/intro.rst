@@ -31,9 +31,9 @@ Running CMLU within CLM (Community Land Model) requires a Linux operation system
     - urban climate exploration e.g., test urban parameter sensitivity
 
 .. note::
-    PTS mode currently **CAN NOT** run with initial conditions., however, we can still can take advantage of this mode. Firstly, we can run case for longer time simulation to get the stable conditions. Moreover, although the land use models is model simulations are sensitive to initial soil moisture conditions, the urban module (CLMU) is less affected by soil. 
+    PTS mode currently **CAN NOT** run with initial conditions, however, we can still can take advantage of this mode. Firstly, we can run case for longer time simulation to get the stable conditions. Moreover, although the land use models is model simulations are sensitive to initial soil moisture conditions, the urban module (CLMU) is less affected by soil. 
     
-    We compared two cases of different simulation time of New York Grid ``lat=40.05``, ``lon=-73.75``, ``res=f09_g16``, ``compset=2000_DATM%CRUv7_CLM50%SP_SICE_SOCN_SROF_SGLC_SWAV``. The 2015 JJA average **TREFMXAV** of High density urban between the case of simulation time of 2005-2015 and the case of simulation time of 2015 JJA were compared. Their difference is `0.009 K`. However, it should be noted that the difference in `vegetated_or_bare_soil` land unit is `0.123 K`, which is more significantly affected than urban. We recommend a long time simulation or spin-up for the experiments need non-urban variables.
+    We compared two cases of different simulation times of New York Grid ``lat=40.05``, ``lon=-73.75``, ``res=f09_g16``, ``compset=2000_DATM%CRUv7_CLM50%SP_SICE_SOCN_SROF_SGLC_SWAV``. The 2015 JJA average **TREFMXAV** of high density urban between the case of simulation time of 2005-2015 and the case of simulation time of 2015 JJA were compared. Their difference is `0.009 K`. However, it should be noted that the difference in `vegetated_or_bare_soil` land unit is `0.123 K`, which is more significantly affected than urban. We recommend a long time simulation or spin-up for the experiments need non-urban variables.
 
 Python for urban climate exploration
 ------------------------------------
