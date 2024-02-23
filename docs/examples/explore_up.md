@@ -5,7 +5,7 @@ As the examples describe, one of the useful functions of clmu-app is to explore 
 
 Here we explored the 24 girds that contain most developed cities in the world (ref: https://en.wikipedia.org/wiki/Globalization_and_World_Cities_Research_Network ). 
 
-We selected three categories of urban parameters, including morphological, radiative and thermal index.
+We selected three categories of urban parameters, including morphological, radiative and thermal index. The CLMU can simulate 3 urban class. Only the high density urban is considered in this experiment as HD has an obvious urban effect and is ubiquitous in each grid. 
 
 **Results preview**
 
@@ -13,16 +13,14 @@ We selected three categories of urban parameters, including morphological, radia
 Env: clmu-app
 
 - Forcing: DATM SSP370
-
 - Simulation year: 2055 
 - New York Grid
 - Compset:SSP370_DATM%CPLHIST_CLM50%SP_SICE_SOCN_SROF_SGLC_SWAV
-
 - Resolution: f09_g17
-
+- Run type: cold start
 
 Primary results:
-Each urban surface parameters increased by 1.2 times respectively.
+Each HD urban surface parameters increased by 1.2 times respectively.
 - TSA: Surface 2m temperature (yearly average), K 
 - TSA difference: difference in result of changed urban surface and no change.
 
@@ -106,7 +104,7 @@ def run_case(i, sur_var, case_year="2055", script_name = "PTS_SSP370_up.sh"):
         cesm.modify_surf(var=None, action=actions, param_location=alb_paramdict)
 
     # password = "***"
-    password = "Manchestermedal"
+    password = "***"
 
     # change the permission of the script
     command_0 = f"sudo -S docker exec myclmu chmod +x /p/pyscripts/{script_name}"
