@@ -48,5 +48,5 @@ make -j && make install
 ```
 
 ### [Python for urban climate exploration](5_python_API.md)
-We apply some Python codes to help run a case of CLM to explore urban climate. 
+We apply some Python code to help run a case of CLM to explore urban climate. 
 
