@@ -1,0 +1,77 @@
+# escape=`
+FROM fedora:31
+
+# This dockerfile is partly reference from https://github.com/HPSCTerrSys/dockerfiles/blob/master/clm5/Dockerfile
+
+# note: svn <=1.1 is not installed in this image, but is required for CESM installation
+LABEL `
+    org.label-schema.schema-version="1.0" `
+    org.label-schema.name="clmu-app" `
+    org.label-schema.version="1" `
+    org.label-schema.build-date="20240202" `
+    clm.version.major="5.0" `
+    clm.env.compiler="GCC" `
+    clm.env.compiler.version="9.3.1" `
+    clm.env.cmake.version="3.18" `
+    clm.env.netcdf-c.version="4.7.0-2" `
+    clm.env.netcdf-fortran.version="4.5.2-3" `
+    clm.env.python.version="3.7.9" `
+    clm.env.svn.version="1.12" ` 
+    clm.os.version="Fedora 31" 
+
+# Import cime config
+COPY cime_config/* /root/.cime/
+
+# Install required packages from base repo
+
+RUN dnf update -y `
+    && yum install dnf-plugins-core -y `
+    && dnf group install -y "Development Tools" `
+    && dnf install -y glibc-langpack-en libcurl-devel git wget autoconf perl-App-cpanminus `
+    && dnf install -y hdf5-devel lapack-devel ncl nco netcdf-devel netcdf-fortran netcdf-fortran-devel openssl-devel`
+    && dnf clean all `
+    && cpanm bigint && cpanm XML::LibXML
+
+# Install CMake
+RUN mkdir -vp /tmp/download `
+    && cd /tmp/download `
+    && wget -c https://github.com/Kitware/CMake/releases/download/v3.18.4/cmake-3.18.4.tar.gz `
+    && tar zxf cmake-3.18.4.tar.gz && cd cmake-3.18.4 `
+    && ./bootstrap && make && make install `
+    `
+# Clean files
+    && cd /tmp && rm -rf /tmp/download
+
+# Add user account
+WORKDIR /home
+
+RUN groupadd -g 1555 clmu-app `
+    && sudo usermod -aG clmu-app root `
+    `
+# Set compiler and library paths for CLM5
+    && echo "" >> /root/.bashrc `
+    && echo "# Set compiler and library paths for CLM5" >> /root/.bashrc `
+    && echo "source /etc/profile.d/ncarg.sh" >> /root/.bashrc `
+    `
+# Set CLM5 environment variables
+    && echo "" >> /root/.bashrc `
+    && echo "# CLM5 environment variables" >> /root/.bashrc `
+    && echo "" >> /root/.bashrc `
+    && echo "export PROJECT=/p/project" >> /root/.bashrc `
+    && echo "export SCRATCH=/p/scratch" >> /root/.bashrc `
+    && echo "export CESMDATAROOT=/p/scratch/CESMDATAROOT" >> /root/.bashrc `
+    && echo "export CSMDATA=$CESMDATAROOT/inputdata" >> /root/.bashrc `
+    && echo "export CASESCRIPT=/p/project/clm5.0/cime/scripts" >> /root/.bashrc `
+# Set usr account
+    && echo "export USER=root" >> /root/.bashrc
+
+# case and inputdata dir
+RUN mkdir -vp /p/project /p/scratch/CESMDATAROOT/inputdata/ForcingData p/pyscripts `
+    && cd /p/project `
+    && git clone -b release-clm5.0 https://github.com/ESCOMP/CTSM.git clm5.0 `
+    && cd clm5.0 `
+    && ./manage_externals/checkout_externals
+
+USER root
+WORKDIR /root
+CMD ["/bin/bash","-l"]
