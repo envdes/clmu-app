@@ -8,15 +8,15 @@ https://hub.docker.com/, the official sources of docker images.
 
 
 ```
-docker pull clmu-app # pull the image
+docker pull envdes/clmu-app # pull the image
 ```
 
 #### Build container
 
 ```
 # Do not change the hostname
-# ContainerName --> user defines
-docker run --hostname clmu-app --name ContainerName -it clmu-app:1
+# ContainerName --> user defines (in this document, ContainerName is myclmu)
+docker run --hostname clmu-app --name ContainerName -it clmu-app:1.0
 ```
 
 If user wants to change the hostname, make sure to change the configuration of CESM/CTSM. See Ref()

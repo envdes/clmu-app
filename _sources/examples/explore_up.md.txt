@@ -19,10 +19,28 @@ Env: clmu-app
 - Resolution: f09_g17
 - Run type: cold start
 
+Experiment: each HD urban surface parameters increased by 1.2 times respectively.
+
+| Variable | Long name | units | Category| 
+|---|---|---|---|
+|ALB_ROOF|albedo of roof |unitless| radiative|
+|ALB_WALL|albedo of wall | unitless| radiative|
+|ALB_IMPROAD| albedo of impervious road | unitless| radiative|
+|CANYON_HWR|canyon height to width ratio| unitless| morphological|
+|HT_ROOF|height of roof|meters|morphological|
+|THICK_ROOF|thickness of roof|meters|morphological|
+|THICK_WALL|thickness of roof|meters|morphological|
+|TK_ROOF|thermal conductivity of roof|W/m*K|thermal|
+|TK_WALL|thermal conductivity of wall|W/m*K|thermal|
+|TK_IMPROAD|thermal conductivity of impervious road|W/m*K|thermal|
+|CV_ROOF|volumetric heat capacity of roof|J/m^3*K|thermal|
+|CV_WALL|volumetric heat capacity of wall|J/m^3*K|thermal|
+|TK_IMPROAD|volumetric heat capacity of impervious road|J/m^3*K|thermal|
+
 Primary results:
-Each HD urban surface parameters increased by 1.2 times respectively.
 - TSA: Surface 2m temperature (yearly average), K 
 - TSA difference: difference in result of changed urban surface and no change.
+
 
 ![Alt text](figs/TSA_diff_rad.png "Radiative sensitives.")
 <center>Radiative sensitives. </a></center>

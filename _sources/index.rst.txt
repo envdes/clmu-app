@@ -6,20 +6,17 @@
 CLMU APP
 ==================================
 
-|doi| |docs| |GitHub| |license|
-
-.. |doi| image:: https://zenodo.org/badge/DOI/10.5281/zenodo.6474004.svg
-   :target: https://doi.org/10.5281/zenodo.6474004
+|docs| |GitHub| |license|
 
 .. |docs| image:: https://readthedocs.org/projects/urbanclimateexplorer/badge/?version=latest
    :target: https://urbanclimateexplorer.readthedocs.io/en/latest/?badge=latest
    :alt: Documentation Status
 
-.. |GitHub| image:: https://img.shields.io/badge/GitHub-CLMU--APP-brightgreen.svg
-   :target: https://github.com/JunjieYU-UoM/CLMU-APP
+.. |GitHub| image:: https://img.shields.io/badge/GitHub-clmu--app-brightgreen.svg
+   :target: https://github.com/envdes/clmu-app
 
-.. |license| image:: https://img.shields.io/badge/License-GUN_GPL_V3.0-blue.svg
-   :target: https://github.com/JunjieYU-UoM/CLMU-APP/blob/main/LICENSE
+.. |license| image:: https://img.shields.io/badge/License-MIT-blue.svg
+   :target: https://github.com/envdes/clmu-app/blob/main/LICENSE
 
 Using Python to drive CLMU simulations via container.
 

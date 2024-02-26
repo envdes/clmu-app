@@ -109,44 +109,40 @@ docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </spa
 <section id="try-to-run-a-single-point-case">
 <h2>Try to run a single-point case<a class="headerlink" href="#try-to-run-a-single-point-case" title="Permalink to this heading"></a></h2>
 <p><a class="reference external" href="https://escomp.github.io/ctsm-docs/versions/master/html/users_guide/running-single-points/index.html">How to run a single-point case?</a></p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>scripts
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span><span class="nv">$CASESCRIPT</span>
 <span class="c1"># Create a case at the single-point resolutions with their forcing</span>
 ./create_newcase<span class="w"> </span>-case<span class="w"> </span>testSPDATASETnAtmForcing<span class="w"> </span>-res<span class="w"> </span>1x1_vancouverCAN<span class="w"> </span>-compset<span class="w"> </span>I1PtClm50SpGs
 <span class="nb">cd</span><span class="w"> </span>testSPDATASETnAtmForcing
 
 <span class="c1"># Figure out the start and end date for this dataset</span>
 <span class="c1"># You can do this by examining the datafile.</span>
-<span class="nb">set</span><span class="w"> </span><span class="nv">STOP_N</span><span class="o">=</span><span class="m">330</span>
-<span class="nb">set</span><span class="w"> </span><span class="nv">START_YEAR</span><span class="o">=</span><span class="m">1992</span>
-<span class="nb">set</span><span class="w"> </span><span class="nv">STARTDATE</span><span class="o">=</span><span class="si">${</span><span class="nv">START_YEAR</span><span class="si">}</span>-08-12
-@<span class="w"> </span><span class="nv">NDAYS</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">$STOP_N</span><span class="w"> </span>/<span class="w"> </span><span class="m">24</span>
-./xmlchange<span class="w"> </span><span class="nv">RUN_STARTDATE</span><span class="o">=</span><span class="nv">$STARTDATE</span>,STOP_N<span class="o">=</span><span class="nv">$STOP_N</span>,STOP_OPTION<span class="o">=</span>nsteps
-
-<span class="c1"># Set the User namelist to set the output frequencies of the history files</span>
-<span class="c1"># Setting the stdurbpt use-case option create three history file streams</span>
-<span class="c1"># Set frequencies and numbers of time-samples for outputs</span>
-cat<span class="w"> </span><span class="s">&lt;&lt; EOF &gt; user_nl_clm</span>
-<span class="s">hist_mfilt = $NDAYS,$STOP_N,$STOP_N</span>
-<span class="s">hist_nhtfrq = -1,1,1</span>
-<span class="s">EOF</span>
+<span class="nb">export</span><span class="w"> </span><span class="nv">STOP_N</span><span class="o">=</span><span class="m">30</span>
+<span class="nb">export</span><span class="w"> </span><span class="nv">START_YEAR</span><span class="o">=</span><span class="m">1992</span>
+<span class="nb">export</span><span class="w"> </span><span class="nv">STARTDATE</span><span class="o">=</span><span class="si">${</span><span class="nv">START_YEAR</span><span class="si">}</span>-08-12
+./xmlchange<span class="w"> </span><span class="nv">RUN_STARTDATE</span><span class="o">=</span><span class="nv">$STARTDATE</span>,STOP_N<span class="o">=</span><span class="nv">$STOP_N</span>
 
 ./case.setup
 ./case.build
 ./case.submit
+<span class="c1"># There will need plenty of input data, so it will take a long time to download the data.</span>
+<span class="c1"># Make sure you have enough space to store the data.</span>
 </pre></div>
 </div>
 <p>If you get the result like</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>./case.submit
-Submitting<span class="w"> </span><span class="k">case</span>...
-check<span class="w"> </span><span class="k">for</span><span class="w"> </span>resubmit
-dout_s<span class="w"> </span>True
-resubmit_num<span class="w"> </span><span class="m">0</span>
-Submit<span class="w"> </span>job<span class="w"> </span><span class="k">case</span>.st_archive
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>copying<span class="w"> </span>file<span class="w"> </span>/p/scratch/CESMDATAROOT/CaseOutputs/testSPDATASETnAtmForcing/run/testSPDATASETnAtmForcing.cpl.r.1992-08-13-21600.nc<span class="w"> </span>to<span class="w"> </span>/p/scratch/CESMDATAROOT/Archive/rest/1992-08-13-21600/testSPDATASETnAtmForcing.cpl.r.1992-08-13-21600.nc
+Archiving<span class="w"> </span>restarts<span class="w"> </span><span class="k">for</span><span class="w"> </span>dart<span class="w"> </span><span class="o">(</span>esp<span class="o">)</span>
+Archiving<span class="w"> </span><span class="nb">history</span><span class="w"> </span>files<span class="w"> </span><span class="k">for</span><span class="w"> </span>datm<span class="w"> </span><span class="o">(</span>atm<span class="o">)</span>
+Archiving<span class="w"> </span><span class="nb">history</span><span class="w"> </span>files<span class="w"> </span><span class="k">for</span><span class="w"> </span>clm<span class="w"> </span><span class="o">(</span>lnd<span class="o">)</span>
+Archiving<span class="w"> </span><span class="nb">history</span><span class="w"> </span>files<span class="w"> </span><span class="k">for</span><span class="w"> </span>mosart<span class="w"> </span><span class="o">(</span>rof<span class="o">)</span>
+Archiving<span class="w"> </span><span class="nb">history</span><span class="w"> </span>files<span class="w"> </span><span class="k">for</span><span class="w"> </span>drv<span class="w"> </span><span class="o">(</span>cpl<span class="o">)</span>
+Archiving<span class="w"> </span><span class="nb">history</span><span class="w"> </span>files<span class="w"> </span><span class="k">for</span><span class="w"> </span>dart<span class="w"> </span><span class="o">(</span>esp<span class="o">)</span>
+st_archive<span class="w"> </span>completed
 ERROR:<span class="w"> </span>No<span class="w"> </span>result<span class="w"> </span>from<span class="w"> </span><span class="nb">jobs</span><span class="w"> </span><span class="o">[(</span><span class="s1">&#39;case.run&#39;</span>,<span class="w"> </span>None<span class="o">)</span>,<span class="w"> </span><span class="o">(</span><span class="s1">&#39;case.st_archive&#39;</span>,<span class="w"> </span><span class="s1">&#39;case.run or case.test&#39;</span><span class="o">)]</span>
 </pre></div>
 </div>
 <p><strong>Congratulations</strong>, you mostly successfully run your case.</p>
 <p>If not, try to ask for help in <a class="reference external" href="https://bb.cgd.ucar.edu/cesm/">CESM FORUM</a></p>
+<p><strong>check the result</strong></p>
 </section>
 </section>
 
@@ -161,7 +157,7 @@ ERROR:<span class="w"> </span>No<span class="w"> </span>result<span class="w"> <
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2024, Junjie Yu.</p>
+    <p>&#169; Copyright 2024, Junjie Yu, Zhonghua Zheng, Yuan Sun, Keith Oleson.</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
