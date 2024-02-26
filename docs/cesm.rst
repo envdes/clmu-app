@@ -1,4 +1,4 @@
-python API
+Python API
 ===========
 
 .. automodule:: cesm

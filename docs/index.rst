@@ -3,14 +3,10 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-CLMU APP
+CLMU-App
 ==================================
 
-|docs| |GitHub| |license|
-
-.. |docs| image:: https://readthedocs.org/projects/urbanclimateexplorer/badge/?version=latest
-   :target: https://urbanclimateexplorer.readthedocs.io/en/latest/?badge=latest
-   :alt: Documentation Status
+|GitHub| |license|
 
 .. |GitHub| image:: https://img.shields.io/badge/GitHub-clmu--app-brightgreen.svg
    :target: https://github.com/envdes/clmu-app
@@ -18,13 +14,13 @@ CLMU APP
 .. |license| image:: https://img.shields.io/badge/License-MIT-blue.svg
    :target: https://github.com/envdes/clmu-app/blob/main/LICENSE
 
-Using Python to drive CLMU simulations via container.
+CLMU-App: Enabling Operating System Indenpendent Urban Climate Simulations
 
 Author: `Junjie Yu <https://junjieyu-uom.github.io>`_, `Dr. Zhonghua Zheng <https://zhonghuazheng.com>`_, `Yuan Sun <https://github.com/YuanSun-UoM>`_, `Dr. Keith Oleson <https://staff.ucar.edu/users/oleson>`_
 
 .. toctree::
    :maxdepth: 2
-   :caption: CLMU APP container
+   :caption: CLMU-App container
 
    container/intro.rst
    container/install_docker.rst

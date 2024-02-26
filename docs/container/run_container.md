@@ -74,7 +74,7 @@ export CSMDATA=/p/scratch/CESMDATAROOT/inputdata
 export CASESCRIPT=/p/project/myclm/cime/scripts
 ```
 
-#### Tips for docker commander
+#### Tips for docker commands
 - docker ps: check for the running container
 - docker stop <container-id>: stop the container
 - docker start <container-id>: start the container

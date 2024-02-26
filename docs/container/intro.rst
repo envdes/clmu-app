@@ -37,5 +37,5 @@ Running CMLU within CLM (Community Land Model) requires a Linux operation system
 
 Python for urban climate exploration
 ------------------------------------
-We apply some Python codes to help run a case of CLM to explore urban climate. 
+We apply some Python code to help run a case of CLM to explore urban climate. 
 
