@@ -12,8 +12,8 @@ sys.path.insert(0, os.path.abspath('../src'))#指向src目录
 
 
 project = 'clmu-app'
-copyright = '2024, Junjie Yu'
-author = 'Junjie Yu'
+copyright = '2024, Junjie Yu, Zhonghua Zheng, Yuan Sun, Keith Oleson'
+author = 'Junjie Yu, Zhonghua Zheng, Yuan Sun, Keith Oleson'
 release = 'v0.0.0'
 
 ## -- General configuration ---------------------------------------------------
