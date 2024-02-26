@@ -6,7 +6,10 @@
 CLMU-App
 ==================================
 
-|GitHub| |license|
+|DOI| |GitHub| |license|
+
+.. |DOI| image:: https://zenodo.org/badge/750479733.svg
+  :target: https://zenodo.org/doi/10.5281/zenodo.10710695
 
 .. |GitHub| image:: https://img.shields.io/badge/GitHub-clmu--app-brightgreen.svg
    :target: https://github.com/envdes/clmu-app
