@@ -23,7 +23,7 @@ Author: `Junjie Yu <https://junjieyu-uom.github.io>`_, `Dr. Zhonghua Zheng <http
 
 .. toctree::
    :maxdepth: 2
-   :caption: CLMU-App container
+   :caption: Container
 
    container/intro.rst
    container/install_docker.rst
