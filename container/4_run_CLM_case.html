@@ -98,8 +98,10 @@
   <section id="run-a-clm-case">
 <h1>Run a CLM case<a class="headerlink" href="#run-a-clm-case" title="Permalink to this heading"></a></h1>
 <p>We use the interactive way to run CLM case via docker container</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># start the clmu container</span>
-sudo<span class="w"> </span>docker<span class="w"> </span>start<span class="w"> </span>myclmu
+<p>If you don’t have the clmu-app container, please refer to <a class="reference internal" href="run_container.html"><span class="doc">Run container</span></a></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># If there is a container (named myclmu), start the clmu container</span>
+<span class="c1"># myclmu must have been created by the envdes/clmu-app image with hostname clmu-app</span>
+docker<span class="w"> </span>start<span class="w"> </span>myclmu
 
 <span class="c1"># Use interactivate way to operate container</span>
 docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>-it<span class="w"> </span>myclmu<span class="w"> </span>/bin/bash

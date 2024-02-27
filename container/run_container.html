@@ -109,7 +109,8 @@
 <h2>Docker<a class="headerlink" href="#docker" title="Permalink to this heading"></a></h2>
 <section id="pull-the-clmu-app-image">
 <h3>Pull the clmu-app image<a class="headerlink" href="#pull-the-clmu-app-image" title="Permalink to this heading"></a></h3>
-<p>https://hub.docker.com/, the official sources of docker images.</p>
+<p><a class="reference external" href="https://hub.docker.com/">Docker Hub</a> is the official source of docker images.
+The CLMU-App is located at <a class="reference external" href="https://hub.docker.com/r/envdes/clmu-app"><strong>envdes/clmu-app</strong></a></p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">docker</span> <span class="n">pull</span> <span class="n">envdes</span><span class="o">/</span><span class="n">clmu</span><span class="o">-</span><span class="n">app</span> <span class="c1"># pull the image</span>
 </pre></div>
 </div>
@@ -119,13 +120,14 @@
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Do not change the hostname</span>
 <span class="c1"># ContainerName --&gt; user defines (in this document, ContainerName is myclmu)</span>
 <span class="n">docker</span> <span class="n">run</span> <span class="o">--</span><span class="n">hostname</span> <span class="n">clmu</span><span class="o">-</span><span class="n">app</span> <span class="o">--</span><span class="n">name</span> <span class="n">ContainerName</span> <span class="o">-</span><span class="n">it</span> <span class="n">envdes</span><span class="o">/</span><span class="n">clmu</span><span class="o">-</span><span class="n">app</span><span class="p">:</span><span class="mf">1.0</span>
+<span class="c1"># Now we are in the Fedora 31 Bash.</span>
 </pre></div>
 </div>
-<p>If user wants to change the hostname, make sure to change the configuration of CESM/CTSM. See Ref()</p>
+<p>If user wants to change the hostname, make sure to change the configuration of CESM/CTSM.</p>
 </section>
 <section id="install-clm5-0-installed-in-clmu-app">
 <h3>Install CLM5.0 (installed in clmu-app)<a class="headerlink" href="#install-clm5-0-installed-in-clmu-app" title="Permalink to this heading"></a></h3>
-<p>The CLM v5.0 was install in /p/project/clm5.0.</p>
+<p>The CLM5.0 was install in <code class="docutils literal notranslate"><span class="pre">/p/project/clm5.0</span></code>.</p>
 <p>User can install it other dir using commanders below, but make sure the container environment are suitable for the installed CLM.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Noted, clm5.0 has beed installed in /p/project</span>
 <span class="c1"># In the container directory</span>

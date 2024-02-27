@@ -1,6 +1,6 @@
 # Install Docker
 #### Check system info
-First of all, get familiar with our computer system before the next steps. Noted that the commands below run in Linux.  
+First of all, get familiar with our computer system before the next steps. Noted that the commands below run in Linux. If your are using other platform of Linux or want to install the GUI of docker(Docker Desktop), please refer to the [Docker official tutorial](https://docs.docker.com/engine/install/).
 ```
 lsb_release -a
 

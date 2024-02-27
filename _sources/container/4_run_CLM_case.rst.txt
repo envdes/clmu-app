@@ -3,10 +3,13 @@ Run a CLM case
 
 We use the interactive way to run CLM case via docker container
 
+If you don't have the clmu-app container, please refer to `Run container <run_container.md>`_
+
 .. code-block:: bash
 
-    # start the clmu container
-    sudo docker start myclmu
+    # If there is a container (named myclmu), start the clmu container
+    # myclmu must have been created by the envdes/clmu-app image with hostname clmu-app
+    docker start myclmu
 
     # Use interactivate way to operate container
     docker exec -it myclmu /bin/bash

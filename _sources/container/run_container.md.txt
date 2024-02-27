@@ -4,8 +4,8 @@ We can use docker or singularity to run a container.
 
 ## Docker
 #### Pull the clmu-app image
-https://hub.docker.com/, the official sources of docker images.
-
+[Docker Hub](https://hub.docker.com/) is the official source of docker images.
+The CLMU-App is located at [**envdes/clmu-app**](https://hub.docker.com/r/envdes/clmu-app)
 
 ```
 docker pull envdes/clmu-app # pull the image
@@ -17,13 +17,14 @@ docker pull envdes/clmu-app # pull the image
 # Do not change the hostname
 # ContainerName --> user defines (in this document, ContainerName is myclmu)
 docker run --hostname clmu-app --name ContainerName -it envdes/clmu-app:1.0
+# Now we are in the Fedora 31 Bash.
 ```
 
-If user wants to change the hostname, make sure to change the configuration of CESM/CTSM. See Ref()
+If user wants to change the hostname, make sure to change the configuration of CESM/CTSM.
 
 #### Install CLM5.0 (installed in clmu-app)
 
-The CLM v5.0 was install in /p/project/clm5.0.
+The CLM5.0 was install in `/p/project/clm5.0`.
 
 User can install it other dir using commanders below, but make sure the container environment are suitable for the installed CLM. 
 
