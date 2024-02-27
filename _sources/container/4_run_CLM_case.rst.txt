@@ -60,6 +60,7 @@ If not, try to ask for help in `CESM FORUM <https://bb.cgd.ucar.edu/cesm/>`_
 **check the result**
 
 .. code-block:: bash
+
     ncdump -h /p/scratch/CESMDATAROOT/Archive/rest/1992-08-13-21600/testSPDATASETnAtmForcing.cpl.r.1992-08-13-21600.nc
     # You will see the result of the case.
     #        double fractions_lx_lfrin(fractions_lx_ny, fractions_lx_nx) ;
