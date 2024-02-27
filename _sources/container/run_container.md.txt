@@ -16,7 +16,7 @@ docker pull envdes/clmu-app # pull the image
 ```
 # Do not change the hostname
 # ContainerName --> user defines (in this document, ContainerName is myclmu)
-docker run --hostname clmu-app --name ContainerName -it clmu-app:1.0
+docker run --hostname clmu-app --name ContainerName -it envdes/clmu-app:1.0
 ```
 
 If user wants to change the hostname, make sure to change the configuration of CESM/CTSM. See Ref()
