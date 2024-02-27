@@ -5,7 +5,7 @@ CLMU-App is a container for urban climate simulations. It is designed to provide
 
 `What is a container? <https://docs.docker.com/guides/walkthroughs/what-is-a-container/>`_
 -----------------------------------------------------------------------------------------------
-From docker: A container is an isolated environment for your code. This means that a container does not know the machine's operating system or your files. It runs on the environment provided to you by Docker Desktop. Containers have everything that your code needs to run, down to a base operating system. You can use Docker Desktop to manage and explore your containers.
+From docker: "A container is an isolated environment for your code. This means that a container does not know the machine's operating system or your files. It runs on the environment provided to you by Docker Desktop. Containers have everything that your code needs to run, down to a base operating system. You can use Docker Desktop to manage and explore your containers."
 
 What is CLMU?
 -------------
