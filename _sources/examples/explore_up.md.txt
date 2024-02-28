@@ -172,9 +172,9 @@ for i in range(1, 25):
 
     # reset the cases
     command_0 = f"sudo -S docker exec myclm rm -rf /p/scratch/CESMDATAROOT/CaseOutputs/ssp370up"
-    run_command(command=command_0, password="Manchestermedal")
+    run_command(command=command_0, password=password)
     command_1 = f"sudo -S docker exec myclm rm -rf /p/project/clm5.0/cime/scripts/ssp370up"
-    run_command(command=command_1, password="Manchestermedal")
+    run_command(command=command_1, password=password)
 
 ```
 
