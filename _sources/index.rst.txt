@@ -17,7 +17,7 @@ CLMU-App
 .. |license| image:: https://img.shields.io/badge/License-MIT-blue.svg
    :target: https://github.com/envdes/clmu-app/blob/main/LICENSE
 
-CLMU-App: Enabling Operating System Indenpendent Urban Climate Simulations
+CLMU-App: Enabling Operating System Independent Urban Climate Simulations
 
 Author: `Junjie Yu <https://junjieyu-uom.github.io>`_, `Dr. Zhonghua Zheng <https://zhonghuazheng.com>`_, `Yuan Sun <https://github.com/YuanSun-UoM>`_, `Dr. Keith Oleson <https://staff.ucar.edu/users/oleson>`_
 

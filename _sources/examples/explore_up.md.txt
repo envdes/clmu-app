@@ -1,9 +1,9 @@
 # Exploration of climate sensitive of different urban parameters using clmu-app
 
 
-As the examples describe, one of the useful functions of clmu-app is to explore the urban climate with a changing urban surface parameters. By investigating this, we can gain information on urban planning/design or offer opportunities for other urban related subjects.
+As the examples describe, one of the useful functions of clmu-app is to explore the urban climate with changing urban surface parameters. By investigating this, we can gain information on urban planning/design or offer opportunities for other urban related subjects.
 
-Here we explored the 24 girds that contain most developed cities in the world (ref: https://en.wikipedia.org/wiki/Globalization_and_World_Cities_Research_Network ). 
+Here we explored the 24 girds that contain the most developed cities in the world (ref: https://en.wikipedia.org/wiki/Globalization_and_World_Cities_Research_Network ). 
 
 The CLMU can simulate 3 urban classes. Only the high density urban is considered in this experiment as HD has an obvious urban effect and is ubiquitous in each grid. We selected three categories of urban parameters, including morphological, radiative and thermal parameters, for sensitive analysis. 
 
@@ -21,7 +21,7 @@ Env: clmu-app
 
 Experiment: each HD urban surface parameters increased by 1.2 times respectively.
 
-| Variable | Long name | units | Category| 
+| Variable | Long name | Units | Category| 
 |---|---|---|---|
 |ALB_ROOF|albedo of roof |unitless| radiative|
 |ALB_WALL|albedo of wall | unitless| radiative|
