@@ -1,7 +1,11 @@
 # escape=`
 FROM fedora:31
 
-# This dockerfile is partly reference from https://github.com/HPSCTerrSys/dockerfiles/blob/master/clm5/Dockerfile
+# This dockerfile is partly reference from 
+# 1 https://github.com/HPSCTerrSys/dockerfiles/blob/master/clm5/Dockerfile
+# 2 https://hub.docker.com/layers/escomp/cesm-lab-2.2/latest/images/sha256-8ba7cc2abed7201955e067274de906faee974f1f24a03730fbd17cba8cbf6e7c?context=explore
+# 3 https://github.com/ESMCI/cime/blob/master/docker/Dockerfile
+# we thank authors of above dockerfiles for their contribution to the community
 
 # note: svn <=1.1 is not installed in this image, but is required for CESM installation
 LABEL `
