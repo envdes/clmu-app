@@ -36,7 +36,6 @@ How to install ESMF?
     ENV ESMF_INSTALL_MODDIR=include
     ENV ESMF_INSTALL_LIBDIR=lib
     ENV ESMF_INSTALL_BINDIR=bin
-    ENV PATH="/usr/lib64/openmpi/bin:${PATH}"
 
     # Build and install ESMF libraries
     cd /tmp/bld 
