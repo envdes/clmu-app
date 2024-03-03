@@ -1,12 +1,15 @@
 CLMU-App: Enabling Operating System Indenpendent Urban Climate Simulations
 ==========================================================================
-|DOI| |GitHub| |license|
+|DOI| |GitHub| |Docs| |License|
 
 .. |DOI| image:: https://zenodo.org/badge/750479733.svg
   :target: https://zenodo.org/doi/10.5281/zenodo.10710695
 
 .. |GitHub| image:: https://img.shields.io/badge/GitHub-clmu--app-brightgreen.svg
    :target: https://github.com/envdes/clmu-app
+
+.. |Docs| image:: https://readthedocs.org/projects/clmu-app/badge/?version=latest
+   :target: https://clmu-app.readthedocs.io/en/latest/?badge=latest
 
 .. |license| image:: https://img.shields.io/badge/License-MIT-blue.svg
    :target: https://github.com/envdes/clmu-app/blob/main/LICENSE
