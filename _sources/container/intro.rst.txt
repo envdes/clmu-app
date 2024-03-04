@@ -30,7 +30,7 @@ Running CMLU within CLM (Community Land Model) requires a Linux operation system
 
     - single point case, e.g., `PTS mode <https://escomp.github.io/ctsm-docs/versions/master/html/users_guide/running-single-points/running-pts_mode-configurations.html>`_
     - test case on local before an expensive simulation
-    - urban climate exploration e.g., test urban parameter sensitivity
+    - urban climate exploration, e.g., test urban parameter sensitivity
 
 .. note::
     PTS mode currently **CAN NOT** run with initial conditions, however, we can still can take advantage of this mode. Firstly, we can run case for longer time simulation to get the stable conditions. Moreover, although the land use models is model simulations are sensitive to initial soil moisture conditions, the urban module (CLMU) is less affected by soil. 
