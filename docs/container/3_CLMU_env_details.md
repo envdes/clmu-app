@@ -22,7 +22,7 @@ Major apps:
 How to install ESMF?
     ```
     # Required envs for building libraries
-    export ESMF_DIR=/tmp/bld/esmf-ESMF_8_0_1
+    export ESMF_DIR=/tmp/download/esmf-ESMF_8_0_1
     export ESMF_INSTALL_PREFIX=/usr/local
     export ESMF_INSTALL_MODDIR=include
     export ESMF_INSTALL_LIBDIR=lib
@@ -30,9 +30,12 @@ How to install ESMF?
     export PATH="/usr/lib64/openmpi/bin:${PATH}"
 
     # Build and install ESMF libraries
-    cd /tmp/bld 
+    mkdir -vp /tmp/download
+    cd /tmp/download 
     wget -c https://github.com/esmf-org/esmf/archive/ESMF_8_0_1.tar.gz 
     tar zxf ESMF_8_0_1.tar.gz 
     cd esmf-ESMF_8_0_1 
-    make -j && make install 
+    make -j 
+    make install 
+    rm -rf /tmp
     ```
