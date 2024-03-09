@@ -51,11 +51,7 @@
 <li class="toctree-l1"><a class="reference internal" href="install_docker.html">Install Docker</a></li>
 <li class="toctree-l1"><a class="reference internal" href="run_container.html">Run container</a></li>
 <li class="toctree-l1"><a class="reference internal" href="4_run_CLM_case.html">Run a CLM case</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">CLM ENV Container detail</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#how-to-install-esmf">How to install ESMF?</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#how-to-install-mpi-and-pnetcdf">How to install MPI and pnetcdf?</a></li>
-</ul>
-</li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">CLM ENV Container detail</a></li>
 <li class="toctree-l1"><a class="reference internal" href="5_python_API.html">Workflow of cesm.py</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Examples</span></p>
@@ -111,50 +107,9 @@
 <li><p>python = <cite>3.7.9</cite></p></li>
 <li><p>svn = <cite>1.12</cite></p></li>
 </ul>
-<a class="reference internal image-reference" href="../_images/ENV.png"><img alt="CLMU container environment" class="align-center" src="../_images/ENV.png" style="width: 100%;" /></a>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>The clmu-app currently does not provide ESMF as we want a compact container. The ESMF is important for making your own data of other mode of single points. We recommend to prepare the date out of the clmu-app, and then bind/import them to clmu-app to run the special single point case. If ESMF is still need, user can install it as follow:</p>
-</div>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>If uesr still want to run a regional case or global case, install the <strong>MPI</strong> and <strong>pnetcdf</strong> would be helpful. Recommend version of <strong>MPI</strong> is <cite>openmpi-4.0.2-1</cite> and <strong>pnetcdf</strong> is <cite>1.12.3</cite>. The the cime configuration also need to be changed. The configuration is located /root/.cime/. Revise the mpi configuration as /p/project/clm5.0/cime/config/cesm/machines/config_machines.xml.</p>
-</div>
-<section id="how-to-install-esmf">
-<h2>How to install ESMF?<a class="headerlink" href="#how-to-install-esmf" title="Permalink to this heading"></a></h2>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="c1"># Required envs for building libraries</span>
-ENV<span class="w"> </span><span class="nv">ESMF_DIR</span><span class="o">=</span>/tmp/bld/esmf-ESMF_8_0_1
-ENV<span class="w"> </span><span class="nv">ESMF_INSTALL_PREFIX</span><span class="o">=</span>/usr/local
-ENV<span class="w"> </span><span class="nv">ESMF_INSTALL_MODDIR</span><span class="o">=</span>include
-ENV<span class="w"> </span><span class="nv">ESMF_INSTALL_LIBDIR</span><span class="o">=</span>lib
-ENV<span class="w"> </span><span class="nv">ESMF_INSTALL_BINDIR</span><span class="o">=</span>bin
-
-<span class="c1"># Build and install ESMF libraries</span>
-<span class="nb">cd</span><span class="w"> </span>/tmp/bld
-wget<span class="w"> </span>-c<span class="w"> </span>https://github.com/esmf-org/esmf/archive/ESMF_8_0_1.tar.gz
-tar<span class="w"> </span>zxf<span class="w"> </span>ESMF_8_0_1.tar.gz
-<span class="nb">cd</span><span class="w"> </span>esmf-ESMF_8_0_1
-make<span class="w"> </span>-j<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>make<span class="w"> </span>install
-</pre></div>
-</div>
-</section>
-<section id="how-to-install-mpi-and-pnetcdf">
-<h2>How to install MPI and pnetcdf?<a class="headerlink" href="#how-to-install-mpi-and-pnetcdf" title="Permalink to this heading"></a></h2>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="c1"># Install MPI</span>
-dnf<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>openmpi<span class="w"> </span>openmpi-devel
-<span class="c1"># Install pnetcdf</span>
-
-<span class="nb">cd</span><span class="w"> </span>~
-wget<span class="w"> </span>-c<span class="w"> </span>https://parallel-netcdf.github.io/Release/pnetcdf-1.12.3.tar.gz
-tar<span class="w"> </span>-xvzf<span class="w"> </span>pnetcdf-1.12.3.tar.gz
-<span class="nb">cd</span><span class="w"> </span>pnetcdf-1.12.3
-./configure<span class="w"> </span>--prefix<span class="o">=</span>/usr/local<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>make<span class="w"> </span>-j<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>make<span class="w"> </span>install
-
-<span class="nb">cd</span><span class="w"> </span>..
-rm<span class="w"> </span>-rf<span class="w"> </span>pnetcdf-1.12.3.tar.gz<span class="w"> </span>pnetcdf-1.12.3
-</pre></div>
-</div>
-</section>
+<blockquote>
+<div><a class="reference internal image-reference" href="../_images/ENV.png"><img alt="CLMU container environment" class="align-center" src="../_images/ENV.png" style="width: 100%;" /></a>
+</div></blockquote>
 </section>
 
 
