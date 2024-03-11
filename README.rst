@@ -17,7 +17,7 @@ CLMU-App: Enabling Operating System Indenpendent Urban Climate Simulations
 CLMU-App is a containerized application for urban climate simulations. It is designed to provide a platform for running Community Land Model-Urban (CLMU) simulations.
 CLMU is the Community Land Model-Urban, hosted by the National Center for Atmospheric Research (NCAR). CLMU acts as an urban model with a single-layer canopy scheme under the Earth system model hierarchy. Running a CLMU simulation, at least, needs to run a Community Land Model (CLM) case. Running a global CESM/CTSM case requires a lot of computing resources that HARDLY be done on a local computer. Therefore, the CLMU-App only serves a single point of simulation, and it is not recommended to use container for global simulation. The clm5.0 has beed installed in `/p/project` in CLMU-App. For the detail of CLMU-App, please refer to `CLMU-App document <https://envdes.github.io/clmu-app/>`_.
 
-Author: `Junjie Yu <https://junjieyu-uom.github.io>`_, `Dr. Zhonghua Zheng <https://zhonghuazheng.com>`_, `Yuan Sun <https://github.com/YuanSun-UoM>`_, `Dr. Keith Oleson <https://staff.ucar.edu/users/oleson>`_
+Author: `Junjie Yu <https://junjieyu-uom.github.io>`_, `Keith Oleson <https://staff.ucar.edu/users/oleson>`_, `Yuan Sun <https://github.com/YuanSun-UoM>`_, `David Topping <https://research.manchester.ac.uk/en/persons/david.topping>`_, `Zhonghua Zheng <https://zhonghuazheng.com>`_
 
 How to ask for help
 -------------------
