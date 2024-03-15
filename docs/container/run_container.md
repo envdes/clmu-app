@@ -66,13 +66,9 @@ singularity run --hostname clmu-app -B "$(pwd)"/p:/p clmu-app.sif
 # Do not change hostname, either need to change cime.config file 
 
 # Note to export the environment variables if using singularity clmu-app
-# Export CLM5 environment variables
-export PROJECT=/p/project
-export SCRATCH=/p/scratch
-export BUDGET_ACCOUNTS=slts
 export CESMDATAROOT=/p/scratch/CESMDATAROOT
 export CSMDATA=/p/scratch/CESMDATAROOT/inputdata
-export CASESCRIPT=/p/project/myclm/cime/scripts
+export CASESCRIPT=/p/project/clm5.0/cime/scripts
 ```
 
 #### Tips for docker commands
