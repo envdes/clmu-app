@@ -1,4 +1,4 @@
-CLMU-App: Enabling Operating System Indenpendent Urban Climate Simulations
+CLMU-App: Enabling Operating System Independent Urban Climate Simulations
 ==========================================================================
 |DOI| |GitHub| |Docs| |License|
 
