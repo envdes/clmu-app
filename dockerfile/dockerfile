@@ -1,6 +1,14 @@
 # escape=`
 FROM fedora:31
 
+# This image has amended from https://github.com/HPSCTerrSys/dockerfiles/blob/master/clm5/Dockerfile
+# The original dockerfile was created by the TerrSysMP team at the Helmholtz Centre for Environmental Research - UFZ
+# We use fedora 31 as the base image rather that Centos 8, and install the required packages for building CESM/CTSM
+# We also amended version of the required packages for building ESMF, PnetCDF, and CMake.
+# The the clm5.0 source code is cloned from the release-clm5.0 branch of the CTSM repository.
+# cime_config files are copied to the image to set the environment variables for building CTSM.
+# note!: the config of new version of CTSM is different from the this version, so the cime_config files are different.
+# p/pyscripts is created to store python scripts / sh scripts for running CTSM.
 # Image metadata for documentation purposes. Has no effect on docker build behavior.
 
 # note: svn <=1.1 is not installed in this image, but is required for CESM installation
