@@ -37,7 +37,4 @@ Running CMLU within CLM (Community Land Model) requires a Linux operation system
     
     We compared two cases of different simulation times of New York Grid ``lat=40.05``, ``lon=-73.75``, ``res=f09_g17``, ``compset=2000_DATM%CRUv7_CLM50%SP_SICE_SOCN_SROF_SGLC_SWAV``. The 2015 JJA average **TREFMXAV**, **TREFMNAV**, **TSA** and **RH2M** of high density urban between the case of simulation time of 2005-2015 and the case of simulation time of 2015 JJA were compared. Their differences are `0.009 K`, `0.035 K`, `0.023 K` and `0.076 %`, respectively. However, it should be noted that the differences in `vegetated_or_bare_soil` land unit are `0.123 K`, `0.191 K`, `0.036 K` and `0.173 %`, which are more significantly affected than urban. We recommend that a long time simulation or spin-up for the experiments need non-urban variables would be more precise. `TREFMXAV`, `TREFMNAV`, `TSA` and `RH2M` are daily maximum of average 2-m temperature, daily minimum of average 2-m temperature, 2m air temperature and 2m relative humidity, respectively.
 
-Python for urban climate exploration
-------------------------------------
-We apply some Python code to help run a case of CLM to explore urban climate. 
 
