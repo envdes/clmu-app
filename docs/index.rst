@@ -26,33 +26,13 @@ Author: `Junjie Yu <https://junjieyu-uom.github.io>`_, `Keith Oleson <https://st
 
 .. toctree::
    :maxdepth: 2
-   :caption: Container
+   :caption: Overview
 
    container/intro.rst
    container/install_docker.rst
    container/run_container.md
    container/4_run_CLM_case.rst
    container/clmu_env.rst
-   container/5_python_API.md
-
-.. toctree::
-   :maxdepth: 2
-   :caption: Examples
-
-   examples/Single_point_modeling.ipynb
-   examples/modify_urban.ipynb
-
-.. toctree::
-   :maxdepth: 1
-   :caption: Exploration
-
-   examples/explore_up.md
-
-.. toctree::
-   :maxdepth: 2
-   :caption: API Reference
-
-   cesm.rst
 
 Indices and tables
 ==================
