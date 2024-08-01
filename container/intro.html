@@ -51,7 +51,6 @@
 <li class="toctree-l2"><a class="reference internal" href="#id1">What is a container?</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#what-is-clmu">What is CLMU?</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#why-use-a-container-for-clmu">Why use a container for CLMU?</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#python-for-urban-climate-exploration">Python for urban climate exploration</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="install_docker.html">Install Docker</a></li>
@@ -114,10 +113,6 @@
 <p>PTS mode currently <strong>CAN NOT</strong> run with initial conditions, however, we can still can take advantage of this mode. Firstly, we can run case for longer time simulation to get the stable conditions. Moreover, although the land use models is model simulations are sensitive to initial soil moisture conditions, the urban module (CLMU) is less affected by soil.</p>
 <p>We compared two cases of different simulation times of New York Grid <code class="docutils literal notranslate"><span class="pre">lat=40.05</span></code>, <code class="docutils literal notranslate"><span class="pre">lon=-73.75</span></code>, <code class="docutils literal notranslate"><span class="pre">res=f09_g17</span></code>, <code class="docutils literal notranslate"><span class="pre">compset=2000_DATM%CRUv7_CLM50%SP_SICE_SOCN_SROF_SGLC_SWAV</span></code>. The 2015 JJA average <strong>TREFMXAV</strong>, <strong>TREFMNAV</strong>, <strong>TSA</strong> and <strong>RH2M</strong> of high density urban between the case of simulation time of 2005-2015 and the case of simulation time of 2015 JJA were compared. Their differences are <cite>0.009 K</cite>, <cite>0.035 K</cite>, <cite>0.023 K</cite> and <cite>0.076 %</cite>, respectively. However, it should be noted that the differences in <cite>vegetated_or_bare_soil</cite> land unit are <cite>0.123 K</cite>, <cite>0.191 K</cite>, <cite>0.036 K</cite> and <cite>0.173 %</cite>, which are more significantly affected than urban. We recommend that a long time simulation or spin-up for the experiments need non-urban variables would be more precise. <cite>TREFMXAV</cite>, <cite>TREFMNAV</cite>, <cite>TSA</cite> and <cite>RH2M</cite> are daily maximum of average 2-m temperature, daily minimum of average 2-m temperature, 2m air temperature and 2m relative humidity, respectively.</p>
 </div>
-</section>
-<section id="python-for-urban-climate-exploration">
-<h2>Python for urban climate exploration<a class="headerlink" href="#python-for-urban-climate-exploration" title="Permalink to this heading"></a></h2>
-<p>We apply some Python code to help run a case of CLM to explore urban climate.</p>
 </section>
 </section>
 
