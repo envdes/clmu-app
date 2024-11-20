@@ -8,7 +8,7 @@ We can use docker or singularity to run a container.
 The CLMU-App is located at [**envdes/clmu-app**](https://hub.docker.com/r/envdes/clmu-app)
 
 ```
-docker pull envdes/clmu-app # pull the image
+docker pull envdes/clmu-app:1.0 # pull the image
 ```
 
 #### Build container

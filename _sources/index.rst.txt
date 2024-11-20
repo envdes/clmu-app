@@ -15,7 +15,7 @@ CLMU-App
    :target: https://github.com/envdes/clmu-app
 
 .. |Docs| image:: https://readthedocs.org/projects/clmu-app/badge/?version=latest
-   :target: https://clmu-app.readthedocs.io/en/latest/?badge=latest
+   :target: https://envdes.github.io/clmu-app/
 
 .. |license| image:: https://img.shields.io/badge/License-MIT-blue.svg
    :target: https://github.com/envdes/clmu-app/blob/main/LICENSE
