@@ -14,7 +14,7 @@
         <BASELINE_ROOT>$ENV{CESMDATAROOT}/BaselineTests</BASELINE_ROOT>
         <CCSM_CPRNC>$CCSMROOT/tools/cprnc/build/cprnc</CCSM_CPRNC>
         <GMAKE>make</GMAKE>
-        <GMAKE_J>32</GMAKE_J>
+        <GMAKE_J>8</GMAKE_J>
         <BATCH_SYSTEM>none</BATCH_SYSTEM>
         <SUPPORTED_BY>The_Uinversity_of_Manchester</SUPPORTED_BY>
         <MAX_TASKS_PER_NODE>32</MAX_TASKS_PER_NODE>
