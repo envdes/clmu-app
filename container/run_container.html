@@ -1,21 +1,21 @@
 
 
 <!DOCTYPE html>
-<html class="writer-html5" lang="en">
+<html class="writer-html5" lang="en" data-content_root="../">
 <head>
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Run container &mdash; clmu-app v0.0.0 documentation</title>
-      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
 
   
       <script src="../_static/jquery.js?v=5d32c60e"></script>
       <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-      <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js?v=f3b75425"></script>
-      <script src="../_static/doctools.js?v=888ff710"></script>
-      <script src="../_static/sphinx_highlight.js?v=4825356b"></script>
+      <script src="../_static/documentation_options.js?v=8b92e751"></script>
+      <script src="../_static/doctools.js?v=9a2dae69"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
       <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
@@ -87,12 +87,12 @@
            <div itemprop="articleBody">
              
   <section id="run-container">
-<h1>Run container<a class="headerlink" href="#run-container" title="Permalink to this heading"></a></h1>
+<h1>Run container<a class="headerlink" href="#run-container" title="Link to this heading"></a></h1>
 <p>We can use docker or singularity to run a container.</p>
 <section id="docker">
-<h2>Docker<a class="headerlink" href="#docker" title="Permalink to this heading"></a></h2>
+<h2>Docker<a class="headerlink" href="#docker" title="Link to this heading"></a></h2>
 <section id="pull-the-clmu-app-image">
-<h3>Pull the clmu-app image<a class="headerlink" href="#pull-the-clmu-app-image" title="Permalink to this heading"></a></h3>
+<h3>Pull the clmu-app image<a class="headerlink" href="#pull-the-clmu-app-image" title="Link to this heading"></a></h3>
 <p><a class="reference external" href="https://hub.docker.com/">Docker Hub</a> is the official source of docker images.
 The CLMU-App is located at <a class="reference external" href="https://hub.docker.com/r/envdes/clmu-app"><strong>envdes/clmu-app</strong></a></p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">docker</span> <span class="n">pull</span> <span class="n">envdes</span><span class="o">/</span><span class="n">clmu</span><span class="o">-</span><span class="n">app</span><span class="p">:</span><span class="mf">1.0</span> <span class="c1"># pull the image</span>
@@ -100,7 +100,7 @@ The CLMU-App is located at <a class="reference external" href="https://hub.docke
 </div>
 </section>
 <section id="build-container">
-<h3>Build container<a class="headerlink" href="#build-container" title="Permalink to this heading"></a></h3>
+<h3>Build container<a class="headerlink" href="#build-container" title="Link to this heading"></a></h3>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Do not change the hostname</span>
 <span class="c1"># ContainerName --&gt; user defines (in this document, ContainerName is myclmu)</span>
 <span class="n">docker</span> <span class="n">run</span> <span class="o">--</span><span class="n">hostname</span> <span class="n">clmu</span><span class="o">-</span><span class="n">app</span> <span class="o">--</span><span class="n">name</span> <span class="n">ContainerName</span> <span class="o">-</span><span class="n">it</span> <span class="n">envdes</span><span class="o">/</span><span class="n">clmu</span><span class="o">-</span><span class="n">app</span><span class="p">:</span><span class="mf">1.0</span>
@@ -110,7 +110,7 @@ The CLMU-App is located at <a class="reference external" href="https://hub.docke
 <p>If user wants to change the hostname, make sure to change the configuration of CESM/CTSM.</p>
 </section>
 <section id="install-clm5-0-installed-in-clmu-app">
-<h3>Install CLM5.0 (installed in clmu-app)<a class="headerlink" href="#install-clm5-0-installed-in-clmu-app" title="Permalink to this heading"></a></h3>
+<h3>Install CLM5.0 (installed in clmu-app)<a class="headerlink" href="#install-clm5-0-installed-in-clmu-app" title="Link to this heading"></a></h3>
 <p>The CLM5.0 was install in <code class="docutils literal notranslate"><span class="pre">/p/project/clm5.0</span></code>.</p>
 <p>User can install it other dir using commanders below, but make sure the container environment are suitable for the installed CLM.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Noted, clm5.0 has beed installed in /p/project</span>
@@ -127,7 +127,7 @@ The CLMU-App is located at <a class="reference external" href="https://hub.docke
 <p>If you want to modify model configuration, please refer to <a class="reference external" href="https://bb.cgd.ucar.edu/cesm/threads/issue-installing-on-centos-8-with-slurm-and-lmod.5884/#post-39110">key notes for setting config_manchine.xml</a>.</p>
 </section>
 <section id="optional-singularity-container-software-for-hpc">
-<h3>Optional: Singularity (Container software for HPC)<a class="headerlink" href="#optional-singularity-container-software-for-hpc" title="Permalink to this heading"></a></h3>
+<h3>Optional: Singularity (Container software for HPC)<a class="headerlink" href="#optional-singularity-container-software-for-hpc" title="Link to this heading"></a></h3>
 <p>Singularity is a container software usually employed in HPC. It provides a mechanism to run containers where containers can be used to package entire scientific workflows, software and libraries, and even data.
 Ref: https://ri.itservices.manchester.ac.uk/csf3/software/applications/singularity/</p>
 <p>Using Singularity from the docker image</p>
@@ -153,7 +153,7 @@ Ref: https://ri.itservices.manchester.ac.uk/csf3/software/applications/singulari
 </div>
 </section>
 <section id="tips-for-docker-commands">
-<h3>Tips for docker commands<a class="headerlink" href="#tips-for-docker-commands" title="Permalink to this heading"></a></h3>
+<h3>Tips for docker commands<a class="headerlink" href="#tips-for-docker-commands" title="Link to this heading"></a></h3>
 <ul class="simple">
 <li><p>docker ps: check for the running container</p></li>
 <li><p>docker stop <container-id>: stop the container</p></li>

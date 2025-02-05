@@ -1,21 +1,21 @@
 
 
 <!DOCTYPE html>
-<html class="writer-html5" lang="en">
+<html class="writer-html5" lang="en" data-content_root="../">
 <head>
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Introduction &mdash; clmu-app v0.0.0 documentation</title>
-      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
 
   
       <script src="../_static/jquery.js?v=5d32c60e"></script>
       <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-      <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js?v=f3b75425"></script>
-      <script src="../_static/doctools.js?v=888ff710"></script>
-      <script src="../_static/sphinx_highlight.js?v=4825356b"></script>
+      <script src="../_static/documentation_options.js?v=8b92e751"></script>
+      <script src="../_static/doctools.js?v=9a2dae69"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
       <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
@@ -75,23 +75,23 @@
            <div itemprop="articleBody">
              
   <section id="introduction">
-<h1>Introduction<a class="headerlink" href="#introduction" title="Permalink to this heading"></a></h1>
+<h1>Introduction<a class="headerlink" href="#introduction" title="Link to this heading"></a></h1>
 <section id="what-is-a-container">
-<h2><a class="reference external" href="https://docs.docker.com/guides/walkthroughs/what-is-a-container/">What is a container?</a><a class="headerlink" href="#what-is-a-container" title="Permalink to this heading"></a></h2>
+<h2><a class="reference external" href="https://docs.docker.com/guides/walkthroughs/what-is-a-container/">What is a container?</a><a class="headerlink" href="#what-is-a-container" title="Link to this heading"></a></h2>
 <p>From docker: “A container is an isolated environment for your code. This means that a container does not know the machine’s operating system or your files. It runs on the environment provided to you by Docker Desktop. Containers have everything that your code needs to run, down to a base operating system. You can use Docker Desktop to manage and explore your containers.”</p>
 </section>
 <section id="what-is-clmu">
-<h2>What is CLMU?<a class="headerlink" href="#what-is-clmu" title="Permalink to this heading"></a></h2>
+<h2>What is CLMU?<a class="headerlink" href="#what-is-clmu" title="Link to this heading"></a></h2>
 <p>CLMU is the Community Land Model-Urban, hosted by the National Center for Atmospheric Research (NCAR). CLMU acts as an urban model with a single-layer canopy scheme under the Earth system model hierarchy.</p>
 <p>See more details in <a class="reference external" href="https://escomp.github.io/ctsm-docs/versions/master/html/tech_note/Urban/CLM50_Tech_Note_Urban.html">CLM Technical Note</a>.</p>
 <p><img alt="Alt text" src="../_images/clmu.jpg" /></p>
 <center>Urban parameterization in CLMU. <a href="https://escomp.github.io/ctsm-docs/versions/master/html/tech_note/Urban/CLM50_Tech_Note_Urban.html">(Fig sources)</a></center></section>
 <section id="why-use-a-container-for-clmu">
-<h2>Why use a container for CLMU?<a class="headerlink" href="#why-use-a-container-for-clmu" title="Permalink to this heading"></a></h2>
+<h2>Why use a container for CLMU?<a class="headerlink" href="#why-use-a-container-for-clmu" title="Link to this heading"></a></h2>
 <p>Running CMLU within CLM (Community Land Model) requires a Linux operation system with certain <a class="reference external" href="https://escomp.github.io/CESM/versions/cesm2.2/html/introduction.html#cesm2-software-operating-system-prerequisites">software requirements</a>. Without professional support from technicians, it is a challenge for scientists or other potential users to port the CLM running environment by themselves. Here, we use a container to build an ENV fitting the recent version of <a class="reference external" href="https://github.com/ESCOMP/CTSM">CTSM/CLM</a>. Further, we can apply the container on cloud platforms or local computers to conduct some interesting experiments.</p>
 </section>
 <section id="user-notice">
-<h2>User notice<a class="headerlink" href="#user-notice" title="Permalink to this heading"></a></h2>
+<h2>User notice<a class="headerlink" href="#user-notice" title="Link to this heading"></a></h2>
 <p>Running a global CESM/CTSM case requires a lot of computing resources that cannot be done on a local computer. Therefore, the clmu-app only serves a single point of simulation, and it is not recommended to use container for global simulation. Therefore, we recommend using this container for the following related research:</p>
 <ul class="simple">
 <li><p>single point case <a class="reference external" href="https://escomp.github.io/ctsm-docs/versions/master/html/users_guide/running-single-points/running-pts_mode-configurations.html">PTS mode</a></p></li>
@@ -120,7 +120,7 @@ The clmu-app currently does not provide ESMF as we want a compact container. The
 </div>
 </section>
 <section id="python-for-urban-climate-exploration">
-<h2><a class="reference internal" href="5_python_API.html"><span class="doc">Python for urban climate exploration</span></a><a class="headerlink" href="#python-for-urban-climate-exploration" title="Permalink to this heading"></a></h2>
+<h2><a class="reference internal" href="5_python_API.html"><span class="doc">Python for urban climate exploration</span></a><a class="headerlink" href="#python-for-urban-climate-exploration" title="Link to this heading"></a></h2>
 <p>We apply some Python code to help run a case of CLM to explore urban climate.</p>
 </section>
 </section>

@@ -1,21 +1,21 @@
 
 
 <!DOCTYPE html>
-<html class="writer-html5" lang="en">
+<html class="writer-html5" lang="en" data-content_root="../">
 <head>
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Exploration of climate sensitive of different urban parameters using clmu-app &mdash; clmu-app v0.0.0 documentation</title>
-      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
 
   
       <script src="../_static/jquery.js?v=5d32c60e"></script>
       <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-      <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js?v=f3b75425"></script>
-      <script src="../_static/doctools.js?v=888ff710"></script>
-      <script src="../_static/sphinx_highlight.js?v=4825356b"></script>
+      <script src="../_static/documentation_options.js?v=8b92e751"></script>
+      <script src="../_static/doctools.js?v=9a2dae69"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
       <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
@@ -75,7 +75,7 @@
            <div itemprop="articleBody">
              
   <section id="exploration-of-climate-sensitive-of-different-urban-parameters-using-clmu-app">
-<h1>Exploration of climate sensitive of different urban parameters using clmu-app<a class="headerlink" href="#exploration-of-climate-sensitive-of-different-urban-parameters-using-clmu-app" title="Permalink to this heading"></a></h1>
+<h1>Exploration of climate sensitive of different urban parameters using clmu-app<a class="headerlink" href="#exploration-of-climate-sensitive-of-different-urban-parameters-using-clmu-app" title="Link to this heading"></a></h1>
 <p>As the examples describe, one of the useful functions of clmu-app is to explore the urban climate with changing urban surface parameters. By investigating this, we can gain information on urban planning/design or offer opportunities for other urban related subjects.</p>
 <p>Here we explored the 24 girds that contain the most developed cities in the world (ref: https://en.wikipedia.org/wiki/Globalization_and_World_Cities_Research_Network ).</p>
 <p>The CLMU can simulate 3 urban classes. Only the high density urban is considered in this experiment as HD has an obvious urban effect and is ubiquitous in each grid. We selected three categories of urban parameters, including morphological, radiative and thermal parameters, for sensitive analysis.</p>
@@ -191,15 +191,15 @@
 <p><img alt="Alt text" src="../_images/TSA_diff_thm.png" /></p>
 <center>Thermal sensitives. </a></center><p><strong>ref code</strong></p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
-<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
 <span class="n">os</span><span class="o">.</span><span class="n">chdir</span><span class="p">(</span><span class="s1">&#39;/home/zhonghua/docker/DRL_urban_climate_adaptation/RLctsm/&#39;</span><span class="p">)</span>
 
-<span class="kn">import</span> <span class="nn">sys</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
 <span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;/home/zhonghua/docker/DRL_urban_climate_adaptation/RLctsm/&#39;</span><span class="p">)</span>
 
-<span class="kn">from</span> <span class="nn">utils.cesm</span> <span class="kn">import</span> <span class="o">*</span>
-<span class="kn">from</span> <span class="nn">utils.ini_env</span> <span class="kn">import</span> <span class="o">*</span>
-<span class="k">def</span> <span class="nf">run_case</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">sur_var</span><span class="p">,</span> <span class="n">case_year</span><span class="o">=</span><span class="s2">&quot;2055&quot;</span><span class="p">,</span> <span class="n">script_name</span> <span class="o">=</span> <span class="s2">&quot;PTS_SSP370_up.sh&quot;</span><span class="p">):</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">utils.cesm</span><span class="w"> </span><span class="kn">import</span> <span class="o">*</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">utils.ini_env</span><span class="w"> </span><span class="kn">import</span> <span class="o">*</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">run_case</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">sur_var</span><span class="p">,</span> <span class="n">case_year</span><span class="o">=</span><span class="s2">&quot;2055&quot;</span><span class="p">,</span> <span class="n">script_name</span> <span class="o">=</span> <span class="s2">&quot;PTS_SSP370_up.sh&quot;</span><span class="p">):</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">now_time</span><span class="p">())</span>
 
     <span class="n">CASESCRIPT</span> <span class="o">=</span> <span class="s2">&quot;/p/project/clm5.0/cime/scripts&quot;</span>
